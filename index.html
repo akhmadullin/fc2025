@@ -334,12 +334,29 @@
     </section>
 
     <section class="slide">
+        <iframe src="./demos/box-model-and-containing-block-0/index.html" frameborder="0" class="place iframe"></iframe>
+    </section>
+
+    <section class="slide">
         <h2 class="place centered-slide-title" style="line-height: 1.2;">Что ограничивает размеры<br />box model?</h2>
     </section>
 
     <section class="slide">
-        <h2 class="place">Containing block</h2>
+        <iframe src="./demos/box-model-and-containing-block-0/index.html" frameborder="0" class="place iframe"></iframe>
     </section>
+
+    <!-- <section class="slide">
+        <iframe src="./demos/box-model-and-containing-block/index.html" frameborder="0" class="place iframe"></iframe>
+    </section> -->
+
+    <section class="slide">
+        <iframe src="./demos/box-model-and-containing-block/index.html" frameborder="0" class="place iframe"></iframe>
+        <img src="./images/arrow-containing-block.svg" alt="" class="place" style="width: 17%; left: 17.5%; top: 36%;">
+    </section>
+
+    <!-- <section class="slide">
+        <h2 class="place">Containing block</h2>
+    </section> -->
 
     <section class="slide">
         <div class="place my-quote" style="width:63%;">
@@ -349,7 +366,6 @@
             <figure>
                 <blockquote>
                     <p>Прямоугольник, который формирует основу <br> для определения размера и позиционирования связанных с ним боксов.</p>
-                    <!-- <p>Псевдоэлемент, представляющий собой блок размером с&nbsp;вьюпорт, имеющийся у&nbsp;любого элемента, попавшего в&nbsp;top&nbsp;layer.</p> -->
                 </blockquote>
                 <figcaption>CSS-спецификация</figcaption>
             </figure>
@@ -358,12 +374,7 @@
     </section>
 
     <section class="slide">
-        <iframe src="./demos/box-model-and-containing-block/index.html" frameborder="0" class="place iframe"></iframe>
-    </section>
-
-    <section class="slide">
-        <iframe src="./demos/box-model-and-containing-block/index.html" frameborder="0" class="place iframe"></iframe>
-        <img src="./images/arrow-containing-block.svg" alt="" class="place" style="width: 17%; left: 17.5%; top: 36%;">
+        <h2 class="place centered-slide-title">TODO мб схемку про то, как бокс модел, containing block влияют на бокс</h2>
     </section>
 
     <section class="slide">
@@ -385,6 +396,23 @@
             </div>
             <div class="position-demo__iframe-block">
                 <iframe src="./demos/position-static/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide slide-position-demo">
+        <div class="position-demo">
+            <div class="position-demo__code-block">
+<pre><code class="language-css">
+.box {
+    position: static;
+    top: 70px;
+    left: 70px;
+}
+</code></pre>
+            </div>
+            <div class="position-demo__iframe-block">
+                <iframe src="./demos/position-static-1/index.html" frameborder="0" class=""></iframe>
             </div>
         </div>
     </section>
@@ -426,7 +454,7 @@
     </section>
 
     <section class="slide">
-        <h2 class="place centered-slide-title"><code>position: absolute</code></h2>
+        <h2 class="place centered-slide-title"><code>position: sticky</code></h2>
     </section>
 
     <section class="slide slide-position-demo">
@@ -442,6 +470,44 @@
             </div>
             <div class="position-demo__iframe-block">
                 <iframe src="./demos/position-relative-1/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide slide-position-demo">
+        <div class="position-demo">
+            <div class="position-demo__code-block">
+<pre><code class="language-css">
+.box {
+    position: sticky;
+    top: 70px;
+    left: 70px;
+}
+</code></pre>
+            </div>
+            <div class="position-demo__iframe-block">
+                <iframe src="./demos/position-sticky/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title"><code>position: absolute</code></h2>
+    </section>
+
+    <section class="slide slide-position-demo">
+        <div class="position-demo">
+            <div class="position-demo__code-block">
+<pre><code class="language-css">
+.box {
+    position: sticky;
+    top: 70px;
+    left: 70px;
+}
+</code></pre>
+            </div>
+            <div class="position-demo__iframe-block">
+                <iframe src="./demos/position-sticky/index.html" frameborder="0" class=""></iframe>
             </div>
         </div>
     </section>
@@ -497,44 +563,6 @@
             </div>
             <div class="position-demo__iframe-block">
                 <iframe src="./demos/position-fixed/index.html" frameborder="0" class=""></iframe>
-            </div>
-        </div>
-    </section>
-
-    <section class="slide">
-        <h2 class="place centered-slide-title"><code>position: sticky</code></h2>
-    </section>
-
-    <section class="slide slide-position-demo">
-        <div class="position-demo">
-            <div class="position-demo__code-block">
-<pre><code class="language-css">
-.box {
-    position: fixed;
-    top: 70px;
-    left: 70px;
-}
-</code></pre>
-            </div>
-            <div class="position-demo__iframe-block">
-                <iframe src="./demos/position-fixed/index.html" frameborder="0" class=""></iframe>
-            </div>
-        </div>
-    </section>
-
-    <section class="slide slide-position-demo">
-        <div class="position-demo">
-            <div class="position-demo__code-block">
-<pre><code class="language-css">
-.box {
-    position: sticky;
-    top: 70px;
-    left: 70px;
-}
-</code></pre>
-            </div>
-            <div class="position-demo__iframe-block">
-                <iframe src="./demos/position-sticky/index.html" frameborder="0" class=""></iframe>
             </div>
         </div>
     </section>

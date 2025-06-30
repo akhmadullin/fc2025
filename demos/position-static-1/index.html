@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>position relative</title>
+    <title>position static</title>
 </head>
 <body>
     <style>
@@ -63,20 +63,10 @@
         }
 
         .example-box {
+            position: static;
             background-color: hsla(48, 99%, 72%, 1);
-            position: relative;
             top: 70px;
             left: 70px;
-        }
-
-        .example-box::before {
-            position: absolute;
-            content: '';
-            width: 100%;
-            height: 100%;
-            border: 3px dashed hsla(48, 99%, 72%, 1);
-            top: -70px;
-            left: -70px;
         }
     </style>
     <div class="container">
