@@ -270,12 +270,34 @@
 
         .position-demo__iframe-block {
             border: 5px solid white;
-            flex: 1;
+            flex: 0 0 440px;
         }
 
         .position-demo__iframe-block iframe {
             width: 100%;
             height: 100%;
+        }
+
+        .slide pre code {
+            line-height: 1.4;
+            font-size: 0.9em;
+        }
+
+        .browser-support-row {
+            display: flex;
+            gap: 20px;
+            font-weight: bold;
+            font-size: 40px;
+            margin-top: 15%;
+            padding: 0 20px;
+        }
+
+        .browser-support-row__item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
@@ -389,6 +411,36 @@
         <div class="position-demo">
             <div class="position-demo__code-block">
 <pre><code class="language-css">
+.container {
+    border: 3px solid blue;
+}
+</code></pre>
+            </div>
+            <div class="position-demo__iframe-block">
+                <iframe src="./demos/position-0/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide slide-position-demo">
+        <div class="position-demo">
+            <div class="position-demo__code-block">
+<pre><code class="language-css">
+.box {
+    position: static;
+}
+</code></pre>
+            </div>
+            <div class="position-demo__iframe-block">
+                <iframe src="./demos/position/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide slide-position-demo">
+        <div class="position-demo">
+            <div class="position-demo__code-block">
+<pre><code class="language-css">
 .box {
     position: static;
 }
@@ -406,8 +458,8 @@
 <pre><code class="language-css">
 .box {
     position: static;
-    top: 70px;
-    left: 70px;
+    top: 20%;
+    left: 20%;
 }
 </code></pre>
             </div>
@@ -442,8 +494,8 @@
 <pre><code class="language-css">
 .box {
     position: relative;
-    top: 70px;
-    left: 70px;
+    top: 20%;
+    left: 20%;
 }
 </code></pre>
             </div>
@@ -463,8 +515,8 @@
 <pre><code class="language-css">
 .box {
     position: relative;
-    top: 70px;
-    left: 70px;
+    top: 20%;
+    left: 20%;
 }
 </code></pre>
             </div>
@@ -480,8 +532,8 @@
 <pre><code class="language-css">
 .box {
     position: sticky;
-    top: 70px;
-    left: 70px;
+    top: 20%;
+    left: 20%;
 }
 </code></pre>
             </div>
@@ -501,8 +553,8 @@
 <pre><code class="language-css">
 .box {
     position: sticky;
-    top: 70px;
-    left: 70px;
+    top: 20%;
+    left: 20%;
 }
 </code></pre>
             </div>
@@ -518,8 +570,8 @@
 <pre><code class="language-css">
 .box {
     position: absolute;
-    top: 70px;
-    left: 70px;
+    top: 20%;
+    left: 20%;
 }
 </code></pre>
             </div>
@@ -539,8 +591,8 @@
 <pre><code class="language-css">
 .box {
     position: absolute;
-    top: 70px;
-    left: 70px;
+    top: 20%;
+    left: 20%;
 }
 </code></pre>
             </div>
@@ -556,8 +608,8 @@
 <pre><code class="language-css">
 .box {
     position: fixed;
-    top: 70px;
-    left: 70px;
+    top: 20%;
+    left: 20%;
 }
 </code></pre>
             </div>
@@ -565,6 +617,310 @@
                 <iframe src="./demos/position-fixed/index.html" frameborder="0" class=""></iframe>
             </div>
         </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Связанные друг с другом элементы</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">TODO скриншоты элементов</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Как привязать элемент к другому?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">#1 способ</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place l" style="left: 2%;">
+            <code class="language-css">
+            &lt;div class="a"&gt;&lt;/div&gt;
+
+            &lt;div class="b"&gt;&lt;/div&gt;
+            </code>
+            </pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place l" style="left: 2%;">
+            <code class="language-css">
+            &lt;div class="a"&gt;&lt;/div&gt;
+
+            &lt;div class="b"&gt;&lt;/div&gt;
+            </code>
+            </pre>
+        <pre class="place r" style="right: 14%;">
+        <code class="language-css">
+        .a {
+            position: absolute;
+            top: 100px;
+            left: 250px;
+        }
+
+        .b {
+            position: absolute;
+            top: 200px;
+            left: 350px;
+        }
+        </code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/connected-elements-absolute-absolute/index.html" frameborder="0" class="iframe"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Плюсы/минусы</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">#2 способ</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place l" style="left: 2%;">
+            <code class="language-css">
+            &lt;div class="a"&gt;
+                &lt;div class="b"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            </code>
+            </pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place l" style="left: 2%;">
+            <code class="language-css">
+            &lt;div class="a"&gt;
+                &lt;div class="b"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            </code>
+            </pre>
+        <pre class="place r" style="right: 14%;">
+        <code class="language-css">
+        .a {
+            position: relative;
+        }
+
+        .b {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+        </code>
+        </pre>
+    </section>
+    
+    <section class="slide">
+        <iframe src="./demos/connected-elements-relative-absolute/index.html" frameborder="0" class="iframe"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Плюсы/минусы</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">#3 способ</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place l" style="left: 2%;">
+            <code class="language-css" style="font-size: 0.8em;">
+            &lt;div class="a"&gt;&lt;/div&gt;
+
+            &lt;div class="b"&gt;&lt;/div&gt;
+            </code>
+            </pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place l" style="left: 2%;">
+            <code class="language-css" style="font-size: 0.8em;">
+            &lt;div class="a"&gt;&lt;/div&gt;
+
+            &lt;div class="b"&gt;&lt;/div&gt;
+            </code>
+            </pre>
+        <pre class="place r" style="right: 2%;">
+        <code class="language-javascript" style="font-size: 0.8em;">
+        const aPosition = a.getBoundingClientRect();
+
+        const bTop = aPosition.y + aPosition.height / 2;
+        const bLeft = aPosition.x + aPosition.width / 2;
+
+        b.style.top = `${bTop}px`;
+        b.style.left = `${bLeft}px`;
+        </code>
+        </pre>
+    </section>
+    
+    <section class="slide">
+        <iframe src="./demos/connected-elements-absolute-javascript/index.html" frameborder="0" class="iframe"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Плюсы/минусы</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">А если нужна адаптивность?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">🤖 JavaScript</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place">
+            <code class="language-javascript" style="font-size: 0.75em;">
+            import { 
+                computePosition, offset, autoPlacement, autoUpdate 
+            } from '@floating-ui/dom';
+
+            const updatePosition = () => {
+                computePosition(a, b, {
+                    middleware: [
+                        offset({ mainAxis: -100, crossAxis: 100 }), 
+                        autoPlacement(),
+                    ],
+                }).then(({x, y}) => {
+                    Object.assign(b.style, {
+                        top: `${y}px`,
+                        left: `${x}px`,
+                    });
+                });
+            };
+
+            autoUpdate(a, b, updatePosition);
+            </code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/connected-elements-adaptive/index.html" frameborder="0" class="place iframe"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Как-то сложно...</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Можно ли проще?</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./images/mem-kind-cat-4.jpg" class="place" style="width: 100%;" alt="">
+    </section>
+
+    <section class="slide">
+        <!-- <h2 class="place centered-slide-title">⚓️ CSS Anchor Positioning</h2> -->
+        <h2 class="place centered-slide-title">💡 CSS Anchor Positioning</h2>
+    </section>
+
+    <section class="slide">
+        <div class="place my-quote" style="width:68%;">
+            <div class="my-quote__title">
+                <code>     CSS Anchor Positioning</code>
+            </div>
+            <figure>
+                <blockquote>
+                    <p>Определяет, как элемент может менять свой размер и позиционироваться на странице относительно одного или нескольких якорей.</p>
+                </blockquote>
+                <!-- мб так? это описани из can i use -->
+                <!-- Allows placing elements anywhere on the page relative to an "anchor element", without regard to the layout of other elements besides their containing block -->
+                <figcaption>CSS-спецификация</figcaption>
+            </figure>
+        </div>
+        <a href="https://www.w3.org/TR/css-anchor-position-1/" class="copyright">CSS-спецификация: anchor positioning</a>
+    </section>
+
+    <section class="slide">
+        <img src="./images/screenshot-cap-spec.jpg" class="place rounded" style="width: 80%;" alt="">
+        <a href="https://www.w3.org/TR/css-anchor-position-1/" class="copyright">CSS-спецификация: anchor positioning</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Браузерная поддержка</h2>
+    </section>
+
+    <!-- 
+    <section class="slide">
+        <img src="./images/can-i-use-cap-autumn-2024.jpg" class="place rounded" style="height: 80%;" alt="">
+    </section>
+    <section class="slide">
+        <img src="./images/can-i-use-cap-june-2025-1.jpg" class="place rounded" style="height: 80%;" alt="">
+    </section>
+    -->
+
+    <section class="slide">
+        <div class="browser-support-row">
+            <div class="browser-support-row__item">
+                <div>Chrome</div>
+                <div>✅</div>
+            </div>
+            <div class="browser-support-row__item">
+                <div>Firefox</div>
+                <div>❌</div>
+            </div>
+            <div class="browser-support-row__item">
+                <div>Safari</div>
+                <div>❌</div>
+            </div>
+        </div>
+        <div class="place b" style="bottom: 10%;">Январь 2025</div>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Interop 2025</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./images/scheme-interop-members.svg" class="place" style="width: 70%;" alt="">
+    </section>
+
+    <section class="slide">
+        <img src="./images/screenshot-web-platform-tests-dashboard.jpg" class="place light-image" style="width:100%;" alt="">
+        <a href="https://wpt.fyi/interop-2025?stable" class="copyright">Web platform tests: css anchor positioning</a>
+    </section>
+
+    <section class="slide">
+        <img src="./images/scheme-interop-2025-cap.svg" class="place" style="height: 70%;" alt="">
+    </section>
+
+    <section class="slide">
+        <img src="./images/screenshot-web-platform-tests-cap.jpg" class="place light-image" style="width:100%;" alt="">
+        <a href="https://wpt.fyi/results/css/css-anchor-position?label=master&label=experimental&aligned&view=interop&q=label%3Ainterop-2025-anchor-positioning" class="copyright">Web platform tests: css anchor positioning</a>
+    </section>
+
+    <section class="slide">
+        <div class="browser-support-row">
+            <div class="browser-support-row__item">
+                <div>Chrome</div>
+                <div>✅</div>
+            </div>
+            <div class="browser-support-row__item">
+                <div>Firefox</div>
+                <div>( ✅ )</div>
+            </div>
+            <div class="browser-support-row__item">
+                <div>Safari</div>
+                <div>( ✅ )</div>
+            </div>
+        </div>
+        <div class="place b" style="bottom: 10%;">Декабрь 2025</div>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Полифил</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./images/screenshot-cap=polyfill.jpg" class="place rounded" style="height:80%;" alt="">
+        <a href="https://github.com/oddbird/css-anchor-positioning" class="copyright">CSS Anchor Positioning Polyfill</a>
     </section>
 
     <section class="slide">

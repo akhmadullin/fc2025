@@ -22,33 +22,29 @@
         body {
             background-color: rgb(22, 22, 22);
             font-weight: bold;
+            padding: 20px;
         }
 
         .container {
-            width: 100%;
+            width: 200%;
             height: 200%;
         }
 
         .wrapper {
+            display: flex;
+            gap: 23px;
             padding: 20px;
-            width: 100%;
+            width: 50%;
+            height: 35%;
+            position: relative;
+            border: 3px solid hsla(203, 97%, 65%, 1);
         }
 
-        .margin {
-            background-color: hsla(203, 97%, 65%, 1);
-        }
-
-        .border {
-            background-color: hsla(102, 63%, 66%, 1);
-        }
-
-        .padding {
-            background-color: hsla(48, 99%, 72%, 1);
-        }
-
-        .content {
-            background-color: white;
-            text-align: center;
+        .wrapper::before {
+            position: absolute;
+            content: '';
+            inset: 7px;
+            border: 3px dashed hsla(48, 99%, 72%, 1);
         }
 
         .box {
@@ -56,10 +52,6 @@
             width: 100px;
             height: 100px;
             background-color: hsla(102, 63%, 66%, 1);
-        }
-
-        .box + .box {
-            margin-left: 23px;
         }
 
         .example-box {

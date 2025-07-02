@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adaptive</title>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../lib/styles/fonts-for-demos.css">
+</head>
+<body>
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background-color: rgb(22, 22, 22);
+            font-weight: bold;
+        }
+
+        .container {
+            width: 200%;
+            height: 200%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .height-wrapper {
+            width: 100%;
+            height: 100%;
+            overflow: scroll;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            font-size: 60px;
+            padding: 30px;
+        }
+
+        .a {
+            /* position: absolute;
+            top: 70px;
+            left: 250px; */
+            background-color: hsla(102, 63%, 66%, 1);
+        }
+
+        .b {
+            position: absolute;
+            background-color: hsla(48, 99%, 72%, 1);
+        }
+    </style>
+    <div id="height-wrapper" class="height-wrapper">
+        <div class="container">
+            <div id="a" class="a box">А</div>
+            <div id="b" class="b box">B</div>
+        </div>
+    </div>
+    <script src="./lib/floating-ui-core-1-6-5.js"></script>
+    <script src="./lib/floating-ui-dom-1-6-8.js"></script>
+    <script>
+        const a = document.getElementById('a');
+        const b = document.getElementById('b');
+
+        const updatePosition = () => {
+            window.FloatingUIDOM.computePosition(a, b, {
+                middleware: [window.FloatingUIDOM.offset({ mainAxis: -100, crossAxis: 100 }), window.FloatingUIDOM.autoPlacement()],
+            }).then(({x, y}) => {
+                Object.assign(b.style, {
+                    left: `${x}px`,
+                    top: `${y}px`,
+                });
+            });
+       };
+
+       const cleanup = window.FloatingUIDOM.autoUpdate(
+            a,
+            b,
+            updatePosition,
+        );
+    </script>
+    <script>
+        const heightWrapper = document.getElementById('height-wrapper');
+        heightWrapper?.scrollTo({
+            top: heightWrapper?.offsetHeight / 2 + 50,
+            left: heightWrapper?.offsetWidth / 2,
+            behavior: 'instant',
+        });
+    </script>
+</body>
+</html>
