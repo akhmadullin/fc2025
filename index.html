@@ -124,6 +124,10 @@
             opacity: 0.4;
         }
 
+        .invisible {
+            opacity: 0;
+        }
+
         .bold {
             font-weight: bold;
         }
@@ -274,6 +278,37 @@
         }
 
         .position-demo__iframe-block iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide-position-area-demo {
+            padding: 85px 30px 50px;
+        }
+
+        .position-area-demo {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .position-area-demo__code-block {
+            flex: 1;
+        }
+
+        .slide .position-area-demo__code-block code {
+            margin: unset;
+            width: auto;
+            padding: unset;
+            font-size: 0.75em;
+        }
+
+        .position-area-demo__iframe-block {
+            flex: 0 0 500px;
+        }
+
+        .position-area-demo__iframe-block iframe {
             width: 100%;
             height: 100%;
         }
@@ -921,6 +956,524 @@
     <section class="slide">
         <img src="./images/screenshot-cap=polyfill.jpg" class="place rounded" style="height:80%;" alt="">
         <a href="https://github.com/oddbird/css-anchor-positioning" class="copyright">CSS Anchor Positioning Polyfill</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Давайте разбираться</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./images/scheme-anchor-target-1.svg" class="place" style="width: 70%;" alt="">
+    </section>
+
+    <section class="slide">
+        <img src="./images/scheme-anchor-target-2.svg" class="place" style="width: 70%;" alt="">
+    </section>
+
+    <section class="slide">
+        <img src="./images/scheme-anchor-target-3.svg" class="place" style="width: 70%;" alt="">
+    </section>
+
+    <section class="slide">
+        <h2 class="place"><code>anchor-name</code></h2>
+    </section>
+
+    <section class="slide">
+        <div class="place my-quote" style="width:63%;">
+            <div class="my-quote__title">
+                <code>     anchor-name</code>
+            </div>
+            <figure>
+                <blockquote>
+                    <p>Объявляет элемент якорным: <br> определяет имя, с помощью которого другие элементы могут сослаться на текущий.</p>
+                </blockquote>
+                <figcaption>CSS-спецификация</figcaption>
+            </figure>
+        </div>
+        <a href="https://www.w3.org/TR/css-anchor-position-1/#propdef-anchor-name" class="copyright">CSS-спецификация: anchor name</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place">
+        <code class="language-css" style="font-size: 1.2em;">
+        .anchor {
+            anchor-name: --my-anchor;
+        }
+        </code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="place"><code>position-anchor</code></h2>
+    </section>
+
+    <section class="slide">
+        <div class="place my-quote" style="width:63%;">
+            <div class="my-quote__title">
+                <code>     position-anchor</code>
+            </div>
+            <figure>
+                <blockquote>
+                    <p>Указывает дефолтный якорный элемент, относительно которого будет позиционироваться текущий.</p>
+                </blockquote>
+                <figcaption>CSS-спецификация</figcaption>
+            </figure>
+        </div>
+        <a href="https://www.w3.org/TR/css-anchor-position-1/#propdef-position-anchor" class="copyright">CSS-спецификация: position-anchor</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place">
+        <code class="language-css" style="font-size: 1.2em;">
+        .target {
+            <!-- position: absolute; -->
+            position-anchor: --my-anchor;
+        }
+        </code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/anchor-name-and-position-anchor/index.html" frameborder="0" class="place iframe"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="place">Связать – связали</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Как позиционировать?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="place"><code>anchor()</code></h2>
+    </section>
+
+    <section class="slide">
+        <div class="place my-quote" style="width:67%;">
+            <div class="my-quote__title">
+                <code>     anchor()</code>
+            </div>
+            <figure>
+                <blockquote>
+                    <p>Функция, ссылающаяся на параметры позиционирования якорного элемента. <br> Может быть использована только в inset свойствах.</p>
+                </blockquote>
+                <figcaption>CSS-спецификация</figcaption>
+            </figure>
+        </div>
+        <a href="https://www.w3.org/TR/css-anchor-position-1/#funcdef-anchor" class="copyright">CSS-спецификация: anchor()</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place t" style="top: 80px;"><code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
+        <span class="hljs-selector-class">.target</span> {
+            <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(bottom);
+        }
+            <span class="invisible"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-built_in">anchor</span>(bottom) + <span class="hljs-number">10px</span>);</span>
+        </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place t" style="top: 80px;"><code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
+        <span class="hljs-selector-class">.target</span> {
+            <span class="muted"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(bottom);</span>
+            <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(<span class="hljs-number">50%</span>);
+        }
+            <span class="invisible"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-built_in">anchor</span>(bottom) + <span class="hljs-number">10px</span>);</span>
+        </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place t" style="top: 80px;"><code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
+        <span class="hljs-selector-class">.target</span> {
+            <span class="muted"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(bottom);</span>
+            <span class="muted"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(<span class="hljs-number">50%</span>);</span>
+            <span class="hljs-attribute">top</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-built_in">anchor</span>(bottom) + <span class="hljs-number">10px</span>);
+        }
+        </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place t" style="top: 80px;"><code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
+        <span class="hljs-selector-class">.target</span> {
+            <span class="muted"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(bottom);</span>
+            <span class="muted"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(<span class="hljs-number">50%</span>);</span>
+            <span class="muted"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-built_in">anchor</span>(bottom) + <span class="hljs-number">10px</span>);</span>
+            <span class="hljs-attribute">inset-block-end</span>: <span class="hljs-built_in">anchor</span>(start);
+        }
+        </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place t" style="top: 80px;"><code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
+        <span class="hljs-selector-class">.target</span> {
+            <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(bottom);
+            <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(<span class="hljs-number">50%</span>);
+            <span class="hljs-attribute">top</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-built_in">anchor</span>(bottom) + <span class="hljs-number">10px</span>);
+            <span class="hljs-attribute">inset-block-end</span>: <span class="hljs-built_in">anchor</span>(start);
+        }
+        </code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place">
+        <code class="language-css" style="font-size: 1.2em;">
+        .target {
+            top: anchor(bottom);
+            top: anchor(--my-anchor bottom);
+        }
+        </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place">
+        <code class="language-css" style="font-size: 1.2em;">
+        .target {
+            top: anchor(bottom);
+            top: anchor(--my-anchor bottom);
+        }
+        </code>
+        </pre>
+        <img src="./images/arrow-explicit-anchor-name.svg" class="place b" style="width: 37%; bottom: 10%; left: 73%;" alt="">
+    </section>
+
+    <section class="slide">
+        <pre class="place">
+        <code class="language-css" style="font-size: 1.2em;">
+        .target {
+            top: anchor(--my-anchor bottom, 50%);
+        }
+        </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place">
+        <code class="language-css" style="font-size: 1.2em;">
+        .target {
+            top: anchor(--my-anchor bottom, 50%);
+        }
+        </code>
+        </pre>
+        <img src="./images/arrow-anchor-func-fallback-value.svg" class="place t r" alt="" style="height: 33%; top: 10%; right: 15%;">
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">🔧 Пробуем соединить</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place">
+        <code class="language-css" style="font-size: 1.2em;">
+            .anchor {
+                anchor-name: --my-anchor;
+            }
+        
+            .target {
+                position: absolute;
+                position-anchor: --my-anchor;
+                bottom: anchor(top);
+                justify-self: center;
+            }
+        </code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/anchor-name-and-position-anchor-anchor-func/index.html" frameborder="0" class="place iframe"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Неплохо</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place">
+        <code class="language-css" style="font-size: 1.2em;">
+            .anchor {
+                anchor-name: --my-anchor;
+            }
+        
+            .target {
+                position: absolute;
+                position-anchor: --my-anchor;
+                bottom: anchor(top);
+                justify-self: center;
+            }
+        </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place">        <code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
+            <span class="muted"><span class="hljs-selector-class">.anchor</span> {
+                anchor-name: --my-anchor;
+            }</span>
+        
+            <span class="hljs-selector-class">.target</span> {
+                <span class="muted"><span class="hljs-attribute">position</span>: absolute;
+                <span class="hljs-attribute">position</span>-anchor: --my-anchor;</span>
+                <span class="hljs-attribute">bottom</span>: <span class="hljs-built_in">anchor</span>(top);
+                <span class="hljs-attribute">justify-self</span>: center;
+            }
+        </code>
+        </pre>
+        <img src="./images/arrow-two-properties.svg" class="place l" style="width: 30%; left: 2%; top: 60%;" alt="">
+    </section>
+
+    <section class="slide">
+        <img src="./images/scheme-intro-to-position-area-1.svg" class="place" style="width: 70%;" alt="">
+    </section>
+    <section class="slide">
+        <img src="./images/scheme-intro-to-position-area-2.svg" class="place" style="width: 70%;" alt="">
+    </section>
+    <section class="slide">
+        <img src="./images/scheme-intro-to-position-area-3.svg" class="place" style="width: 70%;" alt="">
+    </section>
+    <section class="slide">
+        <img src="./images/scheme-intro-to-position-area-4.svg" class="place" style="width: 70%;" alt="">
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Можно ли проще?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="place"><code>position-area</code></h2>
+    </section>
+
+    <section class="slide">
+        <img src="./images/scheme-position-area-1.svg" class="place" style="height: 85%;" alt="">
+    </section>
+    <section class="slide">
+        <img src="./images/scheme-position-area-1_1.svg" class="place" style="height: 85%;" alt="">
+    </section>
+    <section class="slide">
+        <img src="./images/scheme-position-area-1_2.svg" class="place" style="height: 85%;" alt="">
+    </section>
+    <!-- <section class="slide">
+        <img src="./images/scheme-position-area-2.svg" class="place" style="height: 85%;" alt="">
+    </section> -->
+    <!-- <section class="slide">
+        <img src="./images/scheme-position-area-3.svg" class="place" style="height: 85%;" alt="">
+    </section> -->
+    <section class="slide">
+        <img src="./images/scheme-position-area-4.svg" class="place" style="height: 85%;" alt="">
+    </section>
+    <section class="slide">
+        <img src="./images/scheme-position-area-5.svg" class="place" style="height: 85%;" alt="">
+    </section>
+    <section class="slide">
+        <img src="./images/scheme-position-area-6.svg" class="place" style="height: 85%;" alt="">
+    </section>
+    <section class="slide">
+        <img src="./images/scheme-position-area-7.svg" class="place" style="height: 85%;" alt="">
+    </section>
+    <section class="slide">
+        <img src="./images/scheme-position-area-8.svg" class="place" style="height: 85%;" alt="">
+    </section>
+    <section class="slide">
+        <img src="./images/scheme-position-area-9.svg" class="place" style="height: 85%;" alt="">
+    </section>
+    <section class="slide">
+        <img src="./images/scheme-position-area-10.svg" class="place" style="height: 85%;" alt="">
+    </section>
+    <section class="slide">
+        <img src="./images/scheme-position-area-11.svg" class="place" style="height: 85%;" alt="">
+    </section>
+
+    <section class="slide">
+        <div class="place my-quote" style="width:55%;">
+            <div class="my-quote__title">
+                <code>     position-area</code>
+            </div>
+            <figure>
+                <blockquote>
+                    <p>Предоставляет удобную концепцию <br> на основе сетки для позиционирования относительного якорного элемента.</p>
+                    <!-- <p>Предоставляет удобный способ позиционирования относительного якорного элемента на основе сетки.</p> -->
+                </blockquote>
+                <figcaption>CSS-спецификация</figcaption>
+            </figure>
+        </div>
+        <a href="https://www.w3.org/TR/css-anchor-position-1/#propdef-position-area" class="copyright">CSS-спецификация: position-area</a>
+    </section>
+
+    <section class="slide slide-position-area-demo">
+        <div class="position-area-demo">
+            <div class="position-area-demo__code-block" style="padding-top: 30px;">
+<pre><code class="language-css hljs" data-highlighted="yes">
+<span class="hljs-selector-class">.target</span> {
+    <span class="hljs-attribute">position</span>-area: top center;
+}
+</code>
+</pre>
+            </div>
+            <div class="position-area-demo__iframe-block">
+                <iframe src="./demos/position-area-one-tile/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+    <section class="slide slide-position-area-demo">
+        <div class="position-area-demo">
+            <div class="position-area-demo__code-block" style="padding-top: 30px;">
+<pre><code class="language-css hljs" data-highlighted="yes">
+<span class="hljs-selector-class">.target</span> {
+    <span class="muted"><span class="hljs-attribute">position</span>-area: top center;</span>
+    <span class="hljs-attribute">position</span>-area: start center;
+}
+</code>
+</pre>
+            </div>
+            <div class="position-area-demo__iframe-block">
+                <iframe src="./demos/position-area-one-tile/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+    <section class="slide slide-position-area-demo">
+        <div class="position-area-demo">
+            <div class="position-area-demo__code-block" style="padding-top: 30px;">
+<pre><code class="language-css hljs" data-highlighted="yes">
+<span class="hljs-selector-class">.target</span> {
+    <span class="muted"><span class="hljs-attribute">position</span>-area: top center;</span>
+    <span class="muted"><span class="hljs-attribute">position</span>-area: start center;</span>
+    <span class="hljs-attribute">position</span>-area: block-start center;
+}
+</code>
+</pre>
+            </div>
+            <div class="position-area-demo__iframe-block">
+                <iframe src="./demos/position-area-one-tile/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+    <section class="slide slide-position-area-demo">
+        <div class="position-area-demo">
+            <div class="position-area-demo__code-block" style="padding-top: 30px;">
+<pre><code class="language-css hljs" data-highlighted="yes">
+<span class="hljs-selector-class">.target</span> {
+    <span class="muted"><span class="hljs-attribute">position</span>-area: top center;</span>
+    <span class="muted"><span class="hljs-attribute">position</span>-area: start center;</span>
+    <span class="muted"><span class="hljs-attribute">position</span>-area: block-start center;</span>
+    <span class="hljs-attribute">position</span>-area: y-start center;
+}
+</code>
+</pre>
+            </div>
+            <div class="position-area-demo__iframe-block">
+                <iframe src="./demos/position-area-one-tile/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+    <section class="slide slide-position-area-demo">
+        <div class="position-area-demo">
+            <div class="position-area-demo__code-block" style="padding-top: 30px;">
+<pre><code class="language-css hljs" data-highlighted="yes">
+<span class="hljs-selector-class">.target</span> {
+    <span class="hljs-attribute">position</span>-area: top center;
+    <span class="hljs-attribute">position</span>-area: start center;
+    <span class="hljs-attribute">position</span>-area: block-start center;
+    <span class="hljs-attribute">position</span>-area: y-start center;
+}
+</code>
+</pre>
+            </div>
+            <div class="position-area-demo__iframe-block">
+                <iframe src="./demos/position-area-one-tile/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+    <section class="slide slide-position-area-demo">
+        <div class="position-area-demo">
+            <div class="position-area-demo__code-block" style="padding-top: 30px;">
+<pre><code class="language-css hljs" data-highlighted="yes">
+<span class="hljs-selector-class">.target</span> {
+    <span class="hljs-attribute">position</span>-area: top center;
+    <span class="hljs-attribute">position</span>-area: start center;
+    <span class="hljs-attribute">position</span>-area: block-start center;
+    <span class="hljs-attribute">position</span>-area: y-start center;
+}
+</code>
+</pre>
+            </div>
+            <div class="position-area-demo__iframe-block">
+                <iframe src="./demos/position-area-one-tile/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+        <img src="./images/arrow-ekvivalent-props.svg" class="place l b" style="width: 32%; left: 7%; bottom: 25%;" alt="">
+    </section>
+
+
+
+    <section class="slide slide-position-area-demo">
+        <div class="position-area-demo">
+            <div class="position-area-demo__code-block" style="padding-top: 30px;">
+<pre><code class="language-css">
+.target {
+    position-area: top span-left;
+}
+</code>
+</pre>
+            </div>
+            <div class="position-area-demo__iframe-block">
+                <iframe src="./demos/position-area-two-tiles/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide slide-position-area-demo">
+        <div class="position-area-demo">
+            <div class="position-area-demo__code-block" style="padding-top: 30px;">
+<pre><code class="language-css">
+.target {
+    position-area: top span-all;
+}
+</code>
+</pre>
+            </div>
+            <div class="position-area-demo__iframe-block">
+                <iframe src="./demos/position-area-three-tiles/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide slide-position-area-demo">
+        <div class="position-area-demo">
+            <div class="position-area-demo__code-block" style="padding-top: 30px;">
+<pre><code class="language-css">
+.target {
+    position-area: top;
+}
+</code>
+</pre>
+            </div>
+            <div class="position-area-demo__iframe-block">
+                <iframe src="./demos/position-area-three-tiles-1/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+    <section class="slide slide-position-area-demo">
+        <div class="position-area-demo">
+            <div class="position-area-demo__code-block" style="padding-top: 30px;">
+<pre><code class="language-css">
+.target {
+    position-area: top;
+}
+</code>
+</pre>
+            </div>
+            <div class="position-area-demo__iframe-block">
+                <iframe src="./demos/position-area-three-tiles-1/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+        <img src="./images/arrow-target-width.svg" class="place l b" style="height: 32%; left: 6%; bottom: 35%;" alt="">
+    </section>
+
+    <section class="slide">
+        <p>todo слайд про containing block и IMCB</p>
+    </section>
+
+    <section class="slide">
+        <!-- <iframe src="https://chrome.dev/anchor-tool/" class="place iframe" style="margin-top: 10px; color-scheme: dark;" frameborder="0"></iframe> -->
+        <a href="https://chrome.dev/anchor-tool/" class="copyright">Anchor tool</a>
     </section>
 
     <section class="slide">
