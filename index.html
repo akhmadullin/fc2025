@@ -1184,6 +1184,10 @@
     </section>
 
     <section class="slide">
+        <p>Unlike anchor(), there is no restriction on having to match axises; for example, width: anchor-size(--foo height); is valid</p>
+    </section>
+
+    <section class="slide">
         <h2 class="place centered-slide-title">Неплохо</h2>
     </section>
 
@@ -1474,6 +1478,206 @@
     <section class="slide">
         <!-- <iframe src="https://chrome.dev/anchor-tool/" class="place iframe" style="margin-top: 10px; color-scheme: dark;" frameborder="0"></iframe> -->
         <a href="https://chrome.dev/anchor-tool/" class="copyright">Anchor tool</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="place"><code>anchor-size()</code></h2>
+    </section>
+
+    <section class="slide">
+        <div class="place my-quote" style="width:55%;">
+            <div class="my-quote__title">
+                <code>     anchor-size()</code>
+            </div>
+            <figure>
+                <blockquote>
+                    <p>Функция, возвращающая размеры якорного элемента.</p>
+                </blockquote>
+                <figcaption>CSS-спецификация</figcaption>
+            </figure>
+        </div>
+        <a href="https://www.w3.org/TR/css-anchor-position-1/#funcdef-anchor-size" class="copyright">CSS-спецификация: anchor-size()</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place t" style="top: 40px;">
+        <code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
+        <span class="hljs-selector-class">.target</span> {
+            <span class="hljs-attribute">width</span>: <span class="hljs-built_in">anchor-size</span>(width);
+        }
+            <span class="invisible"><span class="hljs-attribute">inline-size</span>: <span class="hljs-built_in">anchor-size</span>(inline);
+            <span class="hljs-attribute">inline-size</span>: <span class="hljs-built_in">anchor-size</span>(self-inline);</span>
+        </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place t" style="top: 40px;">
+        <code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
+        <span class="hljs-selector-class">.target</span> {
+            <span class="hljs-attribute">width</span>: <span class="hljs-built_in">anchor-size</span>(width);
+        }
+            <span class="invisible"><span class="hljs-attribute">inline-size</span>: <span class="hljs-built_in">anchor-size</span>(inline);
+            <span class="hljs-attribute">inline-size</span>: <span class="hljs-built_in">anchor-size</span>(self-inline);</span>
+        </code>
+        </pre>
+        <img src="./images/arrow-acnhor-size-can-use-physical.svg" class="place r" style="width: 35%; right: 13%; top: 53%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t" style="top: 40px;">
+        <code class="language-css" style="font-size: 1.2em;">
+        .target {
+            width: anchor-size(width);
+            inline-size: anchor-size(inline);
+            inline-size: anchor-size(self-inline);
+        }
+        </code>
+        </pre>
+        <img src="./images/arrow-anchor-size-logical.svg" class="place l" style="width: 32%; left: 16%; top: 64%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t" style="top: 40px;">
+        <code class="language-css" style="font-size: 1.2em;">
+        .target {
+            width: anchor-size(width);
+            inline-size: anchor-size(inline);
+            inline-size: anchor-size(self-inline);
+
+            height: anchor-size(height);
+            block-size: anchor-size(block);
+            block-size: anchor-size(self-block);
+        }
+        </code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place t" style="top:23%;">
+        <code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
+        <span class="hljs-selector-class">.target</span> {
+            <span class="hljs-attribute">width</span>: <span class="hljs-built_in">anchor-size</span>(width);
+        }
+            <span class="invisible"><span class="hljs-attribute">width</span>: <span class="hljs-built_in">anchor-size</span>(height);</span>
+        </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place t" style="top:23%;">
+        <code class="language-css" style="font-size: 1.2em;">
+        .target {
+            width: anchor-size(width);
+            width: anchor-size(height);
+        }
+        </code>
+        </pre>
+        <img src="./images/arrow-anchor-size-width-height.svg" class="place b r" style="width: 46%; bottom: 7%; right: 19%;" alt="">
+    </section>
+
+    <section class="slide">
+        <pre class="place">
+        <code class="language-css" style="font-size: 1.2em;">
+        .target {
+            width: calc(anchor-size(width) * 2);
+        }
+        </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place">
+        <code class="language-css" style="font-size: 1.2em;">
+        .target {
+            width: calc(anchor-size(width) * 2);
+        }
+        </code>
+        </pre>
+        <img src="./images/arrow-anchor-size-calc.svg" class="place t r" style="width: 32%; top: 7%; right: 22%;" alt="">
+    </section>
+
+    <section class="slide">
+        <pre class="place">
+        <code class="language-css" style="font-size: 1.2em;">
+        .target {
+            width: anchor-size(width);
+            width: anchor-size(--my-anchor, width);
+        }
+        </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place">
+        <code class="language-css" style="font-size: 1.2em;">
+        .target {
+            width: anchor-size(width);
+            width: anchor-size(--my-anchor, width);
+        }
+        </code>
+        </pre>
+        <img src="./images/arrow-explicit-anchor-name.svg" class="place b" style="width: 37%; bottom: 10%; left: 76%;" alt="">
+    </section>
+
+    <section class="slide">
+        <pre class="place">
+        <code class="language-css" style="font-size: 1.2em;">
+        .target {
+            width: anchor-size(--my-anchor, width, 200px);
+        }
+        </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place">
+        <code class="language-css" style="font-size: 1.2em;">
+        .target {
+            width: anchor-size(--my-anchor, width, 200px);
+        }
+        </code>
+        </pre>
+        <img src="./images/arrow-anchor-func-fallback-value.svg" class="place t r" alt="" style="height: 33%; top: 10%; right: 12%;">
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Пробуем применить</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place">
+        <code class="language-css" style="font-size: 1.2em;">
+        .target {
+            width: calc(anchor-size(width) * 1.5);
+        }
+        </code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/anchor-size/index.html" frameborder="0" class="place iframe"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Неплохо</h2>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/position-try-fallback-0/index.html" frameborder="0" class="place iframe"></iframe>
+    </section>
+
+    <section class="slide">
+        <img src="./images/scheme-position-try-fallback-0.svg" class="place" style="width: 90%;" alt="">
+    </section>
+
+    <section class="slide">
+        <img src="./images/scheme-position-try-fallback.svg" class="place" style="width: 90%;" alt="">
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Как быть?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title"><code>position-try-fallbacks</code></h2>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/position-try-fallback-1/index.html" frameborder="0" class="place iframe"></iframe>
     </section>
 
     <section class="slide">
