@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position-vidibility</title>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../lib/styles/fonts-for-demos.css">
+</head>
+<body>
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            color-scheme: dark;
+        }
+
+        body {
+            background-color: rgb(22, 22, 22);
+            font-weight: bold;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+        }
+
+        .text-container {
+            border: 3px solid white;
+            padding: 0 20px;
+            height: 250px;
+            overflow: scroll;
+        }
+
+        .notes-container {
+            flex: 0 0 150px;
+            height: 100%;
+            anchor-name: --notes-container;
+        }
+
+        .anchor {
+            color: blue;
+            anchor-name: --anchor;
+        }
+
+        .target {
+            padding: 20px;
+            background-color: yellow;
+            color: black;
+            position: absolute;
+            position-anchor: --anchor;
+            top: anchor(top);
+            left: anchor(--notes-container left);
+            /* position-visibility: always;
+            position-visibility: no-overflow; */
+            position-visibility: anchors-visible;
+        }
+    </style>
+    <div class="container">
+        <div class="text-container">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
+            Lorem ipsum dolor sit amet, <span class="anchor">consectetur</span> adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
+        </div>
+        <div class="notes-container">
+            <div class="target">
+                Notes
+            </div>
+        </div>
+    </div>
+</body>
+</html>
