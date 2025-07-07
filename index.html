@@ -313,6 +313,38 @@
             height: 100%;
         }
 
+        .slide-position-try-fallbacks-demo {
+            padding: 85px 20px 50px;
+        }
+
+        .position-try-fallbacks-demo {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .position-try-fallbacks-demo__code-block {
+            flex: 1;
+        }
+
+        .slide .position-try-fallbacks-demo__code-block code {
+            margin: unset;
+            width: auto;
+            padding: unset;
+            font-size: 0.75em;
+        }
+
+        .position-try-fallbacks-demo__iframe-block {
+            flex: 0 0 500px;
+            border: 5px solid white;
+        }
+
+        .position-try-fallbacks-demo__iframe-block iframe {
+            width: 100%;
+            height: 100%;
+        }
+
         .slide pre code {
             line-height: 1.4;
             font-size: 0.9em;
@@ -1657,6 +1689,10 @@
     </section>
 
     <section class="slide">
+        <h2 class="place centered-slide-title">А что по адаптивности?</h2>
+    </section>
+
+    <section class="slide">
         <iframe src="./demos/position-try-fallback-0/index.html" frameborder="0" class="place iframe"></iframe>
     </section>
 
@@ -1677,7 +1713,639 @@
     </section>
 
     <section class="slide">
-        <iframe src="./demos/position-try-fallback-1/index.html" frameborder="0" class="place iframe"></iframe>
+        <div class="place my-quote" style="width:55%;">
+            <div class="my-quote__title">
+                <code>     position-try-fallbacks</code>
+            </div>
+            <figure>
+                <blockquote>
+                    <p>Предоставляет список альтернативных стилей позиционирования, <br> которые можно попробовать применить, когда target элемент выходит за пределы своего inset-modified containing block.</p>
+                </blockquote>
+                <figcaption>CSS-спецификация</figcaption>
+            </figure>
+        </div>
+        <a href="https://www.w3.org/TR/css-anchor-position-1/#propdef-position-try-fallbacks" class="copyright">CSS-спецификация: position-try-fallbacks</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title" style="font-size: 40px;"><code>position-try-fallbacks: &lt;try-tactic&gt;</code></h2>
+    </section>
+
+    <section class="slide slide-position-try-fallbacks-demo">
+        <div class="position-try-fallbacks-demo">
+            <div class="position-try-fallbacks-demo__code-block" style="padding-top: 30px;">
+<pre>
+<code class="language-css">
+<span>.target</span> {
+    position-area: top;
+    position-try-fallbacks: flip-block;
+}
+</code>
+</pre>
+            </div>
+            <div class="position-try-fallbacks-demo__iframe-block">
+                <iframe src="./demos/position-try-fallback-1/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide slide-position-try-fallbacks-demo">
+        <div class="position-try-fallbacks-demo">
+            <div class="position-try-fallbacks-demo__code-block" style="padding-top: 30px;">
+<pre>
+<code class="language-css">
+<span>.target</span> {
+    position-area: right;
+    position-try-fallbacks: flip-inline;
+}
+</code>
+</pre>
+            </div>
+            <div class="position-try-fallbacks-demo__iframe-block">
+                <iframe src="./demos/position-try-fallback-2/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide slide-position-try-fallbacks-demo">
+        <div class="position-try-fallbacks-demo">
+            <div class="position-try-fallbacks-demo__code-block" style="padding-top: 30px;">
+<pre>
+<code class="language-css">
+<span>.target</span> {
+    position-area: top center;
+    position-try-fallbacks: flip-start;
+}
+</code>
+</pre>
+            </div>
+            <div class="position-try-fallbacks-demo__iframe-block">
+                <iframe src="./demos/position-try-fallback-3/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide slide-position-try-fallbacks-demo">
+        <div class="position-try-fallbacks-demo">
+            <div class="position-try-fallbacks-demo__code-block" style="padding-top: 30px;">
+<pre>
+<code class="language-css">
+<span>.target</span> {
+    position-area: bottom center;
+    position-try-fallbacks: flip-start;
+}
+</code>
+</pre>
+            </div>
+            <div class="position-try-fallbacks-demo__iframe-block">
+                <iframe src="./demos/position-try-fallback-4/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title" style="font-size: 38px;"><code>position-try-fallbacks: &lt;position-area&gt;</code></h2>
+    </section>
+
+    <section class="slide slide-position-try-fallbacks-demo">
+        <div class="position-try-fallbacks-demo">
+            <div class="position-try-fallbacks-demo__code-block" style="padding-top: 30px;">
+<pre>
+<code class="language-css">
+<span>.target</span> {
+    position-area:
+        top span-left;
+    position-try-fallbacks: 
+        bottom span-right;
+}
+</code>
+</pre>
+            </div>
+            <div class="position-try-fallbacks-demo__iframe-block">
+                <iframe src="./demos/position-try-fallback-5/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title"><code>@position-try</code></h2>
+    </section>
+
+    <section class="slide">
+        <div class="place my-quote" style="width:70%;">
+            <div class="my-quote__title">
+                <code>     @position-try</code>
+            </div>
+            <figure>
+                <blockquote>
+                    <p>Определяет параметр позиции с заданным именем, указывая один или несколько наборов свойств позиционирования.</p>
+                </blockquote>
+                <figcaption>CSS-спецификация</figcaption>
+            </figure>
+        </div>
+        <a href="https://www.w3.org/TR/css-anchor-position-1/#at-ruledef-position-try" class="copyright">CSS-спецификация: @position-try</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place">
+        <code class="language-css" style="font-size: 1.2em;">
+        @position-try --try-option-name {
+            property: value;
+        }
+        </code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place t">
+        <code class="language-css" style="font-size: 1.2em;">
+        .target {
+            width: 300px;
+            position-area: top;
+            position-try-fallbacks: --bottom;
+        }
+        </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place t">
+        <code class="language-css" style="font-size: 1.2em;">
+        .target {
+            width: 300px;
+            position-area: top;
+            position-try-fallbacks: --bottom;
+        }
+
+        @position-try --bottom {
+            position-area: bottom;
+            margin-top: 20px;
+            width: 600px;
+        }
+        </code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/position-try-directive/index.html" class="place iframe" frameborder="0"></iframe>
+    </section>
+
+    <section class="slide">
+        <h3>Внутри <code>@position-try</code> можно задавать</h3>
+        <ul>
+            <li>inset свойства</li>
+            <li>margin свойства</li>
+            <li>sizing свойства</li>
+            <li>self-alignment свойства</li>
+            <li>position-anchor</li>
+            <li>position-area</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        todo слайд про новый уровень в каскадной модели
+        <p>All of the properties in a @position-try are applied to the box as part of the Position Fallback Origin, a new cascade origin that lies between the Author Origin and the Animation Origin.</p>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title"><code>position-try-order</code></h2>
+    </section>
+
+    <section class="slide">
+        <div class="place my-quote" style="width:55%;">
+            <div class="my-quote__title">
+                <code>     position-try-order</code>
+            </div>
+            <figure>
+                <blockquote>
+                    <p>Определяет порядок применения возможных вариантов расположения.</p>
+                </blockquote>
+                <figcaption>CSS-спецификация</figcaption>
+            </figure>
+        </div>
+        <a href="https://www.w3.org/TR/css-anchor-position-1/#propdef-position-try-order" class="copyright">CSS-спецификация: position-try-order</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place t">
+            <code class="language-css" style="font-size: 0.75em;">
+                .target {
+                    position-area: top;
+                    position-try-fallbacks: --bottom, --left, --right;
+                }
+
+                @position-try --bottom {
+                    position-area: bottom;
+                }
+
+                @position-try --left {
+                    position-area: left;
+                    width: 600px;
+                }
+
+                @position-try --right {
+                    position-area: right;
+                    height: 300px;
+                }
+            </code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place t">
+            <code class="language-css" style="font-size: 0.75em;">
+                .target {
+                    position-area: top;
+                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-order: normal;
+                }
+
+                @position-try --bottom {
+                    position-area: bottom;
+                }
+
+                @position-try --left {
+                    position-area: left;
+                    width: 600px;
+                }
+
+                @position-try --right {
+                    position-area: right;
+                    height: 300px;
+                }
+            </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place t">
+            <code class="language-css" style="font-size: 0.75em;">
+                .target {
+                    position-area: top;
+                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-order: normal;
+                }
+
+                @position-try --bottom {
+                    position-area: bottom;
+                }
+
+                @position-try --left {
+                    position-area: left;
+                    width: 600px;
+                }
+
+                @position-try --right {
+                    position-area: right;
+                    height: 300px;
+                }
+            </code>
+        </pre>
+        <img src="./images/arrow-position-try-order-default-value.svg" class="place t r" style="width: 35%; top: 28%; right: 10%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t">
+            <code class="language-css" style="font-size: 0.75em;">
+                .target {
+                    position-area: top;
+                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-order: normal;
+                }
+
+                @position-try --bottom {
+                    position-area: bottom;
+                }
+
+                @position-try --left {
+                    position-area: left;
+                    width: 600px;
+                }
+
+                @position-try --right {
+                    position-area: right;
+                    height: 300px;
+                }
+            </code>
+        </pre>
+        <img src="./images/arrow-position-try-order-default-value.svg" class="place t r" style="width: 35%; top: 28%; right: 10%;" alt="">
+        <img src="./images/arrow-position-try-order-order.svg" class="place t r" style="width: 30%; top: 2%; right: 14%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t">
+            <code class="language-css" style="font-size: 0.75em;">
+                .target {
+                    position-area: top;
+                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-order: normal;
+                }
+
+                @position-try --bottom {
+                    position-area: bottom;
+                }
+
+                @position-try --left {
+                    position-area: left;
+                    width: 600px;
+                }
+
+                @position-try --right {
+                    position-area: right;
+                    height: 300px;
+                }
+            </code>
+        </pre>
+        <img src="./images/arrow-position-try-order-default-value.svg" class="place t r" style="width: 35%; top: 28%; right: 10%;" alt="">
+        <img src="./images/arrow-position-try-order-order.svg" class="place t r" style="width: 30%; top: 2%; right: 14%;" alt="">
+        <img src="./images/arrow-position-try-order-1.svg" class="place t l" style="width: 7%; top: 36%; left: 13%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t">
+            <code class="language-css" style="font-size: 0.75em;">
+                .target {
+                    position-area: top;
+                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-order: normal;
+                }
+
+                @position-try --bottom {
+                    position-area: bottom;
+                }
+
+                @position-try --left {
+                    position-area: left;
+                    width: 600px;
+                }
+
+                @position-try --right {
+                    position-area: right;
+                    height: 300px;
+                }
+            </code>
+        </pre>
+        <img src="./images/arrow-position-try-order-default-value.svg" class="place t r" style="width: 35%; top: 28%; right: 10%;" alt="">
+        <img src="./images/arrow-position-try-order-order.svg" class="place t r" style="width: 30%; top: 2%; right: 14%;" alt="">
+        <img src="./images/arrow-position-try-order-1.svg" class="place t l" style="width: 7%; top: 36%; left: 13%;" alt="">
+        <img src="./images/arrow-position-try-order-2.svg" class="place t l" style="width: 7%; top: 55%; left: 13%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t">
+            <code class="language-css" style="font-size: 0.75em;">
+                .target {
+                    position-area: top;
+                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-order: normal;
+                }
+
+                @position-try --bottom {
+                    position-area: bottom;
+                }
+
+                @position-try --left {
+                    position-area: left;
+                    width: 600px;
+                }
+
+                @position-try --right {
+                    position-area: right;
+                    height: 300px;
+                }
+            </code>
+        </pre>
+        <img src="./images/arrow-position-try-order-default-value.svg" class="place t r" style="width: 35%; top: 28%; right: 10%;" alt="">
+        <img src="./images/arrow-position-try-order-order.svg" class="place t r" style="width: 30%; top: 2%; right: 14%;" alt="">
+        <img src="./images/arrow-position-try-order-1.svg" class="place t l" style="width: 7%; top: 36%; left: 13%;" alt="">
+        <img src="./images/arrow-position-try-order-2.svg" class="place t l" style="width: 7%; top: 55%; left: 13%;" alt="">
+        <img src="./images/arrow-position-try-order-3.svg" class="place t l" style="width: 7%; top: 78%; left: 13%;" alt="">
+    </section>
+
+    <section class="slide">
+        <pre class="place t">
+            <code class="language-css" style="font-size: 0.75em;">
+                .target {
+                    position-area: top;
+                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-order: most-width;
+                }
+
+                @position-try --bottom {
+                    position-area: bottom;
+                }
+
+                @position-try --left {
+                    position-area: left;
+                    width: 600px;
+                }
+
+                @position-try --right {
+                    position-area: right;
+                    height: 300px;
+                }
+            </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place t">
+            <code class="language-css" style="font-size: 0.75em;">
+                .target {
+                    position-area: top;
+                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-order: most-width;
+                }
+
+                @position-try --bottom {
+                    position-area: bottom;
+                }
+
+                @position-try --left {
+                    position-area: left;
+                    width: 600px;
+                }
+
+                @position-try --right {
+                    position-area: right;
+                    height: 300px;
+                }
+            </code>
+        </pre>
+        <img src="./images/arrow-position-try-order-most-width.svg" class="place t r" style="width: 36%; top: 28%; right: 7%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t">
+            <code class="language-css" style="font-size: 0.75em;">
+                .target {
+                    position-area: top;
+                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-order: most-width;
+                }
+
+                @position-try --bottom {
+                    position-area: bottom;
+                }
+
+                @position-try --left {
+                    position-area: left;
+                    width: 600px;
+                }
+
+                @position-try --right {
+                    position-area: right;
+                    height: 300px;
+                }
+            </code>
+        </pre>
+        <img src="./images/arrow-position-try-order-most-width.svg" class="place t r" style="width: 36%; top: 28%; right: 7%;" alt="">
+        <img src="./images/arrow-position-try-order-1.svg" class="place t l" style="width: 7%; top: 55%; left: 13%;" alt="">
+    </section>
+
+    <section class="slide">
+        <pre class="place t">
+            <code class="language-css" style="font-size: 0.75em;">
+                .target {
+                    position-area: top;
+                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-order: most-height;
+                }
+
+                @position-try --bottom {
+                    position-area: bottom;
+                }
+
+                @position-try --left {
+                    position-area: left;
+                    width: 600px;
+                }
+
+                @position-try --right {
+                    position-area: right;
+                    height: 300px;
+                }
+            </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place t">
+            <code class="language-css" style="font-size: 0.75em;">
+                .target {
+                    position-area: top;
+                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-order: most-height;
+                }
+
+                @position-try --bottom {
+                    position-area: bottom;
+                }
+
+                @position-try --left {
+                    position-area: left;
+                    width: 600px;
+                }
+
+                @position-try --right {
+                    position-area: right;
+                    height: 300px;
+                }
+            </code>
+        </pre>
+        <img src="./images/arrow-position-try-order-most-height.svg" class="place t r" style="width: 36%; top: 28%; right: 7%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t">
+            <code class="language-css" style="font-size: 0.75em;">
+                .target {
+                    position-area: top;
+                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-order: most-height;
+                }
+
+                @position-try --bottom {
+                    position-area: bottom;
+                }
+
+                @position-try --left {
+                    position-area: left;
+                    width: 600px;
+                }
+
+                @position-try --right {
+                    position-area: right;
+                    height: 300px;
+                }
+            </code>
+        </pre>
+        <img src="./images/arrow-position-try-order-most-height.svg" class="place t r" style="width: 36%; top: 28%; right: 7%;" alt="">
+        <img src="./images/arrow-position-try-order-1.svg" class="place t l" style="width: 7%; top: 78%; left: 13%;" alt="">
+    </section>
+
+    <section class="slide">
+    <pre class="place t" style="top: 30px;"><code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
+    <span class="hljs-selector-class">.target</span> {
+        <span class="hljs-attribute">position</span>-try-<span class="hljs-attribute">order</span>: normal;
+
+        <span class="hljs-attribute">position</span>-try: most-width;
+        <span class="hljs-attribute">position</span>-try: most-height;
+    }
+        <span class="invisible"><span class="hljs-attribute">position</span>-try: most-block-size;
+        <span class="hljs-attribute">position</span>-try: most-inline-size;</span>
+    </code>
+    </pre>
+    </section>
+    <section class="slide">
+    <pre class="place t" style="top: 30px;"><code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
+    <span class="hljs-selector-class">.target</span> {
+        <span class="hljs-attribute">position</span>-try-<span class="hljs-attribute">order</span>: normal;
+
+        <span class="hljs-attribute">position</span>-try: most-width;
+        <span class="hljs-attribute">position</span>-try: most-height;
+
+        <span class="hljs-attribute">position</span>-try: most-block-size;
+        <span class="hljs-attribute">position</span>-try: most-inline-size;
+    }
+    </code>
+    </pre>
+    </section>
+
+    <section class="slide">
+        todo демка
+        <!-- <iframe src="./demos/position-try-order/index.html" class="place iframe" frameborder="0"></iframe> -->
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title"><code>position-try</code></h2>
+    </section>
+
+    <section class="slide">
+        <div class="place my-quote" style="width: 67%;">
+            <div class="my-quote__title">
+                <code>     position-try</code>
+            </div>
+            <figure>
+                <blockquote>
+                    <p>Шортхэнд для свойств <code>position-try-fallbacks</code> <br>и <code>position-try-order</code>.</p>
+                </blockquote>
+                <figcaption>CSS-спецификация</figcaption>
+            </figure>
+        </div>
+        <a href="https://www.w3.org/TR/css-anchor-position-1/#propdef-position-try" class="copyright">CSS-спецификация: position-try</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place">
+        <code class="language-css hljs" data-highlighted="yes" style="font-size: 1em;">
+        <span class="hljs-selector-class">.target</span> {
+            <span class="hljs-attribute">position</span>-try: flip-inline, --bottom;
+        }
+            <span class="invisible"><span class="hljs-attribute">position</span>-try: most-width, flip-inline, --bottom;</span>
+        </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place">
+        <code class="language-css hljs" data-highlighted="yes" style="font-size: 1em;">
+        <span class="hljs-selector-class">.target</span> {
+            <span class="hljs-attribute">position</span>-try: flip-inline, --bottom;
+            <span class="hljs-attribute">position</span>-try: most-width, flip-inline, --bottom;
+        }
+        </code>
+        </pre>
+        <img src="./images/arrow-position-try-order-first.svg" class="place" style="width: 30%; top: 71%; left: 62%;" alt="">
     </section>
 
     <section class="slide">
