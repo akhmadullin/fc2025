@@ -2376,6 +2376,242 @@
     </section>
 
     <section class="slide">
+    <pre class="place l t" style="left: 20px; top: 40px;">
+        <code class="language-css" style="font-size: 0.8em;">
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 1&lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 2&lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 3&lt;/div&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        </code>
+    </pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/anchor-scope-0/index.html" class="place iframe" frameborder="0"></iframe>
+    </section>
+
+    <section class="slide">
+    <pre class="place l t" style="left: 20px; top: 40px;">
+        <code class="language-css" style="font-size: 0.8em;">
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 1&lt;/div&gt;
+                &lt;div class="target"&gt;Target 1&lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 2&lt;/div&gt;
+                &lt;div class="target"&gt;Target 2&lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 3&lt;/div&gt;
+                &lt;div class="target"&gt;Target 3&lt;/div&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        </code>
+    </pre>
+    </section>
+    <section class="slide">
+    <pre class="place l t" style="left: 20px; top: 40px;">
+        <code class="language-css" style="font-size: 0.8em;">
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 1&lt;/div&gt;
+                &lt;div class="target"&gt;Target 1&lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 2&lt;/div&gt;
+                &lt;div class="target"&gt;Target 2&lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 3&lt;/div&gt;
+                &lt;div class="target"&gt;Target 3&lt;/div&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        </code>
+    </pre>
+    <pre class="place r t" style="right: 20px; top: 40px;">
+        <code class="language-css" style="font-size: 0.8em;">
+        .anchor {
+            anchor-scope: --anchor;
+        }
+        
+        .target {
+            position: absolute;
+            position-anchor: --anchor;
+            position-area: top;
+        }
+        </code>
+    </pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/anchor-scope-1/index.html" class="place iframe" frameborder="0"></iframe>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/anchor-scope-2/index.html" class="place iframe" frameborder="0"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Почему так происходит?</h2>
+    </section>
+
+    <section class="slide">
+        todo слайд с объяснением
+    </section>
+
+    <section class="slide">
+    <pre class="place l t" style="left: 20px; top: 40px;">
+        <code class="language-css" style="font-size: 0.8em;">
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 1&lt;/div&gt;
+                &lt;div class="target"&gt;Target 1&lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 2&lt;/div&gt;
+                &lt;div class="target"&gt;Target 2&lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 3&lt;/div&gt;
+                &lt;div class="target"&gt;Target 3&lt;/div&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        </code>
+    </pre>
+    <pre class="place r t" style="right: 20px; top: 40px;">
+        <code class="language-css" style="font-size: 0.8em;">
+        .anchor {
+            anchor-scope: --anchor;
+        }
+        
+        .target {
+            position: absolute;
+            position-anchor: --anchor;
+            position-area: top;
+        }
+
+        ul li {
+            position: relative;
+        }
+        </code>
+    </pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/anchor-scope-3/index.html" class="place iframe" frameborder="0"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Можно иначе?</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title"><code>anchor-scope</code></h2>
+    </section>
+
+    <section class="slide">
+        <div class="place my-quote" style="width:63%;">
+            <div class="my-quote__title">
+                <code>anchor-scope</code>
+            </div>
+            <figure>
+                <blockquote>
+                    <p>Ограничивает облать применения указанных якорных имён в поддереве текущего элемента.</p>
+                </blockquote>
+                <figcaption>CSS-спецификация</figcaption>
+            </figure>
+        </div>
+        <a href="https://www.w3.org/TR/css-anchor-position-1/#propdef-anchor-scope" class="copyright">CSS-спецификация: anchor-scope</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place l">
+        <code class="language-css" style="font-size: 1em;">
+            .container {
+                anchor-scope: none;
+            }
+        </code>
+        </pre>
+        <img src="./images/scheme-anchor-scope-none.svg" class="place r" style="height: 75%; right: 10%;" alt="">
+    </section>
+
+    <section class="slide">
+        <pre class="place l">
+        <code class="language-css" style="font-size: 1em;">
+            .container {
+                anchor-scope: --a, --b;
+            }
+        </code>
+        </pre>
+        <img src="./images/scheme-anchor-scope-a-b.svg" class="place r" style="height: 75%; right: 10%;" alt="">
+    </section>
+
+    <section class="slide">
+        <pre class="place l">
+        <code class="language-css" style="font-size: 1em;">
+            .container {
+                anchor-scope: all;
+            }
+        </code>
+        </pre>
+        <img src="./images/scheme-anchor-scope-all.svg" class="place r" style="height: 75%; right: 10%;" alt="">
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Пробуем применить</h2>
+    </section>
+
+    <section class="slide">
+    <pre class="place l t" style="left: 20px; top: 40px;">
+        <code class="language-css" style="font-size: 0.8em;">
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 1&lt;/div&gt;
+                &lt;div class="target"&gt;Target 1&lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 2&lt;/div&gt;
+                &lt;div class="target"&gt;Target 2&lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 3&lt;/div&gt;
+                &lt;div class="target"&gt;Target 3&lt;/div&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        </code>
+    </pre>
+    <pre class="place r t" style="right: 20px; top: 40px;">
+        <code class="language-css" style="font-size: 0.8em;">
+        .anchor {
+            anchor-scope: --anchor;
+        }
+        
+        .target {
+            position: absolute;
+            position-anchor: --anchor;
+            position-area: top;
+        }
+
+        ul li {
+            anchor-scope: --anchor;
+        }
+        </code>
+    </pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/anchor-scope-4/index.html" class="place iframe" frameborder="0"></iframe>
+    </section>
+
+    <section class="slide">
         <h2 class="place centered-slide-title">Приготовьте телефоны <span>🤳🏼</span></h2>
     </section>
 
