@@ -2612,6 +2612,62 @@
     </section>
 
     <section class="slide">
+        <h2 class="place centered-slide-title">Вроде разобрались</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">🤔 А если несколько якорей?</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place t">
+            <code class="language-css" style="width: 840px;">
+                    .anchor-1 {
+                        anchor-name: --anchor-1;
+                    }
+            </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place t">
+            <code class="language-css" style="width: 840px;">
+                    .anchor-1 {
+                        anchor-name: --anchor-1;
+                    }
+
+                    .anchor-2 {
+                        anchor-name: --anchor-2;
+                    }
+            </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place t">
+            <code class="language-css" style="width: 840px;">
+                    .anchor-1 {
+                        anchor-name: --anchor-1;
+                    }
+
+                    .anchor-2 {
+                        anchor-name: --anchor-2;
+                    }
+
+                    .target {
+                        position: absolute;
+                        top: anchor(--anchor-1 bottom);
+                        left: anchor(--anchor-1 right);
+                        right: anchor(--anchor-2 left);
+                        bottom: anchor(--anchor-2 top);
+                    }
+            </code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/multiple-anchors/index.html" class="place iframe" frameborder="0"></iframe>
+    </section>
+
+    <section class="slide">
         <h2 class="place centered-slide-title">Приготовьте телефоны <span>🤳🏼</span></h2>
     </section>
 
