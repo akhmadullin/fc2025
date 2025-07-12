@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position-vidibility</title>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../lib/styles/fonts-for-demos.css">
+</head>
+<body>
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            color-scheme: dark;
+        }
+
+        body {
+            background-color: rgb(22, 22, 22);
+            font-weight: bold;
+            color: white;
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            font-size: 18px;
+        }
+
+        .checkbox-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .iframe {
+            width: 430px;
+            height: 430px;
+            border: 5px solid white;
+        }
+    </style>
+    <div class="checkbox-container">
+        <label>
+            <input type="checkbox" id="height-toggler"><code>height: 300px;</code>
+        </label>
+        <label>
+            <input type="checkbox" id="visibility-toggler"><code>position-visibility: no-overflow;</code>
+        </label>
+    </div>
+    <iframe src="./index2.html" id="demo" class="iframe" frameborder="0"></iframe>
+    <script>
+        const demo = document.getElementById('demo');
+
+        const target = document.getElementById('target');
+        const visibilityToggler = document.getElementById('visibility-toggler');
+
+        visibilityToggler.addEventListener('click', (event) => {
+            const message = event.target.checked ? 'add-no-overflow' : 'remove-no-overflow';
+            demo.contentWindow.postMessage(message);
+        });
+
+        const heightToggler = document.getElementById('height-toggler');
+
+        heightToggler.addEventListener('click', (event) => {
+            const message = event.target.checked ? 'add-height' : 'remove-height';
+            demo.contentWindow.postMessage(message);
+        });
+    </script>
+</body>
+</html>

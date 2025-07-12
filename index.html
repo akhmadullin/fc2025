@@ -991,6 +991,10 @@
     </section>
 
     <section class="slide">
+        <p>где-то тут надо еще подсвятить, что CAP это про absolute/fixed позишин</p>
+    </section>
+
+    <section class="slide">
         <h2 class="place centered-slide-title">Давайте разбираться</h2>
     </section>
 
@@ -1212,6 +1216,10 @@
     </section>
 
     <section class="slide">
+        <p>TODO слайд про justify-self: anchor-center</p>
+    </section>
+
+    <section class="slide">
         <iframe src="./demos/anchor-name-and-position-anchor-anchor-func/index.html" frameborder="0" class="place iframe"></iframe>
     </section>
 
@@ -1325,7 +1333,6 @@
             <figure>
                 <blockquote>
                     <p>Предоставляет удобную концепцию <br> на основе сетки для позиционирования относительного якорного элемента.</p>
-                    <!-- <p>Предоставляет удобный способ позиционирования относительного якорного элемента на основе сетки.</p> -->
                 </blockquote>
                 <figcaption>CSS-спецификация</figcaption>
             </figure>
@@ -1629,7 +1636,7 @@
         <code class="language-css" style="font-size: 1.2em;">
         .target {
             width: anchor-size(width);
-            width: anchor-size(--my-anchor, width);
+            width: anchor-size(--my-anchor width);
         }
         </code>
         </pre>
@@ -1639,7 +1646,7 @@
         <code class="language-css" style="font-size: 1.2em;">
         .target {
             width: anchor-size(width);
-            width: anchor-size(--my-anchor, width);
+            width: anchor-size(--my-anchor width);
         }
         </code>
         </pre>
@@ -1650,7 +1657,7 @@
         <pre class="place">
         <code class="language-css" style="font-size: 1.2em;">
         .target {
-            width: anchor-size(--my-anchor, width, 200px);
+            width: anchor-size(--my-anchor width, 200px);
         }
         </code>
         </pre>
@@ -1659,7 +1666,7 @@
         <pre class="place">
         <code class="language-css" style="font-size: 1.2em;">
         .target {
-            width: anchor-size(--my-anchor, width, 200px);
+            width: anchor-size(--my-anchor width, 200px);
         }
         </code>
         </pre>
@@ -1694,6 +1701,9 @@
 
     <section class="slide">
         <iframe src="./demos/position-try-fallback-0/index.html" frameborder="0" class="place iframe"></iframe>
+    </section>
+
+    <section class="slide">
     </section>
 
     <section class="slide">
@@ -1804,6 +1814,11 @@
     </section>
 
     <section class="slide">
+        <p>TODO мб тут нарисовать схемку, объяcняющую flip-start?</p>
+        <p>TODO мб для других тоже надо</p>
+    </section>
+
+    <section class="slide">
         <h2 class="place centered-slide-title" style="font-size: 38px;"><code>position-try-fallbacks: &lt;position-area&gt;</code></h2>
     </section>
 
@@ -1904,6 +1919,18 @@
     <section class="slide">
         todo слайд про новый уровень в каскадной модели
         <p>All of the properties in a @position-try are applied to the box as part of the Position Fallback Origin, a new cascade origin that lies between the Author Origin and the Animation Origin.</p>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title" style="line-height: 1.4;">Как браузер определяет <br> какой fallback применить?</h2>
+    </section>
+
+    <section class="slide">
+        <p>Схемка, объявняющая, как браузер смотрит на IMCB при принятии решения, куда поместить таргет</p>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title" style="line-height: 1.4;">Можем влиять <br> на порядок фолбэков?</h2>
     </section>
 
     <section class="slide">
@@ -2277,26 +2304,26 @@
     <section class="slide">
     <pre class="place t" style="top: 30px;"><code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
     <span class="hljs-selector-class">.target</span> {
-        <span class="hljs-attribute">position</span>-try-<span class="hljs-attribute">order</span>: normal;
+        <span class="hljs-attribute">position-try-order</span>: normal;
 
-        <span class="hljs-attribute">position</span>-try: most-width;
-        <span class="hljs-attribute">position</span>-try: most-height;
+        <span class="hljs-attribute">position-try-order</span>: most-width;
+        <span class="hljs-attribute">position-try-order</span>: most-height;
     }
-        <span class="invisible"><span class="hljs-attribute">position</span>-try: most-block-size;
-        <span class="hljs-attribute">position</span>-try: most-inline-size;</span>
+        <span class="invisible"><span class="hljs-attribute">position-try-order</span>: most-block-size;
+        <span class="hljs-attribute">position-try-order</span>: most-inline-size;</span>
     </code>
     </pre>
     </section>
     <section class="slide">
     <pre class="place t" style="top: 30px;"><code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
     <span class="hljs-selector-class">.target</span> {
-        <span class="hljs-attribute">position</span>-try-<span class="hljs-attribute">order</span>: normal;
+        <span class="hljs-attribute">position-try-order</span>: normal;
 
-        <span class="hljs-attribute">position</span>-try: most-width;
-        <span class="hljs-attribute">position</span>-try: most-height;
+        <span class="hljs-attribute">position-try-order</span>: most-width;
+        <span class="hljs-attribute">position-try-order</span>: most-height;
 
-        <span class="hljs-attribute">position</span>-try: most-block-size;
-        <span class="hljs-attribute">position</span>-try: most-inline-size;
+        <span class="hljs-attribute">position-try-order</span>: most-block-size;
+        <span class="hljs-attribute">position-try-order</span>: most-inline-size;
     }
     </code>
     </pre>
@@ -2332,7 +2359,7 @@
         <span class="hljs-selector-class">.target</span> {
             <span class="hljs-attribute">position</span>-try: flip-inline, --bottom;
         }
-            <span class="invisible"><span class="hljs-attribute">position</span>-try: most-width, flip-inline, --bottom;</span>
+            <span class="invisible"><span class="hljs-attribute">position</span>-try: most-width flip-inline, --bottom;</span>
         </code>
         </pre>
     </section>
@@ -2341,7 +2368,7 @@
         <code class="language-css hljs" data-highlighted="yes" style="font-size: 1em;">
         <span class="hljs-selector-class">.target</span> {
             <span class="hljs-attribute">position</span>-try: flip-inline, --bottom;
-            <span class="hljs-attribute">position</span>-try: most-width, flip-inline, --bottom;
+            <span class="hljs-attribute">position</span>-try: most-width flip-inline, --bottom;
         }
         </code>
         </pre>
@@ -2350,6 +2377,14 @@
 
     <section class="slide" style="padding: 0 75px;">
         <iframe src="./demos/position-visibility-0/index.html" class="iframe" frameborder="0"></iframe>
+    </section>
+
+    <section class="slide">
+        todo заменить тут демку на схемку, а демку объединить со второй и добавить чекбокс
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Как скрыть?</h2>
     </section>
 
     <section class="slide">
@@ -2371,9 +2406,126 @@
         <a href="https://www.w3.org/TR/css-anchor-position-1/#propdef-position-visibility" class="copyright">CSS-спецификация: position-visibility</a>
     </section>
 
+    <section class="slide">
+    <pre class="place">
+    <code class="language-css" style="font-size: 1.2em;">
+    .target {
+        position-visibility: always;
+    }
+    </code>
+    </pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/position-visibility-4/index.html" class="place iframe" style="border: 5px solid white; width: 80%; height: 70%;" frameborder="0"></iframe>
+    </section>
+
+    <section class="slide">
+    <pre class="place">
+    <code class="language-css" style="font-size: 1.2em;">
+    .target {
+        position-visibility: no-overflow;
+    }
+    </code>
+    </pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/position-visibility-3/index.html" class="place iframe" style="width: 90%; height: 430px; margin-top: 20px;" frameborder="0"></iframe>
+        <pre class="place t l" style="top: 40px; left: 10px;">
+        <code class="language-css" style="font-size: 0.85em;">
+        .target {
+            position-anchor: --anchor;
+            position-area: top center;
+            position-try: flip-block;
+        }
+        </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <iframe src="./demos/position-visibility-3/index.html" class="muted place iframe" style="width: 90%; height: 430px; margin-top: 20px;" frameborder="0"></iframe>
+        <pre class="place t l" style="top: 40px; left: 10px;">
+        <code class="language-css" style="font-size: 0.85em;">
+        .target {
+            position-anchor: --anchor;
+            position-area: top center;
+            position-try: flip-block;
+        }
+        </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <iframe src="./demos/position-visibility-3/index.html" class="place iframe" style="width: 90%; height: 430px; margin-top: 20px;" frameborder="0"></iframe>
+        <pre class="place t l" style="top: 40px; left: 10px;">
+        <code class="language-css" style="font-size: 0.85em;">
+        .target {
+            position-anchor: --anchor;
+            position-area: top center;
+            position-try: flip-block;
+        }
+        </code>
+        </pre>
+    </section>
+
+    <section class="slide">
+    <pre class="place">
+    <code class="language-css" style="font-size: 1.2em;">
+    .target {
+        position-visibility: anchors-visible;
+    }
+    </code>
+    </pre>
+    </section>
+
     <section class="slide" style="padding: 0 75px;">
         <iframe src="./demos/position-visibility-1/index.html" class="iframe" frameborder="0"></iframe>
     </section>
+
+    <section class="slide">
+    <pre class="place">
+    <code class="language-css hljs" data-highlighted="yes" style="font-size: 1.2em;">
+        <span class="hljs-selector-class">.target</span> {
+            <span class="hljs-attribute">position</span>-<span class="hljs-attribute">visibility</span>: anchors-valid;
+        }
+    </code>
+    </pre>
+    </section>
+    <section class="slide">
+    <pre class="place">
+    <code class="language-css hljs" data-highlighted="yes" style="font-size: 1.2em;">
+        <span class="hljs-selector-class">.target</span> {
+            <span class="hljs-attribute">position</span>-<span class="hljs-attribute">visibility</span>: anchors-valid;
+        }
+    </code>
+    </pre>
+    <img src="./images/arrow-is-in-spec.svg" class="place t r" style="width: 25%; top: 21%; right: 19%;" alt="">
+    </section>
+    <section class="slide">
+    <pre class="place">
+    <code class="language-css hljs" data-highlighted="yes" style="font-size: 1.2em;">
+        <span class="hljs-selector-class">.target</span> {
+            <span class="hljs-attribute">position</span>-<span class="hljs-attribute">visibility</span>: anchors-valid;
+        }
+    </code>
+    </pre>
+    <img src="./images/arrow-is-in-spec.svg" class="place t r" style="width: 25%; top: 21%; right: 19%;" alt="">
+    <img src="./images/arrow-no-in-browsers.svg" class="place t r" style="width: 30%; top: 55%; right: 16%;" alt="">
+    </section>
+    <section class="slide">
+    <pre class="place">
+    <code class="language-css hljs" data-highlighted="yes" style="font-size: 1.2em;">
+        <span class="hljs-selector-class">.target</span> {
+            <span style="text-decoration: line-through;"><span class="hljs-attribute">position</span>-<span class="hljs-attribute">visibility</span>: anchors-valid;</span>
+        }
+    </code>
+    </pre>
+    <img src="./images/arrow-is-in-spec.svg" class="place t r" style="width: 25%; top: 21%; right: 19%;" alt="">
+    <img src="./images/arrow-no-in-browsers.svg" class="place t r" style="width: 30%; top: 55%; right: 16%;" alt="">
+    </section>
+
+    
+
+    
 
     <section class="slide">
     <pre class="place l t" style="left: 20px; top: 40px;">

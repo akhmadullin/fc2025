@@ -41,8 +41,9 @@
         .text-container {
             border: 3px solid white;
             padding: 0 20px;
-            height: 250px;
+            height: 300px;
             overflow: scroll;
+            line-height: 1.6;
         }
 
         .notes-container {
@@ -52,8 +53,11 @@
         }
 
         .anchor {
-            color: hsla(203, 97%, 65%, 1);
             anchor-name: --anchor;
+            color: black;
+            background-color: hsla(102, 63%, 66%, 1);
+            padding: 2px 8px;
+            border-radius: 6px;
         }
 
         .target {
@@ -70,7 +74,7 @@
         <div class="text-container">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
-            Lorem ipsum dolor sit amet, <span class="anchor">consectetur</span> adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
+            Lorem ipsum dolor sit amet, <span class="anchor">Anchor</span> adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
@@ -79,7 +83,7 @@
         </div>
         <div class="notes-container">
             <div class="target">
-                Notes
+                Target
             </div>
         </div>
     </div>
