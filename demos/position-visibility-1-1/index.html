@@ -49,6 +49,7 @@
         .notes-container {
             flex: 0 0 150px;
             height: 100%;
+            anchor-name: --notes-container;
         }
 
         .anchor {
@@ -66,6 +67,10 @@
             position: absolute;
             position-anchor: --anchor;
             top: anchor(top);
+            left: anchor(--notes-container left);
+            /* position-visibility: always;
+            position-visibility: no-overflow; */
+            position-visibility: anchors-visible;
         }
     </style>
     <div class="container">

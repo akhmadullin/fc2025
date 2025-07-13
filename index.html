@@ -2375,12 +2375,18 @@
         <img src="./images/arrow-position-try-order-first.svg" class="place" style="width: 30%; top: 71%; left: 62%;" alt="">
     </section>
 
-    <section class="slide" style="padding: 0 75px;">
-        <iframe src="./demos/position-visibility-0/index.html" class="iframe" frameborder="0"></iframe>
+    <section class="slide">
+        <h2 class="place centered-slide-title">Идём дальше</h2>
     </section>
 
     <section class="slide">
-        todo заменить тут демку на схемку, а демку объединить со второй и добавить чекбокс
+        <img src="./images/scheme-position-visibility-1.svg" class="place" style="width: 80%; margin-top: -20px;" alt="">
+    </section>
+    <section class="slide">
+        <img src="./images/scheme-position-visibility-2.svg" class="place" style="width: 80%; margin-top: -20px;" alt="">
+    </section>
+    <section class="slide">
+        <img src="./images/scheme-position-visibility-3.svg" class="place" style="width: 80%; margin-top: -20px;" alt="">
     </section>
 
     <section class="slide">
@@ -2478,14 +2484,64 @@
     </section>
 
     <section class="slide" style="padding: 0 75px;">
+        <iframe src="./demos/position-visibility-0/index.html" class="iframe" frameborder="0"></iframe>
+    </section>
+
+    <section class="slide">
+    <pre class="place t">
+    <code class="language-css">
+    &lt;div class="text"&gt;
+        &lt;div class="anchor"&gt;Anchor&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="notes"&gt;
+        &lt;div class="target"&gt;Target&lt;/div&gt;
+    &lt;/div&gt;  
+    </code>
+    </pre>
+    </section>
+    <section class="slide">
+    <pre class="place t">
+    <code class="language-css">
+    &lt;div class="text"&gt;
+        &lt;div class="anchor"&gt;Anchor&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="notes"&gt;
+        &lt;div class="target"&gt;Target&lt;/div&gt;
+    &lt;/div&gt;  
+
+    .anchor {
+        anchor-name: --anchor;
+    }
+
+    .target {
+        position-anchor: --anchor;
+        top: anchor(top);
+    }
+    </code>
+    </pre>
+    </section>
+
+    <section class="slide" style="padding: 0 75px;">
         <iframe src="./demos/position-visibility-1/index.html" class="iframe" frameborder="0"></iframe>
     </section>
 
+    <!-- <section class="slide">
+        <iframe src="./demos/position-visibility-5/index.html" class="place iframe" style="width: 90%; height: 430px; margin-top: 20px;" frameborder="0"></iframe>
+        <pre class="place t l" style="top: 40px; left: 10px;">
+        <code class="language-css" style="font-size: 0.85em;">
+        .target {
+            position-anchor: --anchor;
+            position-area: bottom center;
+        }
+        </code>
+        </pre>
+    </section> -->
+
     <section class="slide">
     <pre class="place">
     <code class="language-css hljs" data-highlighted="yes" style="font-size: 1.2em;">
         <span class="hljs-selector-class">.target</span> {
-            <span class="hljs-attribute">position</span>-<span class="hljs-attribute">visibility</span>: anchors-valid;
+            <span class="hljs-attribute">position-visibility</span>: anchors-valid;
         }
     </code>
     </pre>
@@ -2494,7 +2550,7 @@
     <pre class="place">
     <code class="language-css hljs" data-highlighted="yes" style="font-size: 1.2em;">
         <span class="hljs-selector-class">.target</span> {
-            <span class="hljs-attribute">position</span>-<span class="hljs-attribute">visibility</span>: anchors-valid;
+            <span class="hljs-attribute">position-visibility</span>: anchors-valid;
         }
     </code>
     </pre>
@@ -2504,7 +2560,7 @@
     <pre class="place">
     <code class="language-css hljs" data-highlighted="yes" style="font-size: 1.2em;">
         <span class="hljs-selector-class">.target</span> {
-            <span class="hljs-attribute">position</span>-<span class="hljs-attribute">visibility</span>: anchors-valid;
+            <span class="hljs-attribute">position-visibility</span>: anchors-valid;
         }
     </code>
     </pre>
@@ -2515,7 +2571,7 @@
     <pre class="place">
     <code class="language-css hljs" data-highlighted="yes" style="font-size: 1.2em;">
         <span class="hljs-selector-class">.target</span> {
-            <span style="text-decoration: line-through;"><span class="hljs-attribute">position</span>-<span class="hljs-attribute">visibility</span>: anchors-valid;</span>
+            <span style="text-decoration: line-through;"><span class="hljs-attribute">position-visibility</span>: anchors-valid;</span>
         }
     </code>
     </pre>
@@ -2523,9 +2579,9 @@
     <img src="./images/arrow-no-in-browsers.svg" class="place t r" style="width: 30%; top: 55%; right: 16%;" alt="">
     </section>
 
-    
-
-    
+    <section class="slide">
+        <img src="./images/scheme-anchor-scope-demo.svg" class="place" style="width: 70%;" alt="">
+    </section>
 
     <section class="slide">
     <pre class="place l t" style="left: 20px; top: 40px;">
@@ -2555,6 +2611,24 @@
         &lt;ul&gt;
             &lt;li&gt;
                 &lt;div class="anchor"&gt;Anchor 1&lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 2&lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 3&lt;/div&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        </code>
+    </pre>
+    </section>
+
+    <section class="slide">
+    <pre class="place l t" style="left: 20px; top: 40px;">
+        <code class="language-css" style="font-size: 0.8em;">
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 1&lt;/div&gt;
                 &lt;div class="target"&gt;Target 1&lt;/div&gt;
             &lt;/li&gt;
             &lt;li&gt;
@@ -2591,7 +2665,7 @@
     <pre class="place r t" style="right: 20px; top: 40px;">
         <code class="language-css" style="font-size: 0.8em;">
         .anchor {
-            anchor-scope: --anchor;
+            anchor-name: --anchor;
         }
         
         .target {
@@ -2616,53 +2690,37 @@
     </section>
 
     <section class="slide">
-        todo слайд с объяснением
+        <img src="./images/scheme-anchor-scope-why-not-working-1.svg" class="place" style="width: 85%;" alt="">
+    </section>
+    <section class="slide">
+        <img src="./images/scheme-anchor-scope-why-not-working-1.svg" class="place" style="width: 85%;" alt="">
+        <img src="./images/arrow-same-name.svg" class="place" style="width: 22%; top: 49%; left: 19%;" alt="">
+    </section>
+    <section class="slide">
+        <img src="./images/scheme-anchor-scope-why-not-working-2.svg" class="place" style="width: 85%;" alt="">
+        <img src="./images/arrow-same-name.svg" class="place" style="width: 22%; top: 49%; left: 19%;" alt="">
+    </section>
+    <section class="slide">
+        <img src="./images/scheme-anchor-scope-why-not-working-2.svg" class="place" style="width: 85%;" alt="">
+        <img src="./images/arrow-same-name.svg" class="place" style="width: 22%; top: 49%; left: 19%;" alt="">
+        <img src="./images/arrow-last-dom-element.svg" class="place" style="width: 43%; top: 38%; left: 47%;" alt="">
     </section>
 
     <section class="slide">
-    <pre class="place l t" style="left: 20px; top: 40px;">
-        <code class="language-css" style="font-size: 0.8em;">
-        &lt;ul&gt;
-            &lt;li&gt;
-                &lt;div class="anchor"&gt;Anchor 1&lt;/div&gt;
-                &lt;div class="target"&gt;Target 1&lt;/div&gt;
-            &lt;/li&gt;
-            &lt;li&gt;
-                &lt;div class="anchor"&gt;Anchor 2&lt;/div&gt;
-                &lt;div class="target"&gt;Target 2&lt;/div&gt;
-            &lt;/li&gt;
-            &lt;li&gt;
-                &lt;div class="anchor"&gt;Anchor 3&lt;/div&gt;
-                &lt;div class="target"&gt;Target 3&lt;/div&gt;
-            &lt;/li&gt;
-        &lt;/ul&gt;
-        </code>
-    </pre>
-    <pre class="place r t" style="right: 20px; top: 40px;">
-        <code class="language-css" style="font-size: 0.8em;">
-        .anchor {
-            anchor-scope: --anchor;
-        }
-        
-        .target {
-            position: absolute;
-            position-anchor: --anchor;
-            position-area: top;
-        }
-
-        ul li {
-            position: relative;
-        }
-        </code>
-    </pre>
+        <h2 class="place centered-slide-title">Как исправить?</h2>
     </section>
 
     <section class="slide">
-        <iframe src="./demos/anchor-scope-3/index.html" class="place iframe" frameborder="0"></iframe>
+        <img src="./images/scheme-anchor-scope-unique-names.svg" class="place" style="width: 85%; top: 60%;" alt="">
+        <img src="./images/arrow-anchor-scope-unique-names.svg" class="place" style="width: 50%; top: 24%;" alt="">
     </section>
 
     <section class="slide">
-        <h2 class="place centered-slide-title">Можно иначе?</h2>
+        <h2 class="place centered-slide-title">Неудобно</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Чтож делать чтож делать</h2>
     </section>
 
     <section class="slide">
@@ -2743,7 +2801,40 @@
     <pre class="place r t" style="right: 20px; top: 40px;">
         <code class="language-css" style="font-size: 0.8em;">
         .anchor {
-            anchor-scope: --anchor;
+            anchor-name: --anchor;
+        }
+        
+        .target {
+            position: absolute;
+            position-anchor: --anchor;
+            position-area: top;
+        }
+        </code>
+    </pre>
+    </section>
+    <section class="slide">
+    <pre class="place l t" style="left: 20px; top: 40px;">
+        <code class="language-css" style="font-size: 0.8em;">
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 1&lt;/div&gt;
+                &lt;div class="target"&gt;Target 1&lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 2&lt;/div&gt;
+                &lt;div class="target"&gt;Target 2&lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 3&lt;/div&gt;
+                &lt;div class="target"&gt;Target 3&lt;/div&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        </code>
+    </pre>
+    <pre class="place r t" style="right: 20px; top: 40px;">
+        <code class="language-css" style="font-size: 0.8em;">
+        .anchor {
+            anchor-name: --anchor;
         }
         
         .target {
@@ -2764,11 +2855,120 @@
     </section>
 
     <section class="slide">
+        <h2 class="place centered-slide-title">Ещё одно решение</h2>
+    </section>
+
+    <section class="slide">
+    <pre class="place l t" style="left: 20px; top: 40px;">
+        <code class="language-css" style="font-size: 0.8em;">
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 1&lt;/div&gt;
+                &lt;div class="target"&gt;Target 1&lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 2&lt;/div&gt;
+                &lt;div class="target"&gt;Target 2&lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 3&lt;/div&gt;
+                &lt;div class="target"&gt;Target 3&lt;/div&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        </code>
+    </pre>
+    <pre class="place r t" style="right: 20px; top: 40px;">
+        <code class="language-css" style="font-size: 0.8em;">
+        .anchor {
+            anchor-name: --anchor;
+        }
+        
+        .target {
+            position: absolute;
+            position-anchor: --anchor;
+            position-area: top;
+        }
+        </code>
+    </pre>
+    </section>
+    <section class="slide">
+    <pre class="place l t" style="left: 20px; top: 40px;">
+        <code class="language-css" style="font-size: 0.8em;">
+        &lt;ul&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 1&lt;/div&gt;
+                &lt;div class="target"&gt;Target 1&lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 2&lt;/div&gt;
+                &lt;div class="target"&gt;Target 2&lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;div class="anchor"&gt;Anchor 3&lt;/div&gt;
+                &lt;div class="target"&gt;Target 3&lt;/div&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        </code>
+    </pre>
+    <pre class="place r t" style="right: 20px; top: 40px;">
+        <code class="language-css" style="font-size: 0.8em;">
+        .anchor {
+            anchor-name: --anchor;
+        }
+        
+        .target {
+            position: absolute;
+            position-anchor: --anchor;
+            position-area: top;
+        }
+
+        ul li {
+            position: relative;
+        }
+        </code>
+    </pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/anchor-scope-3/index.html" class="place iframe" frameborder="0"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Почему так?</h2>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/anchor-scope-2/index.html" class="place iframe" frameborder="0"></iframe>
+    </section>
+    <section class="slide">
+        <iframe src="./demos/anchor-scope-2-1/index.html" class="place iframe" frameborder="0"></iframe>
+        <img src="./images/arrow-anchor-scope-position-relative-cb.svg" class="place b l" style="width: 15%; bottom: 29%; left: 1%;" alt="">
+    </section>
+    <section class="slide">
+        <iframe src="./demos/anchor-scope-2-1/index.html" class="place iframe" frameborder="0"></iframe>
+        <img src="./images/arrow-anchor-scope-position-relative-cb.svg" class="place b l" style="width: 15%; bottom: 29%; left: 1%;" alt="">
+        <img src="./images/arrow-double.svg" class="place" style="height: 32%; top: 24%; left: 31%;" alt="">
+        <img src="./images/arrow-viewport-pos-area-top.svg" class="place" style="width: 26%; top: 23.5%; left: 48%;" alt="">
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/anchor-scope-3-1/index.html" class="place iframe" frameborder="0"></iframe>
+        <img src="./images/arrow-anchor-scope-position-relative-cb-2.svg" class="place b l" style="width: 15%; bottom: 33%; left: 1%;" alt="">
+    </section>
+    <section class="slide">
+        <iframe src="./demos/anchor-scope-3-1/index.html" class="place iframe" frameborder="0"></iframe>
+        <img src="./images/arrow-anchor-scope-position-relative-cb-2.svg" class="place b l" style="width: 15%; bottom: 33%; left: 1%;" alt="">
+        <img src="./images/arrow-position-relative.svg" class="place t" style="width: 20%; top: 1%;" alt="">
+        <img src="./images/arrow-relative-and-pos-area.svg" class="place r" style="width: 16%; right: 1%; top: 28%;" alt="">
+    </section>
+
+    <section class="slide">
         <h2 class="place centered-slide-title">Вроде разобрались</h2>
     </section>
 
     <section class="slide">
-        <h2 class="place centered-slide-title">🤔 А если несколько якорей?</h2>
+        <!-- <h2 class="place centered-slide-title">🤔 А если несколько якорей?</h2> -->
+        <h2 class="place centered-slide-title" style="line-height: 1.4; text-align: center;">🤔 Можно использовать <br> &nbsp; несколько якорей?</h2>
     </section>
 
     <section class="slide">

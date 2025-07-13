@@ -55,10 +55,7 @@
     </style>
     <div class="checkbox-container">
         <label>
-            <input type="checkbox" id="height-toggler"><code>height: 300px;</code>
-        </label>
-        <label>
-            <input type="checkbox" id="visibility-toggler"><code>position-visibility: no-overflow;</code>
+            <input type="checkbox" id="visibility-toggler"><code>position-visibility: anchors-visible;</code>
         </label>
     </div>
     <iframe src="./index2.html" id="demo" class="iframe" frameborder="0"></iframe>
@@ -69,14 +66,7 @@
         const visibilityToggler = document.getElementById('visibility-toggler');
 
         visibilityToggler.addEventListener('click', (event) => {
-            const message = event.target.checked ? 'add-no-overflow' : 'remove-no-overflow';
-            demo.contentWindow.postMessage(message);
-        });
-
-        const heightToggler = document.getElementById('height-toggler');
-
-        heightToggler.addEventListener('click', (event) => {
-            const message = event.target.checked ? 'add-height' : 'remove-height';
+            const message = event.target.checked ? 'add-anchors-visible' : 'remove-anchors-visible';
             demo.contentWindow.postMessage(message);
         });
     </script>
