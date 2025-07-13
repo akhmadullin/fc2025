@@ -252,7 +252,7 @@
         }
 
         .slide-position-demo {
-            padding-bottom: 40px;
+            padding: 75px 90px 40px;
         }
 
         .position-demo {
@@ -403,7 +403,7 @@
     </section>
 
     <section class="slide">
-        <img src="./images/baza.png" alt="" class="place" style="width:100%;">
+        <img src="./images/baza-2.png" alt="" class="place" style="width: 100%; height:100%;">
     </section>
 
     <section class="slide">
@@ -411,19 +411,26 @@
     </section>
 
     <section class="slide">
-        <h2 class="place">Box model</h2>
-    </section>
-
-    <section class="slide">
         <iframe src="./demos/box-model/index.html" frameborder="0" class="place iframe"></iframe>
     </section>
 
     <section class="slide">
-        <h2 class="place centered-slide-title">Описывает размеры <br> и отступы элементов</h2>
+        <h2 class="place"><code>box model</code></h2>
     </section>
 
     <section class="slide">
-        <iframe src="./demos/box-model-and-containing-block-0/index.html" frameborder="0" class="place iframe"></iframe>
+        <div class="place my-quote" style="width:70%;">
+            <div class="my-quote__title">
+                <code>box model</code>
+            </div>
+            <figure>
+                <blockquote>
+                    <p>Описывает структуру бокса. Каждый бокс имеет content area и необязательные области: <br> margin, border, padding.</p>
+                </blockquote>
+                <figcaption>CSS-спецификация</figcaption>
+            </figure>
+        </div>
+        <a href="https://www.w3.org/TR/css-box-3/#box-model" class="copyright">CSS-спецификация: box model</a>
     </section>
 
     <section class="slide">
@@ -434,18 +441,15 @@
         <iframe src="./demos/box-model-and-containing-block-0/index.html" frameborder="0" class="place iframe"></iframe>
     </section>
 
-    <!-- <section class="slide">
-        <iframe src="./demos/box-model-and-containing-block/index.html" frameborder="0" class="place iframe"></iframe>
-    </section> -->
+    <section class="slide">
+        <iframe src="./demos/box-model-and-containing-block-01/index.html" frameborder="0" class="place iframe"></iframe>
+        <img src="./images/arrow-content-area-of-parent.svg" class="place" style="width: 16%; top: 46%; left: 16%;" alt="">
+    </section>
 
     <section class="slide">
         <iframe src="./demos/box-model-and-containing-block/index.html" frameborder="0" class="place iframe"></iframe>
         <img src="./images/arrow-containing-block.svg" alt="" class="place" style="width: 17%; left: 17.5%; top: 36%;">
     </section>
-
-    <!-- <section class="slide">
-        <h2 class="place">Containing block</h2>
-    </section> -->
 
     <section class="slide">
         <div class="place my-quote" style="width:63%;">
@@ -463,7 +467,7 @@
     </section>
 
     <section class="slide">
-        <h2 class="place centered-slide-title">TODO мб схемку про то, как бокс модел, containing block влияют на бокс</h2>
+        <h2 class="place centered-slide-title">Разные виды позиционирования <br>–<br> разный containing block</h2>
     </section>
 
     <section class="slide">
@@ -475,7 +479,19 @@
     </section>
 
     <section class="slide slide-position-demo">
-        <div class="position-demo">
+        <div class="position-demo" style="gap: 5px;">
+            <div class="position-demo__code-block">
+<pre><code class="language-css">
+
+</code></pre>
+            </div>
+            <div class="position-demo__iframe-block">
+            </div>
+        </div>
+    </section>
+
+    <section class="slide slide-position-demo">
+        <div class="position-demo" style="gap: 5px;">
             <div class="position-demo__code-block">
 <pre><code class="language-css">
 .container {
@@ -494,6 +510,37 @@
             <div class="position-demo__code-block">
 <pre><code class="language-css">
 .box {
+    width: 100px;
+    height: 100px;
+}
+</code></pre>
+            </div>
+            <div class="position-demo__iframe-block">
+                <iframe src="./demos/position-1/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide slide-position-demo">
+        <div class="position-demo">
+            <div class="position-demo__code-block">
+<pre><code class="language-css">
+.yellow {
+    background: yellow;
+}
+</code></pre>
+            </div>
+            <div class="position-demo__iframe-block">
+                <iframe src="./demos/position/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide slide-position-demo">
+        <div class="position-demo">
+            <div class="position-demo__code-block">
+<pre><code class="language-css">
+.yellow {
     position: static;
 }
 </code></pre>
@@ -508,7 +555,7 @@
         <div class="position-demo">
             <div class="position-demo__code-block">
 <pre><code class="language-css">
-.box {
+.yellow {
     position: static;
 }
 </code></pre>
@@ -517,13 +564,14 @@
                 <iframe src="./demos/position-static/index.html" frameborder="0" class=""></iframe>
             </div>
         </div>
+        <img src="./images/arrow-containing-block-0.svg" class="place" style="width: 34%; top: 51%; left: 69%;" alt="">
     </section>
 
     <section class="slide slide-position-demo">
         <div class="position-demo">
             <div class="position-demo__code-block">
 <pre><code class="language-css">
-.box {
+.yellow {
     position: static;
     top: 20%;
     left: 20%;
@@ -544,7 +592,22 @@
         <div class="position-demo">
             <div class="position-demo__code-block">
 <pre><code class="language-css">
-.box {
+.yellow {
+    position: static;
+}
+</code></pre>
+            </div>
+            <div class="position-demo__iframe-block">
+                <iframe src="./demos/position-static/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide slide-position-demo">
+        <div class="position-demo">
+            <div class="position-demo__code-block">
+<pre><code class="language-css">
+.yellow {
     position: relative;
 }
 </code></pre>
@@ -559,7 +622,7 @@
         <div class="position-demo">
             <div class="position-demo__code-block">
 <pre><code class="language-css">
-.box {
+.yellow {
     position: relative;
     top: 20%;
     left: 20%;
@@ -568,44 +631,6 @@
             </div>
             <div class="position-demo__iframe-block">
                 <iframe src="./demos/position-relative-1/index.html" frameborder="0" class=""></iframe>
-            </div>
-        </div>
-    </section>
-
-    <section class="slide">
-        <h2 class="place centered-slide-title"><code>position: sticky</code></h2>
-    </section>
-
-    <section class="slide slide-position-demo">
-        <div class="position-demo">
-            <div class="position-demo__code-block">
-<pre><code class="language-css">
-.box {
-    position: relative;
-    top: 20%;
-    left: 20%;
-}
-</code></pre>
-            </div>
-            <div class="position-demo__iframe-block">
-                <iframe src="./demos/position-relative-1/index.html" frameborder="0" class=""></iframe>
-            </div>
-        </div>
-    </section>
-
-    <section class="slide slide-position-demo">
-        <div class="position-demo">
-            <div class="position-demo__code-block">
-<pre><code class="language-css">
-.box {
-    position: sticky;
-    top: 20%;
-    left: 20%;
-}
-</code></pre>
-            </div>
-            <div class="position-demo__iframe-block">
-                <iframe src="./demos/position-sticky/index.html" frameborder="0" class=""></iframe>
             </div>
         </div>
     </section>
@@ -618,15 +643,15 @@
         <div class="position-demo">
             <div class="position-demo__code-block">
 <pre><code class="language-css">
-.box {
-    position: sticky;
+.yellow {
+    position: relative;
     top: 20%;
     left: 20%;
 }
 </code></pre>
             </div>
             <div class="position-demo__iframe-block">
-                <iframe src="./demos/position-sticky/index.html" frameborder="0" class=""></iframe>
+                <iframe src="./demos/position-relative-1/index.html" frameborder="0" class=""></iframe>
             </div>
         </div>
     </section>
@@ -635,7 +660,7 @@
         <div class="position-demo">
             <div class="position-demo__code-block">
 <pre><code class="language-css">
-.box {
+.yellow {
     position: absolute;
     top: 20%;
     left: 20%;
@@ -656,7 +681,7 @@
         <div class="position-demo">
             <div class="position-demo__code-block">
 <pre><code class="language-css">
-.box {
+.yellow {
     position: absolute;
     top: 20%;
     left: 20%;
@@ -673,7 +698,7 @@
         <div class="position-demo">
             <div class="position-demo__code-block">
 <pre><code class="language-css">
-.box {
+.yellow {
     position: fixed;
     top: 20%;
     left: 20%;
@@ -682,6 +707,44 @@
             </div>
             <div class="position-demo__iframe-block">
                 <iframe src="./demos/position-fixed/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title"><code>position: sticky</code></h2>
+    </section>
+
+    <section class="slide slide-position-demo">
+        <div class="position-demo">
+            <div class="position-demo__code-block">
+<pre><code class="language-css">
+.yellow {
+    position: fixed;
+    top: 20%;
+    left: 20%;
+}
+</code></pre>
+            </div>
+            <div class="position-demo__iframe-block">
+                <iframe src="./demos/position-fixed/index.html" frameborder="0" class=""></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="slide slide-position-demo">
+        <div class="position-demo">
+            <div class="position-demo__code-block">
+<pre><code class="language-css">
+.yellow {
+    position: sticky;
+    top: 20%;
+    left: 20%;
+}
+</code></pre>
+            </div>
+            <div class="position-demo__iframe-block">
+                <iframe src="./demos/position-sticky/index.html" frameborder="0" class=""></iframe>
             </div>
         </div>
     </section>
@@ -3017,6 +3080,14 @@
 
     <section class="slide">
         <iframe src="./demos/multiple-anchors/index.html" class="place iframe" frameborder="0"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Use cases</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Демки, демки, демки</h2>
     </section>
 
     <section class="slide">

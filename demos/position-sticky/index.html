@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>position sticky</title>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../lib/styles/fonts-for-demos.css">
 </head>
 <body>
     <style>
@@ -52,6 +55,9 @@
             width: 100px;
             height: 100px;
             background-color: hsla(102, 63%, 66%, 1);
+            text-align: center;
+            place-content: center;
+            font-size: 40px;
         }
 
         .example-box {
@@ -63,9 +69,9 @@
     </style>
     <div class="container">
         <div class="wrapper">
-            <div class="box"></div>
-            <div class="box example-box"></div>
-            <div class="box"></div>
+            <div class="box">1</div>
+            <div class="box example-box">2</div>
+            <div class="box">3</div>
         </div>
     </div>
 </body>
