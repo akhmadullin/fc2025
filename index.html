@@ -1174,10 +1174,6 @@
     </section>
 
     <section class="slide">
-        <p>где-то тут надо еще подсвятить, что CAP это про absolute/fixed позишин</p>
-    </section>
-
-    <section class="slide">
         <h2 class="place centered-slide-title">Давайте разбираться</h2>
     </section>
 
@@ -1242,10 +1238,42 @@
     </section>
 
     <section class="slide">
-        <pre class="place">
+        <pre class="place t" style="top: 25%;">
         <code class="language-css" style="font-size: 1.2em;">
         .target {
-            <!-- position: absolute; -->
+            position-anchor: --my-anchor;
+        }
+        </code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place t" style="top: 25%;">
+        <code class="language-css" style="font-size: 1.2em;">
+        .target {
+            position: absolute;
+            position-anchor: --my-anchor;
+        }
+        </code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place t" style="top: 25%;">
+        <code class="language-css" style="font-size: 1.2em;">
+        .target {
+            position: absolute;
+            position-anchor: --my-anchor;
+        }
+        </code>
+        </pre>
+        <img src="./images/arrow-cap-abs-fixed-position.svg" class="place" style="width: 35%; top: 26%; left: 71%;" alt="">
+    </section>
+
+    <section class="slide">
+        <pre class="place t" style="top: 25%;">
+        <code class="language-css" style="font-size: 1.2em;">
+        .target {
             position-anchor: --my-anchor;
         }
         </code>
@@ -1392,14 +1420,9 @@
                 position: absolute;
                 position-anchor: --my-anchor;
                 bottom: anchor(top);
-                justify-self: center;
             }
         </code>
         </pre>
-    </section>
-
-    <section class="slide">
-        <p>TODO слайд про justify-self: anchor-center</p>
     </section>
 
     <section class="slide">
@@ -1407,15 +1430,30 @@
     </section>
 
     <section class="slide">
-        <p>Unlike anchor(), there is no restriction on having to match axises; for example, width: anchor-size(--foo height); is valid</p>
+        <h2 class="place centered-slide-title">Как отцентровать?</h2>
     </section>
 
     <section class="slide">
-        <h2 class="place centered-slide-title">Неплохо</h2>
+        <h2 class="place centered-slide-title"><code>justify-self: anchor-center;</code></h2>
     </section>
 
     <section class="slide">
-        <pre class="place">
+        <div class="place my-quote" style="width:70%;">
+            <div class="my-quote__title">
+                <code>anchor-center</code>
+            </div>
+            <figure>
+                <blockquote>
+                    <p>Если target элемент имеет заданный position-anchor, то он центрируется (насколько это возможно) <br> над anchor по соответствующей оси.</p>
+                </blockquote>
+                <figcaption>CSS-спецификация</figcaption>
+            </figure>
+        </div>
+        <a href="https://www.w3.org/TR/css-anchor-position-1/#anchor-center" class="copyright">CSS-спецификация: anchor-center</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place t" style="top: 2%;">
         <code class="language-css" style="font-size: 1.2em;">
             .anchor {
                 anchor-name: --my-anchor;
@@ -1425,22 +1463,66 @@
                 position: absolute;
                 position-anchor: --my-anchor;
                 bottom: anchor(top);
-                justify-self: center;
             }
         </code>
         </pre>
     </section>
     <section class="slide">
-        <pre class="place">        <code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
-            <span class="muted"><span class="hljs-selector-class">.anchor</span> {
+        <pre class="place t" style="top: 2%;">
+        <code class="language-css" style="font-size: 1.2em;">
+            .anchor {
                 anchor-name: --my-anchor;
+            }
+        
+            .target {
+                position: absolute;
+                position-anchor: --my-anchor;
+                bottom: anchor(top);
+                justify-self: anchor-center;
+            }
+        </code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/anchor-name-and-position-anchor-anchor-func-2/index.html" frameborder="0" class="place iframe"></iframe>
+    </section>
+
+    <!-- <section class="slide">
+        <p>Unlike anchor(), there is no restriction on having to match axises; for example, width: anchor-size(--foo height); is valid</p>
+    </section> -->
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Неплохо</h2>
+    </section>
+
+    <section class="slide">
+        <pre class="place t" style="top: 2%;">
+        <code class="language-css" style="font-size: 1.2em;">
+            .anchor {
+                anchor-name: --my-anchor;
+            }
+        
+            .target {
+                position: absolute;
+                position-anchor: --my-anchor;
+                bottom: anchor(top);
+                justify-self: anchor-center;
+            }
+        </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place t" style="top: 2%;">        <code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
+            <span class="muted"><span class="hljs-selector-class">.anchor</span> {
+                <span class="hljs-attribute">anchor-name</span>: --my-anchor;
             }</span>
         
             <span class="hljs-selector-class">.target</span> {
                 <span class="muted"><span class="hljs-attribute">position</span>: absolute;
-                <span class="hljs-attribute">position</span>-anchor: --my-anchor;</span>
+                <span class="hljs-attribute">position-anchor</span>: --my-anchor;</span>
                 <span class="hljs-attribute">bottom</span>: <span class="hljs-built_in">anchor</span>(top);
-                <span class="hljs-attribute">justify-self</span>: center;
+                <span class="hljs-attribute">justify-self</span>: anchor-center;
             }
         </code>
         </pre>
@@ -1466,6 +1548,21 @@
 
     <section class="slide">
         <h2 class="place"><code>position-area</code></h2>
+    </section>
+
+    <section class="slide">
+        <div class="place my-quote" style="width:55%;">
+            <div class="my-quote__title">
+                <code>     position-area</code>
+            </div>
+            <figure>
+                <blockquote>
+                    <p>Предоставляет удобную концепцию <br> на основе сетки для позиционирования относительного якорного элемента.</p>
+                </blockquote>
+                <figcaption>CSS-спецификация</figcaption>
+            </figure>
+        </div>
+        <a href="https://www.w3.org/TR/css-anchor-position-1/#propdef-position-area" class="copyright">CSS-спецификация: position-area</a>
     </section>
 
     <section class="slide">
@@ -1506,21 +1603,6 @@
     </section>
     <section class="slide">
         <img src="./images/scheme-position-area-11.svg" class="place" style="height: 85%;" alt="">
-    </section>
-
-    <section class="slide">
-        <div class="place my-quote" style="width:55%;">
-            <div class="my-quote__title">
-                <code>     position-area</code>
-            </div>
-            <figure>
-                <blockquote>
-                    <p>Предоставляет удобную концепцию <br> на основе сетки для позиционирования относительного якорного элемента.</p>
-                </blockquote>
-                <figcaption>CSS-спецификация</figcaption>
-            </figure>
-        </div>
-        <a href="https://www.w3.org/TR/css-anchor-position-1/#propdef-position-area" class="copyright">CSS-спецификация: position-area</a>
     </section>
 
     <section class="slide slide-position-area-demo">

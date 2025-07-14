@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>anchor-name and position-anchor</title>
+    <title>position-area one tile</title>
     <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../../lib/styles/fonts-for-demos.css">
@@ -26,9 +26,7 @@
             background-color: rgb(22, 22, 22);
             font-weight: bold;
             padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            place-content: center;
         }
 
         .box {
@@ -39,12 +37,16 @@
         .anchor {
             anchor-name: --my-anchor;
             background-color: hsla(102, 63%, 66%, 1);
+            padding: 50px 80px;
+            margin: 0 auto;
+            width: max-content;
         }
 
         .target {
-            padding: 20px 15px;
             position: absolute;
             position-anchor: --my-anchor;
+            bottom: anchor(top);
+            justify-self: anchor-center;
             background-color: hsla(48, 99%, 72%, 1);
         }
     </style>
