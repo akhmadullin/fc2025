@@ -1776,7 +1776,58 @@
     </section>
 
     <section class="slide">
-        <p>todo слайд про containing block и IMCB</p>
+        <h2 class="place centered-slide-title">Как оно работает?</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./images/scheme-position-area-cb-imcb-0-0.svg" class="place r" style="height: 70%; right: 5%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="top: 50px;">
+        <code class="language-css">
+        .target {
+            position-area: top right;
+        }
+        </code>
+        </pre>
+        <img src="./images/scheme-position-area-cb-imcb-0.svg" class="place r" style="height: 70%; right: 5%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="top: 50px;">
+        <code class="language-css">
+        .target {
+            position-area: top right;
+        }
+        </code>
+        </pre>
+        <img src="./images/scheme-position-area-cb-imcb-1.svg" class="place r" style="height: 70%; right: 5%;" alt="">
+        <img src="./images/arrow-containing-block-2.svg" class="place t r" style="width: 33%; top: 3%; right: 18%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="top: 50px;">
+        <code class="language-css">
+        .target {
+            position-area: top right;
+        }
+        </code>
+        </pre>
+        <img src="./images/scheme-position-area-cb-imcb-2.svg" class="place r" style="height: 70%; right: 5%;" alt="">
+        <img src="./images/arrow-containing-block-2.svg" class="place t r" style="width: 33%; top: 3%; right: 18%;" alt="">
+        <img src="./images/arrow-imcb-0.svg" class="place b r" style="width: 20%; bottom: 21%; right: 7%; " alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="top: 50px;">
+        <code class="language-css">
+        .target {
+            position-area: top right;
+            left: 10%;
+            bottom: 5%;
+        }
+        </code>
+        </pre>
+        <img src="./images/scheme-position-area-cb-imcb-3.svg" class="place r" style="height: 70%; right: 5%;" alt="">
+        <img src="./images/arrow-containing-block-2.svg" class="place t r" style="width: 33%; top: 3%; right: 18%;" alt="">
+        <img src="./images/arrow-imcb-0.svg" class="place b r" style="width: 20%; bottom: 21%; right: 7%; " alt="">
     </section>
 
     <section class="slide">
@@ -2191,11 +2242,208 @@
     </section>
 
     <section class="slide">
-        <p>Схемка, объявняющая, как браузер смотрит на IMCB при принятии решения, куда поместить таргет</p>
+        <pre class="place t l" style="left: 40px;">
+        <code class="language-css" style="font-size: 0.75em;">
+        .target {
+            position-area: top center;
+            position-try-fallbacks: 
+                --left,
+                --right,
+                --bottom;
+        }
+
+        @positoin-try --left {
+            position-area: left center;
+        }
+        @positoin-try --right {
+            position-area: right center;
+            left: 70%;
+        }
+        @positoin-try --bottom {
+            position-area: bottom center;
+        }
+        </code>
+        </pre>
+        <img src="./images/scheme-how-browser-choose-position-fallbacks-0.svg" class="place r" style="height: 70%; right: 2%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="left: 40px;">
+        <code class="language-css" style="font-size: 0.75em;">
+        .target {
+            position-area: top center;
+            position-try-fallbacks: 
+                --left,
+                --right,
+                --bottom;
+        }
+
+        @positoin-try --left {
+            position-area: left center;
+        }
+        @positoin-try --right {
+            position-area: right center;
+            left: 70%;
+        }
+        @positoin-try --bottom {
+            position-area: bottom center;
+        }
+        </code>
+        </pre>
+        <img src="./images/scheme-how-browser-choose-position-fallbacks-1.svg" class="place r" style="height: 70%; right: 2%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="left: 40px;">
+        <code class="language-css" style="font-size: 0.75em;">
+        .target {
+            position-area: top center;
+            position-try-fallbacks: 
+                --left,
+                --right,
+                --bottom;
+        }
+
+        @positoin-try --left {
+            position-area: left center;
+        }
+        @positoin-try --right {
+            position-area: right center;
+            left: 70%;
+        }
+        @positoin-try --bottom {
+            position-area: bottom center;
+        }
+        </code>
+        </pre>
+        <img src="./images/scheme-how-browser-choose-position-fallbacks-2.svg" class="place r" style="height: 70%; right: 2%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="left: 40px;">
+        <code class="language-css" style="font-size: 0.75em;">
+        .target {
+            position-area: top center;
+            position-try-fallbacks: 
+                --left,
+                --right,
+                --bottom;
+        }
+
+        @positoin-try --left {
+            position-area: left center;
+        }
+        @positoin-try --right {
+            position-area: right center;
+            left: 70%;
+        }
+        @positoin-try --bottom {
+            position-area: bottom center;
+        }
+        </code>
+        </pre>
+        <img src="./images/scheme-how-browser-choose-position-fallbacks-3.svg" class="place r" style="height: 70%; right: 2%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="left: 40px;">
+        <code class="language-css" style="font-size: 0.75em;">
+        .target {
+            position-area: top center;
+            position-try-fallbacks: 
+                --left,
+                --right,
+                --bottom;
+        }
+
+        @positoin-try --left {
+            position-area: left center;
+        }
+        @positoin-try --right {
+            position-area: right center;
+            left: 70%;
+        }
+        @positoin-try --bottom {
+            position-area: bottom center;
+        }
+        </code>
+        </pre>
+        <img src="./images/scheme-how-browser-choose-position-fallbacks-4.svg" class="place r" style="height: 70%; right: 2%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="left: 40px;">
+        <code class="language-css" style="font-size: 0.75em;">
+        .target {
+            position-area: top center;
+            position-try-fallbacks: 
+                --left,
+                --right,
+                --bottom;
+        }
+
+        @positoin-try --left {
+            position-area: left center;
+        }
+        @positoin-try --right {
+            position-area: right center;
+            left: 70%;
+        }
+        @positoin-try --bottom {
+            position-area: bottom center;
+        }
+        </code>
+        </pre>
+        <img src="./images/scheme-how-browser-choose-position-fallbacks-5.svg" class="place r" style="height: 70%; right: 2%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="left: 40px;">
+        <code class="language-css" style="font-size: 0.75em;">
+        .target {
+            position-area: top center;
+            position-try-fallbacks: 
+                --left,
+                --right,
+                --bottom;
+        }
+
+        @positoin-try --left {
+            position-area: left center;
+        }
+        @positoin-try --right {
+            position-area: right center;
+            left: 70%;
+        }
+        @positoin-try --bottom {
+            position-area: bottom center;
+        }
+        </code>
+        </pre>
+        <img src="./images/scheme-how-browser-choose-position-fallbacks-6.svg" class="place r" style="height: 70%; right: 2%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="left: 40px;">
+        <code class="language-css" style="font-size: 0.75em;">
+        .target {
+            position-area: top center;
+            position-try-fallbacks: 
+                --left,
+                --right,
+                --bottom;
+        }
+
+        @positoin-try --left {
+            position-area: left center;
+        }
+        @positoin-try --right {
+            position-area: right center;
+            left: 70%;
+        }
+        @positoin-try --bottom {
+            position-area: bottom center;
+        }
+        </code>
+        </pre>
+        <img src="./images/scheme-how-browser-choose-position-fallbacks-7.svg" class="place r" style="height: 70%; right: 2%;" alt="">
     </section>
 
     <section class="slide">
-        <h2 class="place centered-slide-title" style="line-height: 1.4;">Можем влиять <br> на порядок фолбэков?</h2>
+        <h2 class="place centered-slide-title" style="line-height: 1.4;">Можем влиять на порядок применения фолбэков?</h2>
     </section>
 
     <section class="slide">
@@ -2594,10 +2842,10 @@
     </pre>
     </section>
 
-    <section class="slide">
+    <!-- <section class="slide">
         todo демка
-        <!-- <iframe src="./demos/position-try-order/index.html" class="place iframe" frameborder="0"></iframe> -->
-    </section>
+        <iframe src="./demos/position-try-order/index.html" class="place iframe" frameborder="0"></iframe>
+    </section> -->
 
     <section class="slide">
         <h2 class="place centered-slide-title"><code>position-try</code></h2>
@@ -2622,7 +2870,7 @@
         <pre class="place">
         <code class="language-css hljs" data-highlighted="yes" style="font-size: 1em;">
         <span class="hljs-selector-class">.target</span> {
-            <span class="hljs-attribute">position</span>-try: flip-inline, --bottom;
+            <span class="hljs-attribute">position-try</span>: flip-inline, --bottom;
         }
             <span class="invisible"><span class="hljs-attribute">position</span>-try: most-width flip-inline, --bottom;</span>
         </code>
@@ -2632,8 +2880,8 @@
         <pre class="place">
         <code class="language-css hljs" data-highlighted="yes" style="font-size: 1em;">
         <span class="hljs-selector-class">.target</span> {
-            <span class="hljs-attribute">position</span>-try: flip-inline, --bottom;
-            <span class="hljs-attribute">position</span>-try: most-width flip-inline, --bottom;
+            <span class="hljs-attribute">position-try</span>: flip-inline, --bottom;
+            <span class="hljs-attribute">position-try</span>: most-width flip-inline, --bottom;
         }
         </code>
         </pre>
