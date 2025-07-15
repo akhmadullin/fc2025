@@ -2257,7 +2257,7 @@
         }
         @positoin-try --right {
             position-area: right center;
-            left: 70%;
+            left: 50%;
         }
         @positoin-try --bottom {
             position-area: bottom center;
@@ -2282,7 +2282,7 @@
         }
         @positoin-try --right {
             position-area: right center;
-            left: 70%;
+            left: 50%;
         }
         @positoin-try --bottom {
             position-area: bottom center;
@@ -2307,7 +2307,7 @@
         }
         @positoin-try --right {
             position-area: right center;
-            left: 70%;
+            left: 50%;
         }
         @positoin-try --bottom {
             position-area: bottom center;
@@ -2332,7 +2332,7 @@
         }
         @positoin-try --right {
             position-area: right center;
-            left: 70%;
+            left: 50%;
         }
         @positoin-try --bottom {
             position-area: bottom center;
@@ -2357,7 +2357,7 @@
         }
         @positoin-try --right {
             position-area: right center;
-            left: 70%;
+            left: 50%;
         }
         @positoin-try --bottom {
             position-area: bottom center;
@@ -2382,14 +2382,16 @@
         }
         @positoin-try --right {
             position-area: right center;
-            left: 70%;
+            left: 50%;
         }
         @positoin-try --bottom {
             position-area: bottom center;
         }
         </code>
         </pre>
-        <img src="./images/scheme-how-browser-choose-position-fallbacks-5.svg" class="place r" style="height: 70%; right: 2%;" alt="">
+        <img src="./images/scheme-how-browser-choose-position-fallbacks-4.svg" class="place r" style="height: 70%; right: 2%;" alt="">
+        <img src="./images/arrow-look-at-imcb-0.svg" class="place b r" style="width: 20%; bottom: 19%; right: 6.5%;" alt="">
+        <img src="./images/arrow-look-at-imcb-2.svg" class="place b r" style="width: 56%; bottom: 25%; right: 23.5%;" alt="">
     </section>
     <section class="slide">
         <pre class="place t l" style="left: 40px;">
@@ -2407,7 +2409,35 @@
         }
         @positoin-try --right {
             position-area: right center;
-            left: 70%;
+            left: 50%;
+        }
+        @positoin-try --bottom {
+            position-area: bottom center;
+        }
+        </code>
+        </pre>
+        <img src="./images/scheme-how-browser-choose-position-fallbacks-5.svg" class="place r" style="height: 70%; right: 2%;" alt="">
+        <img src="./images/arrow-look-at-imcb-0.svg" class="place b r" style="width: 20%; bottom: 19%; right: 6.5%;" alt="">
+        <img src="./images/arrow-look-at-imcb-1.svg" class="place b r" style="height: 15%; bottom: 44%; right: 11.5%;" alt="">
+        <img src="./images/arrow-look-at-imcb-2.svg" class="place b r" style="width: 56%; bottom: 25%; right: 23.5%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="left: 40px;">
+        <code class="language-css" style="font-size: 0.75em;">
+        .target {
+            position-area: top center;
+            position-try-fallbacks: 
+                --left,
+                --right,
+                --bottom;
+        }
+
+        @positoin-try --left {
+            position-area: left center;
+        }
+        @positoin-try --right {
+            position-area: right center;
+            left: 50%;
         }
         @positoin-try --bottom {
             position-area: bottom center;
@@ -2432,7 +2462,7 @@
         }
         @positoin-try --right {
             position-area: right center;
-            left: 70%;
+            left: 50%;
         }
         @positoin-try --bottom {
             position-area: bottom center;
