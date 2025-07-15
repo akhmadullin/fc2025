@@ -797,7 +797,15 @@
     </section>
 
     <section class="slide">
+        <img src="./images/scheme-abs-fixed-pos-cb.svg" class="place" style="height: 80%;" alt="">
+    </section>
+
+    <section class="slide">
         <img src="./images/mem-epifancev.png" class="place" style="height: 80%;" alt="">
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title" style="font-size: 45px;">Итак</h2>
     </section>
 
     <section class="slide">
@@ -1018,6 +1026,10 @@
 
     <section class="slide">
         <h2 class="place centered-slide-title">А если нужна адаптивность?</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./images/scheme-adaptive.svg" class="place" style="width: 80%;" alt="">
     </section>
 
     <section class="slide">
@@ -1534,6 +1546,10 @@
     </section>
 
     <section class="slide">
+        <h2 class="place centered-slide-title">Можно ли проще?</h2>
+    </section>
+
+    <section class="slide">
         <img src="./images/scheme-intro-to-position-area-1.svg" class="place" style="width: 70%;" alt="">
     </section>
     <section class="slide">
@@ -1544,10 +1560,6 @@
     </section>
     <section class="slide">
         <img src="./images/scheme-intro-to-position-area-4.svg" class="place" style="width: 70%;" alt="">
-    </section>
-
-    <section class="slide">
-        <h2 class="place centered-slide-title">Можно ли проще?</h2>
     </section>
 
     <section class="slide">
@@ -2024,9 +2036,6 @@
     </section>
 
     <section class="slide">
-    </section>
-
-    <section class="slide">
         <img src="./images/scheme-position-try-fallback-0.svg" class="place" style="width: 90%;" alt="">
     </section>
 
@@ -2224,8 +2233,8 @@
         <iframe src="./demos/position-try-directive/index.html" class="place iframe" frameborder="0"></iframe>
     </section>
 
-    <section class="slide">
-        <h3>Внутри <code>@position-try</code> можно задавать</h3>
+    <section class="slide" style="padding-top: 60px;">
+        <h3 style="margin: 0;">Внутри <code>@position-try</code> можно задавать</h3>
         <ul>
             <li>inset свойства</li>
             <li>margin свойства</li>
@@ -2237,8 +2246,35 @@
     </section>
 
     <section class="slide">
-        todo слайд про новый уровень в каскадной модели
-        <p>All of the properties in a @position-try are applied to the box as part of the Position Fallback Origin, a new cascade origin that lies between the Author Origin and the Animation Origin.</p>
+        <h2 class="place centered-slide-title">Position fallback и каскад</h2>
+    </section>
+
+    <section class="slide" style="padding-top: 30px;">
+        <h3 style="margin: 0;">Уровни объявления стилей</h3>
+        <ul>
+            <li>Декларации из Transition</li>
+            <li>!important декларации user-агента</li>
+            <li>!important декларации пользователя</li>
+            <li>!important декларации автора (то есть разработчика)</li>
+            <li>Animation декларации</li>
+            <li>Декларации автора (то есть разработчика)</li>
+            <li>Декларации пользователя</li>
+            <li>Декларации user-агента</li>
+        </ul>
+    </section>
+    <section class="slide" style="padding-top: 30px;">
+        <h3 style="margin: 0;">Уровни объявления стилей</h3>
+        <ul>
+            <li>Декларации из Transition</li>
+            <li>!important декларации user-агента</li>
+            <li>!important декларации пользователя</li>
+            <li>!important декларации автора (то есть разработчика)</li>
+            <li>Animation декларации</li>
+            <li class="accented">Position Fallback декларации</li>
+            <li>Декларации автора (то есть разработчика)</li>
+            <li>Декларации пользователя</li>
+            <li>Декларации user-агента</li>
+        </ul>
     </section>
 
     <section class="slide">
@@ -2915,11 +2951,40 @@
         <code class="language-css hljs" data-highlighted="yes" style="font-size: 1em;">
         <span class="hljs-selector-class">.target</span> {
             <span class="hljs-attribute">position-try</span>: flip-inline, --bottom;
+        }
+            <span class="invisible"><span class="hljs-attribute">position</span>-try: most-width flip-inline, --bottom;</span>
+        </code>
+        </pre>
+        <img src="./images/arrow-position-try-fallbacks.svg" class="place t r" style="width: 31%; top: 22%; right: 27%;" alt="">
+        <img src="./images/arrow-line-1.svg" class="place b r" style="width: 32%; bottom: 48.4%; right: 28%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place">
+        <code class="language-css hljs" data-highlighted="yes" style="font-size: 1em;">
+        <span class="hljs-selector-class">.target</span> {
+            <span class="hljs-attribute">position-try</span>: flip-inline, --bottom;
             <span class="hljs-attribute">position-try</span>: most-width flip-inline, --bottom;
         }
         </code>
         </pre>
+        <img src="./images/arrow-position-try-fallbacks.svg" class="place t r" style="width: 31%; top: 22%; right: 27%;" alt="">
+        <img src="./images/arrow-line-1.svg" class="place b r" style="width: 32%; bottom: 48.4%; right: 28%;" alt="">
+        <img src="./images/arrow-line-1.svg" class="place b r" style="width: 32%; bottom: 41%; right: 12%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place">
+        <code class="language-css hljs" data-highlighted="yes" style="font-size: 1em;">
+        <span class="hljs-selector-class">.target</span> {
+            <span class="hljs-attribute">position-try</span>: flip-inline, --bottom;
+            <span class="hljs-attribute">position-try</span>: most-width flip-inline, --bottom;
+        }
+        </code>
+        </pre>
+        <img src="./images/arrow-position-try-fallbacks.svg" class="place t r" style="width: 31%; top: 22%; right: 27%;" alt="">
         <img src="./images/arrow-position-try-order-first.svg" class="place" style="width: 30%; top: 71%; left: 62%;" alt="">
+        <img src="./images/arrow-line-1.svg" class="place b r" style="width: 32%; bottom: 48.4%; right: 28%;" alt="">
+        <img src="./images/arrow-line-1.svg" class="place b r" style="width: 32%; bottom: 41%; right: 12%;" alt="">
+        <img src="./images/arrow-line-2.svg" class="place b l" style="width: 16%; bottom: 41%; left: 39%; " alt="">
     </section>
 
     <section class="slide">
