@@ -62,16 +62,16 @@
 
             /* width: max-content; */
 
-            /* ссылаемся на якорь, к которому привязан поповер */
+            /* ссылаемся на якорь, к которому привязан таргет */
             position-anchor: --anchor-el;
-            /* делаем поповер якорем */
-            anchor-name: --popover;
+            /* делаем таргет якорем */
+            anchor-name: --target-el;
         }
 
         /* хвостики */
         .target::before,
         .target::after {
-            /* якоримся на тот же элемент, что и поповер */
+            /* якоримся на тот же элемент, что и таргет */
             position-anchor: --anchor-el;
             content: '';
             position: fixed;
@@ -88,18 +88,18 @@
             max-height: 20px;
         }
 
-        /* для кейса, когда поповер под якорем */
+        /* для кейса, когда таргет под якорем */
         .target::before {
             /* растягиваем хвостик между двумя якорями */
             top: anchor(--anchor-el end);
-            bottom: anchor(--popover start);
+            bottom: anchor(--target-el start);
             transform: translateY(14px) rotate(45deg);
         }
 
-        /* для кейса, когда поповер под якорем */
+        /* для кейса, когда таргет под якорем */
         .target::after {
             /* растягиваем хвостик между двумя якорями */
-            top: anchor(--popover end);
+            top: anchor(--target-el end);
             bottom: anchor(--anchor-el start);
             transform: translateY(-14px) rotate(45deg);
         }

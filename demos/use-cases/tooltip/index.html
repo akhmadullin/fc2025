@@ -3,12 +3,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <title>Использование нескольких якорей</title>
+    <title>Тултип</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="../../lib/styles/fonts-for-demos.css">
+    <link rel="preload" href="../../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../../lib/styles/fonts-for-demos.css">
 </head>
 <body>
     <style>
@@ -27,7 +27,7 @@
         body {
             background-color: rgb(22, 22, 22);
             font-weight: bold;
-            font-size: 35px;
+            font-size: 25px;
         }
 
         .height-wrapper {
@@ -44,23 +44,49 @@
             min-width: 200vw;
         }
 
-        .anchor {
+        .button {
             anchor-name: --anchor-el;
-            background-color: hsla(102, 63%, 66%, 1);
-            padding: 40px 60px;
+            /* background-color: hsla(48, 99%, 72%, 1); */
+            background-color: hsla(48, 98%, 64%, 1);
+            border: 5px solid transparent;
+            /* background-color: hsla(102, 63%, 66%, 1); */
+            padding: 10px 25px;
+            font-size: 50px;
+            border-radius: 6px;
+            cursor: pointer;
         }
 
-        .target {
+        .button:hover {
+            background-color: white;
+        }
+
+        .button:focus-visible {
+            border: 5px solid #FFFFFF;
+            outline: none;
+        }
+
+        .button:focus {
+            border: 5px solid #FFFFFF;
+            outline: none;
+        }
+
+        .tooltip {
             margin: 20px;
-            padding: 40px;
+            padding: 20px;
             position: fixed;
+            inset: unset;
             position-anchor: --anchor-el;
             position-area: top center;
             position-try-fallbacks: bottom center;
+            left: -400%;
+            right: -400%;
+            border-radius: 6px;
 
-            background-color: hsla(48, 99%, 72%, 1);
+            background-color: white;
 
-            /* width: max-content; */
+            /* background-color: hsla(48, 99%, 72%, 1); */
+
+            width: max-content;
 
             /* ссылаемся на якорь, к которому привязан таргет */
             position-anchor: --anchor-el;
@@ -69,8 +95,8 @@
         }
 
         /* хвостики */
-        .target::before,
-        .target::after {
+        .tooltip::before,
+        .tooltip::after {
             /* якоримся на тот же элемент, что и таргет */
             position-anchor: --anchor-el;
             content: '';
@@ -79,8 +105,8 @@
             margin: auto;
         }
 
-        .target::before,
-        .target::after {
+        .tooltip::before,
+        .tooltip::after {
             left: anchor(--anchor-el start);
             right: anchor(--anchor-el end);
             /* inset-inline: anchor(start) anchor(end); */
@@ -89,33 +115,55 @@
         }
 
         /* для кейса, когда таргет под якорем */
-        .target::before {
+        .tooltip::before {
             /* растягиваем хвостик между двумя якорями */
             top: anchor(--anchor-el end);
             bottom: anchor(--target-el start);
             transform: translateY(14px) rotate(45deg);
-            background-color: hsla(203, 97%, 65%, 1);
         }
 
         /* для кейса, когда таргет под якорем */
-        .target::after {
+        .tooltip::after {
             /* растягиваем хвостик между двумя якорями */
             top: anchor(--target-el end);
             bottom: anchor(--anchor-el start);
             transform: translateY(-14px) rotate(45deg);
-            background-color: #e088f4;
         }
     </style>
     <div id="height-wrapper" class="height-wrapper">
         <div class="container">
-            <div class="anchor">
-                Anchor
-            </div>
-            <div class="target">
-                Target
+            <button class="button" id="tooltip-anchor" aria-describedby="tooltip">
+                🖤
+            </button>
+            <div class="tooltip" id="tooltip" role="tooltip" popover="manual">
+                Добавить в избранное
             </div>
         </div>
     </div>
+    <script>
+        const tooltip = document.querySelector('#tooltip')
+        const tooltipAnchor = document.querySelector('#tooltip-anchor')
+    
+        const showTooltip = () => {
+          tooltip.showPopover()
+        }
+    
+        const hideTooltip = () => {
+          tooltip.hidePopover()
+        }
+    
+        tooltipAnchor.addEventListener('mouseenter', showTooltip)
+        tooltipAnchor.addEventListener('focus', showTooltip)
+    
+        tooltipAnchor.addEventListener('mouseleave', hideTooltip)
+        tooltipAnchor.addEventListener('blur', hideTooltip)
+    
+        tooltipAnchor.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') {
+            hideTooltip()
+          }
+        })
+    </script>
     <script>
         const heightWrapper = document.querySelector('#height-wrapper');
         heightWrapper?.scrollTo({
