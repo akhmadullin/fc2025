@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подсказки к терминам в тексте, как в вики</title>
+    <link rel="preload" href="../../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../../lib/styles/fonts-for-demos.css">
+</head>
+<body>
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            color-scheme: dark;
+        }
+
+        body {
+            background-color: rgb(22, 22, 22);
+            font-weight: bold;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            padding-bottom: 40px;
+        }
+
+        .text-container {
+            border: 3px solid white;
+            padding: 10px 20px;
+            width: 100%;
+            height: 400px;
+            overflow: scroll;
+            line-height: 1.8;
+        }
+
+        .anchor {
+            font-size: inherit;
+            font-family: inherit;
+            color: hsla(203, 97%, 65%, 1);
+            cursor: pointer;
+            anchor-name: var(--is);
+            border: none;
+            background: none;
+            border-bottom: 2px solid transparent;
+        }
+
+        .anchor:hover {
+            border-bottom-color: hsla(203, 97%, 65%, 1);
+        }
+
+        .target {
+            padding: 20px;
+            background-color: white;
+            box-shadow:
+                0px 10px 20px rgba(255, 255, 255, 0.07),
+                0px 10px 60px -5px rgba(49, 49, 49, 0.2);
+            color: black;
+            position: absolute;
+            position-anchor: var(--for);
+            inset: unset;
+            top: calc(anchor(bottom) + 10px);
+            justify-self: anchor-center;
+            border-radius: 6px;
+            max-width: 300px;
+            transition:
+                opacity 0.3s ease-in,
+                scale 0.2s ease-in,
+                translate 0.2s ease-in,
+                display 0.2s ease-in;
+                transition-behavior: allow-discrete;
+        }
+
+        @starting-style {
+            .target {
+                opacity: 0;
+                translate: 0 20px;
+            }
+        }
+
+        .target:not(:popover-open) {
+            opacity: 0;
+            translate: 0 20px;
+        }
+
+        .image {
+            width: 160px;
+            height: auto;
+            float: left;
+            margin-right: 20px;
+        }
+    </style>
+    <div class="container">
+        <div class="text-container">
+            <img src="./assets/cat.jpg" alt="" class="image">
+            Кошки – одни из самых загадочных и любимых домашних животных. Их история соседства с человеком насчитывает тысячи лет: археологи находят свидетельства приручения кошек ещё в <button class="anchor" popovertarget="egypt-note" style="--is: --egypt;">Древнем Египте</button>, где они считались священными созданиями и даже сопровождали хозяев в загробный мир.  
+            <br>
+            Сегодня кошки – самые популярные домашние питомцы в мире, обогнав по числу «сожителей» даже собак.
+
+            Несмотря на привычный нам <button class="anchor" popovertarget="oblick-note" style="--is: --oblick;">облик</button> пушистого домашнего любимца, кошки остаются хищниками по своей природе. Их организм идеально приспособлен для охоты: острые когти, гибкое тело, отличная координация движений. Даже играя с мячиком или бумажкой, кошка имитирует поведение охотника, оттачивая движения, заложенные природой.
+
+            Интересно, что кошки слышат гораздо лучше людей и собак. Они способны улавливать ультразвуковые звуки, которые издают, например, мыши. Их слуховой диапазон в два раза шире человеческого, что делает кошек настоящими мастерами слежки за невидимой добычей.
+
+            Глаза кошек заслуживают отдельного внимания. В темноте их зрачки расширяются, и они видят даже при слабом освещении. Всё это благодаря специальному слою клеток – тапетуму, который отражает свет и «подсвечивает» изображение. Именно поэтому глаза кошек так ярко светятся в темноте при вспышке или фарах автомобиля.
+
+            Кошки известны своей независимостью, но на самом деле они очень привязываются к людям. Исследования показывают, что кошки могут испытывать настоящую тоску, если долго остаются без хозяина. При этом они выражают привязанность по-своему: трением о ноги, «массажем» лапками или тихим урчанием.
+
+            Урчание кошек – тоже удивительное явление. Учёные до сих пор точно не знают, почему и как оно возникает. Считается, что кошки урчат не только от удовольствия, но и чтобы успокоиться или облегчить боль. Более того, вибрации в диапазоне кошачьего урчания могут способствовать заживлению костей и тканей.
+
+            Кошки – настоящие «чистюли». Они проводят до половины бодрствующего времени за умыванием. Такая привычка помогает им не только поддерживать шерсть в порядке, но и охлаждать тело в жару: слюна, испаряясь, снижает температуру.
+
+            И наконец, стоит упомянуть о кошачьем характере. Каждая кошка – это отдельная личность. Одни обожают внимание и всегда рядом с хозяином, другие предпочитают сохранять дистанцию. Но все они обладают удивительной способностью создавать уют в доме и становиться настоящими членами семьи.
+        </div>
+    </div>
+    <div popover id="egypt-note" class="target" style="--for: --egypt; width: 265px;">
+        Древний Египет – название исторического региона и культуры...
+    </div>
+    <div popover id="oblick-note" class="target" style="--for: --oblick; width: 180px;">
+        
+        <span>Внешний вид, очертание, наружность.</span>
+    </div>
+</body>
+</html>

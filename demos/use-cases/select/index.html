@@ -62,7 +62,12 @@
             right: 20px;
             top: 70%;
             transform: translate(0, -65%) rotate(45deg);
+            transition: transform 0.2s ease-in;
             width: 15px;
+        }
+
+        .combo.open::after {
+            transform: translate(0, -20%) rotate(225deg);
         }
 
         .combo-input {

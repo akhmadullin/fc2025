@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подсказки к терминам в тексте</title>
+    <link rel="preload" href="../../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../../lib/styles/fonts-for-demos.css">
+</head>
+<body>
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            color-scheme: dark;
+        }
+
+        body {
+            background-color: rgb(22, 22, 22);
+            font-weight: bold;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            padding-bottom: 40px;
+        }
+
+        .text-container {
+            border: 3px solid white;
+            padding: 0 20px;
+            height: 300px;
+            overflow: scroll;
+            line-height: 1.8;
+        }
+
+        .notes-container {
+            flex: 0 0 150px;
+            height: 100%;
+        }
+
+        .anchor {
+            color: black;
+            background-color: hsla(102, 63%, 66%, 1);
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        .target {
+            padding: 20px;
+            background-color: hsla(48, 99%, 72%, 1);
+            color: black;
+            position: absolute;
+            top: max(anchor(top), calc(anchor(--comment bottom, 0) + 20px));
+            position-visibility: anchors-visible;
+            anchor-name: --comment;
+            border-radius: 6px;
+        }
+    </style>
+    <div class="container">
+        <div>
+            <div class="text-container" contenteditable="true" spellcheck="false">
+                Рубрика «Занимательные, но бесполезные факты».
+                Когда европейцы впервые увидели жирафа, они назвали его верблюдопардом, решив, что это <span class="anchor" style="anchor-name: --anchor-1;">гибрид</span> верблюда и леопарда.
+                Животное с самым большим мозгом по отношению к телy - мyравей.
+                Зоопарк в Токио каждый год закрывается на 2 месяца, чтобы звери могли отдохнуть от посетителей.
+                Несмотря на горб, позвоночник y верблюда прямой.
+                Животное, которое дольше всех может не пить - крыса.
+                У улитки около 25 000 зубов.
+                Крот может за одну ночь прорыть тоннель длиной в 76 метров.
+                Ленивцы проводят 75% жизни во сне.
+                Чтобы сделать килограмм меда, пчелка должна облететь 2 млн. цветков.
+                За последние 4000 лет не было одомашнено ни одно новое животное.
+                Крокодилы глотают камни, чтобы глубже нырнуть.
+                3а последние 600 млн. лет произошло примерно 2000 столкновений астероидов с Землей.
+                Первые страховки были введены в Исландии в 1151 году от чумы и пожара.
+                Средняя плотность <span class="anchor" style="anchor-name: --anchor-2;">материи</span> во Вселенной - шесть атомов на кубический метр.
+                Скорость воздушного потока в носу при спокойном дыхании 2,4 километра в час, а при чихании - 170 километров в час.
+                Язык <span class="anchor" style="anchor-name: --anchor-3;">хамелеона</span> в два раза длиннее его самого.
+                Чтобы уснуть, человеку в среднем требуется 7 минут.
+                За 2002 год в мире сделано 12,4 миллиарда цифровых фотоснимков, но лишь каждый четвертый кадр был распечатан на бумаге. Остальные хранятся на жестких дисках компьютеров, в памяти самих камер или записаны на <span class="anchor" style="anchor-name: --anchor-4;">компакт-диски</span> и рассматриваются только на экранах мониторов.
+                В мире насчитывается около 200 пород домашних кошек. Хотя, редкий человек сможет назвать больше 10-15. При этом «натуральных» пород всего около 40, остальные выведены путем скрещивания, иногда даже с дикими сородичами.
+                В организме кошек больше костей, чем у человека. Человеческое тело состоит из 206 костей, а у кошек их 250. Этим объясняется необычайная гибкость их позвоночника.
+                Кошки двигают ушами с помощью 32 мышц. Благодаря им уши питомцев способны поворачиваться на 180 градусов, и кошкам не нужно постоянно вертеть головой, «выслушивая» добычу.
+            </div>
+        </div>
+        <div class="notes-container">
+            <div class="target" style="position-anchor: --anchor-1;">
+                Гибрид – смесь чего-то с чем-то
+            </div>
+            <div class="target" style="position-anchor: --anchor-2;">
+                Материя – это...
+            </div>
+            <div class="target" style="position-anchor: --anchor-3;">
+                Хамелеон
+            </div>
+            <div class="target" style="position-anchor: --anchor-4;">
+                Компакт-диск
+            </div>
+        </div>
+    </div>
+</body>
+</html>
