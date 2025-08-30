@@ -53,8 +53,7 @@
             left:   anchor(left);
             right:  anchor(right);
             bottom: anchor(bottom);
-            background-color: hsla(289, 83%, 75%, 1);
-            /* background-color: hsl(0, 0%, 25%); */
+            background-color: hsla(48, 98%, 64%, 1);
             border-radius: 20px;
             transition: all 0.2s;
             z-index: -1;
@@ -62,10 +61,12 @@
 
         .card {
             padding: 20px;
+            transition: color 0.2s;
         }
 
         .card:hover {
             anchor-name: --anchor;
+            color: black;
         }
 
         .card-image {
@@ -80,12 +81,6 @@
         .card-text {
             font-size: 18px;
             font-weight: normal;
-            color: hsla(0, 0%, 100%, 0.8);
-            transition: color 0.2s;
-        }
-
-        .card:hover .card-text {
-            color: hsla(0, 0%, 100%, 1);
         }
     </style>
     <div class="container">
