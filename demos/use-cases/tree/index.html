@@ -68,13 +68,6 @@
             /* We have to do this, as we cannot use flex/grid on the details tag itself :( */
             display: contents;
         }
-        .tree-item-details:not([open])::before {
-            content: "+";
-            position: absolute;
-            left: calc(anchor(var(--is) right) + 5px);
-            transition: color 0.2s;
-            transform: rotate(90deg);
-        }
         .tree-item-label {
             hyphens: none;
             line-height: var(--lh);
@@ -94,9 +87,7 @@
         summary.tree-item-label:hover {
             color: hsla(48, 98%, 64%, 1);
         }
-        .tree-item-details:not([open]):has(summary.tree-item-label:hover)::before {
-            color: hsla(48, 98%, 64%, 1);
-        }
+        
         summary.tree-item-label::marker {
             content: "";
         }
