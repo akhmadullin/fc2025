@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Транзишн на ховер в табах</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preload" href="../../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../../lib/styles/fonts-for-demos.css">
+</head>
+<body>
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background-color: rgb(22, 22, 22);
+            font-weight: bold;
+            font-size: 25px;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .tabs {
+            width: 85%;
+        }
+
+        .tabs::before {
+            content: '';
+            position: absolute;
+            position-anchor: --anchor;
+            left:   anchor(left);
+            right:  anchor(right);
+            top: anchor(bottom);
+            height: 3px;
+            background-color: hsla(48, 98%, 64%, 1);
+            border-radius: 20px;
+            transition: all 0.4s;
+            z-index: -1;
+        }
+
+        [role="tablist"] {
+            min-width: 100%;
+            padding: 0 20px;
+        }
+
+        [role="tab"] {
+            display: inline-block;
+            padding: 6px 10px;
+            border: none;
+            background: none;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            color: inherit;
+            outline: 3px solid;
+            outline-color: transparent;
+            transition: color 0.2s, outline-color 0.6s;
+            cursor: pointer;
+            border-radius: 5px 5px 0 0;
+        }
+
+        [role="tab"][aria-selected="true"] {
+            color: hsla(48, 98%, 64%, 1);
+            anchor-name: --anchor;
+        }
+
+        [role="tab"][aria-selected="false"] {
+            color: hsla(0, 0%, 100%, 1);
+        }
+
+        [role="tab"][aria-selected="false"]:hover,
+        [role="tab"][aria-selected="false"]:focus-visible {
+            color: hsla(48, 98%, 64%, 0.5);
+        }
+
+        [role="tab"]:focus-visible {
+            outline-color: hsla(48, 98%, 64%, 1);
+        }
+
+        [role="tabpanel"] {
+            padding: 25px;
+            line-height: 1.5;
+            border-radius: 16px;
+            min-height: 10em;
+            height: 375px;
+            width: 100%;
+            overflow: auto;
+            margin-top: 3px;
+            background-color: hsla(0, 0%, 33%, 0.5);
+        }
+
+        [role="tabpanel"].is-hidden {
+            display: none;
+        }
+
+        [role="tabpanel"] p {
+            margin: 0;
+            margin-bottom: 10px;
+        }
+
+        [role="tabpanel"] h4 {
+            color: hsla(48, 98%, 64%, 1);
+        }
+
+        [role="tabpanel"] ul {
+            margin-left: 30px;
+            margin-bottom: 10px;
+        }
+
+        .review {
+            margin-bottom: 20px;
+        }
+
+        .review header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .review header {
+            margin-bottom: 5px;
+        }
+
+        .user {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-avatar {
+            padding: 2px;
+            border-radius: 50%;
+            background-color: white;
+            color: hsla(0, 0%, 33%, 0.9);
+            width: 55px;
+            height: 55px;
+        }
+
+        .user-avatar svg {
+            width: 100%;
+            height: 100%
+        }
+    </style>
+    <div class="container">
+        <div class="tabs">
+            <div role="tablist" aria-labell="Карточка товара">
+              <button id="tab-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-1">
+                Описание
+              </button>
+              <button id="tab-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-2" tabindex="-1">
+                Характеристики
+              </button>
+              <button id="tab-3" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-3" tabindex="-1">
+                Отзывы
+              </button>
+            </div>
+            <div id="tabpanel-1" role="tabpanel" tabindex="0" aria-labelledby="tab-1">
+              <p>
+                SamplePhone — это смартфон, созданный для тех, кто ценит стиль, скорость и удобство в повседневной жизни. Он сочетает в себе элегантный минималистичный дизайн и продуманную эргономику, благодаря чему устройство удобно лежит в руке и подчеркивает индивидуальность владельца.
+              </p>
+              <p>
+                Мощный процессор и оптимизированная система обеспечивают плавную работу без задержек: от запуска игр и приложений до многозадачного режима. Яркий дисплей с высокой детализацией делает просмотр фильмов и фото максимально комфортным, а ёмкий аккумулятор позволяет оставаться на связи весь день без подзарядки.
+              </p>
+            </div>
+            <div id="tabpanel-2" role="tabpanel" tabindex="0" aria-labelledby="tab-2" class="is-hidden">
+                <h4>Дизайн и экран</h4>
+                <ul>
+                  <li><strong>Экран:</strong> 6,5-дюймовый AMOLED безрамочный</li>
+                  <li><strong>Разрешение:</strong> высокое, с яркой цветопередачей</li>
+                  <li><strong>Материалы корпуса:</strong> алюминий и закалённое стекло</li>
+                  <li><strong>Защита:</strong> IP68 от влаги и пыли</li>
+                </ul>
+              
+                <h4>Производительность</h4>
+                <ul>
+                  <li><strong>Процессор:</strong> восьмиядерный, последнего поколения</li>
+                  <li><strong>Оперативная память:</strong> 8 ГБ</li>
+                  <li><strong>Встроенная память:</strong> 128/256 ГБ с поддержкой microSD</li>
+                  <li><strong>Система:</strong> оптимизирована для многозадачности</li>
+                </ul>
+              
+                <h4>Камеры</h4>
+                <ul>
+                  <li><strong>Основная камера:</strong> 64 Мп + 12 Мп + 8 Мп</li>
+                  <li><strong>Фронтальная камера:</strong> 32 Мп с улучшением селфи</li>
+                  <li><strong>Режим съёмки:</strong> ночной режим, стабилизация изображения</li>
+                  <li><strong>Видео:</strong> поддержка записи в 4K</li>
+                </ul>
+              
+                <h4>Батарея и зарядка</h4>
+                <ul>
+                  <li><strong>Аккумулятор:</strong> 5000 мА·ч</li>
+                  <li><strong>Быстрая зарядка:</strong> 65 Вт</li>
+                  <li><strong>Зарядка:</strong> беспроводная</li>
+                  <li><strong>Энергосбережение:</strong> режим продления автономности</li>
+                </ul>
+              
+                <h4>Связь и дополнительные функции</h4>
+                <ul>
+                  <li><strong>Сети:</strong> поддержка 5G</li>
+                  <li><strong>Wi-Fi:</strong> стандарт Wi-Fi 6</li>
+                  <li><strong>NFC:</strong> встроенный модуль для бесконтактных платежей</li>
+                  <li><strong>Звук:</strong> стереодинамики с объёмным звучанием</li>
+                  <li><strong>Безопасность:</strong> сканер отпечатка в экране, распознавание лица</li>
+                </ul>
+            </div>
+            <div id="tabpanel-3" role="tabpanel" tabindex="0" aria-labelledby="tab-3" class="is-hidden">
+                <article class="review" data-rating="5" aria-label="Оценка 5 из 5">
+                    <header>
+                        <div class="user">
+                            <div class="user-avatar">
+                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M30.0026 33.625C24.5776 33.6175 19.3113 35.4551 15.0686 38.836C14.6901 39.1401 14.3267 39.4625 13.9796 39.802C13.3994 40.3612 12.9379 41.0316 12.6224 41.773C12.307 42.5145 12.1441 43.3119 12.1436 44.1177C12.143 44.9235 12.3048 45.7212 12.6192 46.4631C12.9336 47.205 13.3942 47.876 13.9736 48.436C14.4056 48.856 14.8106 49.21 15.1796 49.504C19.4039 52.8298 24.6262 54.634 30.0026 54.625C35.4039 54.634 40.6489 52.8131 44.8826 49.459C45.2366 49.177 45.6176 48.838 46.0316 48.439C46.6112 47.8792 47.072 47.2084 47.3867 46.4666C47.7014 45.7247 47.8634 44.9272 47.8631 44.1214C47.8629 43.3156 47.7003 42.5181 47.3851 41.7765C47.0699 41.0349 46.6086 40.3644 46.0286 39.805C45.6893 39.4749 45.3349 39.1605 44.9666 38.863C40.7205 35.464 35.4415 33.6162 30.0026 33.625ZM30.0026 12.125C27.6157 12.125 25.3265 13.0732 23.6386 14.761C21.9508 16.4489 21.0026 18.7381 21.0026 21.125C21.0026 23.512 21.9508 25.8011 23.6386 27.489C25.3265 29.1768 27.6157 30.125 30.0026 30.125C32.3896 30.125 34.6787 29.1768 36.3666 27.489C38.0544 25.8011 39.0026 23.512 39.0026 21.125C39.0026 18.7381 38.0544 16.4489 36.3666 14.761C34.6787 13.0732 32.3896 12.125 30.0026 12.125Z" fill="currentColor"/>
+                                    </g>
+                                </svg>
+                            </div>
+                            <h4 class="user-name">Анна</h4>
+                        </div>
+                      <div class="rating" aria-hidden="true">★★★★★</div>
+                    </header>
+                    <p class="review-text">
+                      Отличный смартфон! Дисплей очень яркий, цвета насыщенные, приятно смотреть фильмы. Камера порадовала — фото получаются четкие даже вечером. Батареи хватает на целый день активного использования.
+                    </p>
+                  </article>
+                  <article class="review" data-rating="4" aria-label="Оценка 4 из 5">
+                    <header>
+                        <div class="user">
+                            <div class="user-avatar">
+                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M30.0026 33.625C24.5776 33.6175 19.3113 35.4551 15.0686 38.836C14.6901 39.1401 14.3267 39.4625 13.9796 39.802C13.3994 40.3612 12.9379 41.0316 12.6224 41.773C12.307 42.5145 12.1441 43.3119 12.1436 44.1177C12.143 44.9235 12.3048 45.7212 12.6192 46.4631C12.9336 47.205 13.3942 47.876 13.9736 48.436C14.4056 48.856 14.8106 49.21 15.1796 49.504C19.4039 52.8298 24.6262 54.634 30.0026 54.625C35.4039 54.634 40.6489 52.8131 44.8826 49.459C45.2366 49.177 45.6176 48.838 46.0316 48.439C46.6112 47.8792 47.072 47.2084 47.3867 46.4666C47.7014 45.7247 47.8634 44.9272 47.8631 44.1214C47.8629 43.3156 47.7003 42.5181 47.3851 41.7765C47.0699 41.0349 46.6086 40.3644 46.0286 39.805C45.6893 39.4749 45.3349 39.1605 44.9666 38.863C40.7205 35.464 35.4415 33.6162 30.0026 33.625ZM30.0026 12.125C27.6157 12.125 25.3265 13.0732 23.6386 14.761C21.9508 16.4489 21.0026 18.7381 21.0026 21.125C21.0026 23.512 21.9508 25.8011 23.6386 27.489C25.3265 29.1768 27.6157 30.125 30.0026 30.125C32.3896 30.125 34.6787 29.1768 36.3666 27.489C38.0544 25.8011 39.0026 23.512 39.0026 21.125C39.0026 18.7381 38.0544 16.4489 36.3666 14.761C34.6787 13.0732 32.3896 12.125 30.0026 12.125Z" fill="currentColor"/>
+                                    </g>
+                                </svg>
+                            </div>
+                            <h4 class="user-name">Дмитрий</h4>
+                        </div>
+                      <div class="rating" aria-hidden="true">★★★★☆</div>
+                    </header>
+                    <p class="review-text">
+                      Телефон мощный, работает быстро, игры тянет без лагов. Немного тяжеловат для меня, но к этому можно привыкнуть. В остальном — очень достойная модель за свои деньги.
+                    </p>
+                  </article>
+                  <article class="review" data-rating="5" aria-label="Оценка 5 из 5">
+                    <header>
+                        <div class="user">
+                            <div class="user-avatar">
+                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M30.0026 33.625C24.5776 33.6175 19.3113 35.4551 15.0686 38.836C14.6901 39.1401 14.3267 39.4625 13.9796 39.802C13.3994 40.3612 12.9379 41.0316 12.6224 41.773C12.307 42.5145 12.1441 43.3119 12.1436 44.1177C12.143 44.9235 12.3048 45.7212 12.6192 46.4631C12.9336 47.205 13.3942 47.876 13.9736 48.436C14.4056 48.856 14.8106 49.21 15.1796 49.504C19.4039 52.8298 24.6262 54.634 30.0026 54.625C35.4039 54.634 40.6489 52.8131 44.8826 49.459C45.2366 49.177 45.6176 48.838 46.0316 48.439C46.6112 47.8792 47.072 47.2084 47.3867 46.4666C47.7014 45.7247 47.8634 44.9272 47.8631 44.1214C47.8629 43.3156 47.7003 42.5181 47.3851 41.7765C47.0699 41.0349 46.6086 40.3644 46.0286 39.805C45.6893 39.4749 45.3349 39.1605 44.9666 38.863C40.7205 35.464 35.4415 33.6162 30.0026 33.625ZM30.0026 12.125C27.6157 12.125 25.3265 13.0732 23.6386 14.761C21.9508 16.4489 21.0026 18.7381 21.0026 21.125C21.0026 23.512 21.9508 25.8011 23.6386 27.489C25.3265 29.1768 27.6157 30.125 30.0026 30.125C32.3896 30.125 34.6787 29.1768 36.3666 27.489C38.0544 25.8011 39.0026 23.512 39.0026 21.125C39.0026 18.7381 38.0544 16.4489 36.3666 14.761C34.6787 13.0732 32.3896 12.125 30.0026 12.125Z" fill="currentColor"/>
+                                    </g>
+                                </svg>
+                            </div>
+                            <h4 class="user-name">Мария</h4>
+                        </div>
+                      <div class="rating" aria-hidden="true">★★★★★</div>
+                    </header>
+                    <p class="review-text">
+                      Пользуюсь уже месяц, ни разу не подвёл. Очень нравится беспроводная зарядка и быстрая подзарядка — реально экономит время. Дизайн стильный, выглядит дорого.
+                    </p>
+                  </article>
+                  <article class="review" data-rating="3" aria-label="Оценка 3 из 5">
+                    <header>
+                        <div class="user">
+                            <div class="user-avatar">
+                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M30.0026 33.625C24.5776 33.6175 19.3113 35.4551 15.0686 38.836C14.6901 39.1401 14.3267 39.4625 13.9796 39.802C13.3994 40.3612 12.9379 41.0316 12.6224 41.773C12.307 42.5145 12.1441 43.3119 12.1436 44.1177C12.143 44.9235 12.3048 45.7212 12.6192 46.4631C12.9336 47.205 13.3942 47.876 13.9736 48.436C14.4056 48.856 14.8106 49.21 15.1796 49.504C19.4039 52.8298 24.6262 54.634 30.0026 54.625C35.4039 54.634 40.6489 52.8131 44.8826 49.459C45.2366 49.177 45.6176 48.838 46.0316 48.439C46.6112 47.8792 47.072 47.2084 47.3867 46.4666C47.7014 45.7247 47.8634 44.9272 47.8631 44.1214C47.8629 43.3156 47.7003 42.5181 47.3851 41.7765C47.0699 41.0349 46.6086 40.3644 46.0286 39.805C45.6893 39.4749 45.3349 39.1605 44.9666 38.863C40.7205 35.464 35.4415 33.6162 30.0026 33.625ZM30.0026 12.125C27.6157 12.125 25.3265 13.0732 23.6386 14.761C21.9508 16.4489 21.0026 18.7381 21.0026 21.125C21.0026 23.512 21.9508 25.8011 23.6386 27.489C25.3265 29.1768 27.6157 30.125 30.0026 30.125C32.3896 30.125 34.6787 29.1768 36.3666 27.489C38.0544 25.8011 39.0026 23.512 39.0026 21.125C39.0026 18.7381 38.0544 16.4489 36.3666 14.761C34.6787 13.0732 32.3896 12.125 30.0026 12.125Z" fill="currentColor"/>
+                                    </g>
+                                </svg>
+                            </div>
+                            <h4 class="user-name">Алексей</h4>
+                        </div>
+                      <div class="rating" aria-hidden="true">★★★☆☆</div>
+                    </header>
+                    <p class="review-text">
+                      В целом смартфон хороший, но ожидал чуть лучше автономность. Если активно использовать интернет и камеру, садится быстрее, чем хотелось бы. Однако качество экрана и звук компенсируют этот минус.
+                    </p>
+                  </article>
+                  <article class="review" data-rating="5" aria-label="Оценка 5 из 5">
+                    <header>
+                        <div class="user">
+                            <div class="user-avatar">
+                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M30.0026 33.625C24.5776 33.6175 19.3113 35.4551 15.0686 38.836C14.6901 39.1401 14.3267 39.4625 13.9796 39.802C13.3994 40.3612 12.9379 41.0316 12.6224 41.773C12.307 42.5145 12.1441 43.3119 12.1436 44.1177C12.143 44.9235 12.3048 45.7212 12.6192 46.4631C12.9336 47.205 13.3942 47.876 13.9736 48.436C14.4056 48.856 14.8106 49.21 15.1796 49.504C19.4039 52.8298 24.6262 54.634 30.0026 54.625C35.4039 54.634 40.6489 52.8131 44.8826 49.459C45.2366 49.177 45.6176 48.838 46.0316 48.439C46.6112 47.8792 47.072 47.2084 47.3867 46.4666C47.7014 45.7247 47.8634 44.9272 47.8631 44.1214C47.8629 43.3156 47.7003 42.5181 47.3851 41.7765C47.0699 41.0349 46.6086 40.3644 46.0286 39.805C45.6893 39.4749 45.3349 39.1605 44.9666 38.863C40.7205 35.464 35.4415 33.6162 30.0026 33.625ZM30.0026 12.125C27.6157 12.125 25.3265 13.0732 23.6386 14.761C21.9508 16.4489 21.0026 18.7381 21.0026 21.125C21.0026 23.512 21.9508 25.8011 23.6386 27.489C25.3265 29.1768 27.6157 30.125 30.0026 30.125C32.3896 30.125 34.6787 29.1768 36.3666 27.489C38.0544 25.8011 39.0026 23.512 39.0026 21.125C39.0026 18.7381 38.0544 16.4489 36.3666 14.761C34.6787 13.0732 32.3896 12.125 30.0026 12.125Z" fill="currentColor"/>
+                                    </g>
+                                </svg>
+                            </div>
+                            <h4 class="user-name">Екатерина</h4>
+                        </div>
+                      <div class="rating" aria-hidden="true">★★★★★</div>
+                    </header>
+                    <p class="review-text">
+                      Это мой лучший смартфон за последние годы! Камера супер — особенно портретный режим. Удобный интерфейс, всё интуитивно понятно. Советую тем, кто ищет баланс цены и качества.
+                    </p>
+                  </article>
+            </div>
+        </div>
+    </div>
+    <script>
+        class TabsList {
+            constructor(groupNode) {
+                this.tablistNode = groupNode;
+
+                this.tabs = [];
+
+                this.firstTab = null;
+                this.lastTab = null;
+
+                this.tabs = Array.from(this.tablistNode.querySelectorAll('[role=tab]'));
+                this.tabpanels = [];
+
+                for (let i = 0; i < this.tabs.length; i += 1) {
+                    const tab = this.tabs[i];
+                    const tabpanel = document.getElementById(tab.getAttribute('aria-controls'));
+
+                    tab.tabIndex = -1;
+                    tab.setAttribute('aria-selected', 'false');
+                    this.tabpanels.push(tabpanel);
+
+                    tab.addEventListener('keydown', this.onKeydown.bind(this));
+                    tab.addEventListener('click', this.onClick.bind(this));
+
+                    if (!this.firstTab) {
+                        this.firstTab = tab;
+                    }
+                    this.lastTab = tab;
+                }
+
+                this.setSelectedTab(this.firstTab, false);
+            }
+
+            setSelectedTab(currentTab, setFocus) {
+                if (typeof setFocus !== 'boolean') {
+                    setFocus = true;
+                }
+                for (let i = 0; i < this.tabs.length; i += 1) {
+                    let tab = this.tabs[i];
+                    if (currentTab === tab) {
+                        tab.setAttribute('aria-selected', 'true');
+                        tab.removeAttribute('tabindex');
+                        this.tabpanels[i].classList.remove('is-hidden');
+                        if (setFocus) {
+                            tab.focus();
+                        }
+                    } else {
+                        tab.setAttribute('aria-selected', 'false');
+                        tab.tabIndex = -1;
+                        this.tabpanels[i].classList.add('is-hidden');
+                    }
+                }
+            }
+
+            setSelectedToPreviousTab(currentTab) {
+                let index;
+
+                if (currentTab === this.firstTab) {
+                    this.setSelectedTab(this.lastTab);
+                } else {
+                    index = this.tabs.indexOf(currentTab);
+                    this.setSelectedTab(this.tabs[index - 1]);
+                }
+            }
+
+            setSelectedToNextTab(currentTab) {
+                let index;
+
+                if (currentTab === this.lastTab) {
+                    this.setSelectedTab(this.firstTab);
+                } else {
+                    index = this.tabs.indexOf(currentTab);
+                    this.setSelectedTab(this.tabs[index + 1]);
+                }
+            }
+
+            onKeydown(event) {
+                const tgt = event.currentTarget,
+                flag = false;
+
+                switch (event.key) {
+                case 'ArrowLeft':
+                    this.setSelectedToPreviousTab(tgt);
+                    flag = true;
+                    break;
+
+                case 'ArrowRight':
+                    this.setSelectedToNextTab(tgt);
+                    flag = true;
+                    break;
+
+                case 'Home':
+                    this.setSelectedTab(this.firstTab);
+                    flag = true;
+                    break;
+
+                case 'End':
+                    this.setSelectedTab(this.lastTab);
+                    flag = true;
+                    break;
+
+                default:
+                    break;
+                }
+
+                if (flag) {
+                    event.stopPropagation();
+                    event.preventDefault();
+                }
+            }
+
+            onClick(event) {
+                this.setSelectedTab(event.currentTarget);
+            }
+        }
+
+        window.addEventListener('load', () => {
+            const tablists = document.querySelectorAll('[role=tablist]');
+            for (let i = 0; i < tablists.length; i++) {
+                new TabsList(tablists[i]);
+            }
+        });
+    </script>
+</body>
+</html>
