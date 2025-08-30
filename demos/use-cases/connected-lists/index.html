@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Связанные списки</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex" />
+    <link rel="preload" href="../../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../../lib/styles/fonts-for-demos.css">
+</head>
+<body>
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background-color: rgb(22, 22, 22);
+            font-weight: bold;
+            font-size: 22px;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            padding: 20px 30px 20px 50px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+
+        .avatars {
+            display: grid;
+            grid-template-columns: repeat(3, 120px);
+            grid-template-rows: repeat(3, 120px);
+            gap: 20px;
+        }
+
+        .avatar-wrapper {
+            width: 100%;
+            height: 100%;
+            outline-offset: 6px;
+            outline-color: hsla(48, 98%, 64%, 1);
+        }
+
+        .avatar-wrapper img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .avatar-wrapper img:hover {
+            opacity: 0.5;
+        }
+        
+        .links {
+            list-style: none;
+        }
+        .links li {
+            margin-bottom: 10px;
+        }
+        .role {
+            display: inline;
+            margin-left: 10px;
+            font-weight: normal;
+        }
+        .name {
+            text-decoration: none;
+            color: hsla(48, 98%, 64%, 1);
+            transition: color 0.3s ease-in-out;
+        }
+
+        .name:hover {
+            color: hsla(48, 98%, 64%, 0.6);
+        }
+
+        .name:focus-visible {
+            outline-color: hsla(48, 98%, 64%, 1);
+            outline-offset: 6px;
+            outline-width: 3px;
+        }
+
+        [style*="--is:"] {
+            anchor-name: var(--is);
+        }
+
+        [style*="--for:"]:is(:hover, :focus-visible)::after {
+            content: "";
+
+            position: absolute;
+            top: anchor(var(--for) top);
+            right: anchor(var(--for) right);
+            bottom: anchor(var(--for) bottom);
+            left: anchor(var(--for) left);
+        }
+
+        .avatars [style*="--for:"]:is(:hover, :focus-visible)::after {
+            background: hsla(48, 98%, 64%, 1);
+            mix-blend-mode: difference;
+            border-radius: 6px;
+            margin: -6px;
+            animation: fadeIn 0.3s ease-in-out both;
+        }
+
+        .links [style*="--for:"]:is(:hover, :focus-visible)::after {
+            background: var(--bg) no-repeat center / cover;
+            border-radius: 5px;
+            animation: zoomIn 0.28s linear alternate both;
+            box-shadow:
+                0px 10px 20px rgba(255, 255, 255, 0.07),
+                0px 10px 60px -5px rgba(49, 49, 49, 0.2);
+        }
+
+        @keyframes zoomIn {
+            from {
+                scale: 1;
+            }
+            to {
+                scale: 1.5;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <div class="container">
+        <div class="avatars">
+            <a href="#" class="avatar-wrapper" style="--for: --person-name-1;">
+                <img src="./assets/i-1.png" alt="" style="--is: --person-avatar-1;">
+            </a>
+            <a href="#" class="avatar-wrapper" style="--for: --person-name-2;">
+                <img src="./assets/i-2.png" alt="" style="--is: --person-avatar-2;">
+            </a>
+            <a href="#"class="avatar-wrapper" style="--for: --person-name-3;">
+                <img src="./assets/i-3.png" alt="" style="--is: --person-avatar-3;">
+            </a>
+            <a href="#" class="avatar-wrapper" style="--for: --person-name-4;">
+                <img src="./assets/i-4.png" alt="" style="--is: --person-avatar-4;">
+            </a>
+            <a href="#" class="avatar-wrapper" style="--for: --person-name-5;">
+                <img src="./assets/i-5.png" alt="" style="--is: --person-avatar-5;">
+            </a>
+            <a href="#" class="avatar-wrapper" style="--for: --person-name-6;">
+                <img src="./assets/i-6.png" alt="" style="--is: --person-avatar-6;">
+            </a>
+            <a href="#" class="avatar-wrapper" style="--for: --person-name-7;">
+                <img src="./assets/i-7.png" alt="" style="--is: --person-avatar-7;">
+            </a>
+            <a href="#" class="avatar-wrapper" style="--for: --person-name-8;">
+                <img src="./assets/i-8.png" alt="" style="--is: --person-avatar-8;">
+            </a>
+            <a href="#" class="avatar-wrapper" style="--for: --person-name-9;">
+                <img src="./assets/i-9.png" alt="" style="--is: --person-avatar-9;">
+            </a>
+        </div>
+        <div>
+            <h2>Наша команда</h2>
+            <ul class="links">
+                <li>
+                    <a class="name" href="#" style="--is: --person-name-1; --for: --person-avatar-1; --bg:url('./assets/i-1.png');">Алина Смирнова</a>
+                    <div class="role">UX/UI-дизайнер</div>
+                </li>
+                <li>
+                    <a class="name" href="#" style="--is: --person-name-2; --for: --person-avatar-2; --bg:url('./assets/i-2.png');">Максим Ковалёв</a>
+                    <div class="role">Backend-разработчик</div>
+                </li>
+                <li>
+                    <a class="name" href="#" style="--is: --person-name-3; --for: --person-avatar-3; --bg:url('./assets/i-3.png');">Марина Волкова</a>
+                    <div class="role">HR-специалист</div>
+                </li>
+                <li>
+                    <a class="name" href="#" style="--is: --person-name-4; --for: --person-avatar-4; --bg:url('./assets/i-4.png');">Игорь Захаров</a>
+                    <div class="role">DevOps-инженер</div>
+                </li>
+                <li>
+                    <a class="name" href="#" style="--is: --person-name-5; --for: --person-avatar-5; --bg:url('./assets/i-5.png')">Наталья Орлова</a>
+                    <div class="role">Проджект-менеджер</div>
+                </li>
+                <li>
+                    <a class="name" href="#" style="--is: --person-name-6; --for: --person-avatar-6; --bg:url('./assets/i-6.png');">Андрей Лебедев</a>
+                    <div class="role">QA-инженер</div>
+                </li>
+                <li>
+                    <a class="name" href="#" style="--is: --person-name-7; --for: --person-avatar-7; --bg:url('./assets/i-7.png');">Светлана Миронова</a>
+                    <div class="role">Frontend-разработчик</div>
+                </li>
+                <li>
+                    <a class="name" href="#" style="--is: --person-name-8; --for: --person-avatar-8; --bg:url('./assets/i-8.png');">Алексей Никитин</a>
+                    <div class="role">Data Scientist</div>
+                </li>
+                <li">
+                    <a class="name" href="#" style="--is: --person-name-9; --for: --person-avatar-9; --bg:url('./assets/i-9.png');">Елена Гусева</a>
+                    <div class="role">Бизнес-аналитик</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
