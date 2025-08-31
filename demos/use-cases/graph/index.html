@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Граф</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preload" href="../../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../../lib/styles/fonts-for-demos.css">
+</head>
+<body>
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background-color: rgb(22, 22, 22);
+            font-weight: bold;
+            font-size: 40px;
+        }
+
+        .point {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50px;
+            background-color: hsla(48, 98%, 64%, 1);
+            align-content: center;
+            text-align: center;
+            z-index: 1;
+        }
+        .draggable {
+            user-select: none;
+            cursor: grab;
+        }
+        .draggable:active {
+            cursor: grabbing;
+        }
+
+        .line {
+            anchor-name: --line;
+            position: fixed;
+            background: linear-gradient(white, white) no-repeat center/6px 100%;
+
+            position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
+            
+            top: anchor(var(--from) center);
+            left: anchor(var(--from) center);
+            bottom: anchor(var(--to) center);
+            right: anchor(var(--to) center);
+        }
+
+        .line::before,
+        .line::after {
+            position: fixed;
+            display: block;
+            content: '';
+            background: white;
+            height: 6px;
+            position-try-fallbacks: inherit;
+        }
+        .line::before {
+            bottom: anchor(var(--from) center);
+            left: anchor(var(--from) right);
+            right: anchor(--line center);
+        }
+        .line::after {
+            bottom: anchor(var(--to) center);
+            right: anchor(var(--to) left);
+            left: anchor(--line center);
+        }
+    </style>
+    <div class="point draggable" style="anchor-name: --a;   top: 250px;     left: 100px;">A</div>
+    <div class="point draggable" style="anchor-name: --b; top: 150px; left: 300px;">B</div>
+    <div class="point draggable" style="anchor-name: --c;   top: 400px; left: 400px;">C</div>
+    <div class="point draggable" style="anchor-name: --d; top: 250px; left: 500px;">D</div>
+    <div class="point draggable" style="anchor-name: --e; top: 50px; left: 600px;">E</div>
+    <div class="point draggable" style="anchor-name: --f; top: 370px; left: 660px;">F</div>
+    <div class="point draggable" style="anchor-name: --g; top: 180px; left: 750px;">G</div>
+    <div class="point draggable" style="anchor-name: --h; top: 280px; left: 900px;">H</div>
+
+    <div class="line" style="--from: --a; --to: --b"></div>
+    <div class="line" style="--from: --a; --to: --c"></div>
+    <div class="line" style="--from: --a; --to: --d"></div>
+    <div class="line" style="--from: --b; --to: --e"></div>
+    <div class="line" style="--from: --c; --to: --f"></div>
+    <div class="line" style="--from: --d; --to: --f"></div>
+    <div class="line" style="--from: --e; --to: --g"></div>
+    <div class="line" style="--from: --f; --to: --g"></div>
+    <div class="line" style="--from: --g; --to: --h"></div>
+    <script>
+        const dragElement = (element) => {
+            let x = 0;
+            let y = 0;
+            let xOffset = 0;
+            let yOffset = 0;
+
+            element.onmousedown = (event) => {
+                event.preventDefault();
+                xOffset = event.clientX;
+                yOffset = event.clientY;
+
+                document.onmouseup = () => {
+                    document.onmouseup = null;
+                    document.onmousemove = null;
+                };
+
+                document.onmousemove = (event) => {
+                    x = xOffset - event.clientX;
+                    y = yOffset - event.clientY;
+                    xOffset = event.clientX;
+                    yOffset = event.clientY;
+                    element.style.top = `${element.offsetTop - y}px`;
+                    element.style.left = `${element.offsetLeft - x}px`;
+                };
+            };
+        };
+
+        const draggableElements = document.querySelectorAll('.draggable');
+        draggableElements.forEach(dragElement);
+    </script>
+</body>
+</html>
