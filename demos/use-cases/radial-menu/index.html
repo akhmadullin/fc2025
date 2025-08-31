@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Радиальное меню</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preload" href="../../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../../lib/styles/fonts-for-demos.css">
+</head>
+<body>
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background-color: rgb(22, 22, 22);
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /**
+         * credits to 
+         * @link https://una.im/radial-menu/
+        */
+        :root {
+            --btn-size: 6rem;
+            --extra-space: 2.8rem;
+        }
+
+        /* Where the magic happens */
+        .item {
+            --radius: calc(var(--btn-size) + var(--extra-space));
+            background-color: var(--bg);
+            transform: translateX(calc(cos(var(--angle)) * var(--radius)))
+                            translateY(calc(sin(var(--angle) * -1) * var(--radius)))
+                        rotate(0deg);
+            opacity: 0;
+            transition: all 0.3s var(--delay) ease, background-color 0.3s;
+        }
+
+        .item:hover {
+            background-color: var(--bg-hover);
+        }
+
+        /* Adding for popover base */
+
+        .menu-items:not(:popover-open) .item {
+            --radius: 0;
+            --angle: 0;
+            rotate: 45deg;
+        }
+
+        .menu-items {
+            border: none;
+        }
+
+        svg {
+            width: calc(var(--btn-size) / 2);
+            height: auto;
+            margin-top: 6px;
+        }
+
+        /* rotate the "plus" */
+        .menu-toggle > div {
+            transition: transform 0.3s;
+        }
+
+        .menu:has(:popover-open) .menu-toggle > div {
+            transform: rotate(45deg);
+        }
+
+        .menu:has(:popover-open) .menu-toggle {
+            background-color: white;
+        }
+
+        .menu-items {
+            /*  popover override  */
+            background: none;
+            inset: auto;
+            /*  position  */
+            position-anchor: --menu-toggle;
+            position-area: center;
+        }
+
+        .hidden-close {
+            transform: rotate(45deg);
+            transition: opacity 0.1s;
+            transition-delay: 1s;
+            width: var(--btn-size);
+            aspect-ratio: 1;
+        }
+
+        :popover-open .item {
+            opacity: 1;
+        }
+
+        /* Every item gets a background, angle, and delay */
+        /* This gets updated when the popover is open */
+
+        .item:nth-child(1) {
+            --bg: white;
+            --bg-hover: hsla(48, 98%, 64%, 1);
+            --angle: 0deg;
+            --delay: 0s;
+        }
+
+        .item:nth-child(2) {
+            --bg: white;
+            --bg-hover: hsla(48, 98%, 64%, 1);
+            --angle: 45deg;
+            --delay: 0.1s;
+        }
+
+        .item:nth-child(3) {
+            --bg:	white;
+            --bg-hover: hsla(48, 98%, 64%, 1);
+            --angle: 90deg;
+            --delay: 0.2s;
+        }
+
+        .item:nth-child(4) {
+            --bg: white;
+            --bg-hover: hsla(48, 98%, 64%, 1);
+            --angle: 135deg;
+            --delay: 0.3s;
+        }
+
+        .item:nth-child(5) {
+            --bg: white;
+            --bg-hover: hsla(48, 98%, 64%, 1);
+            --angle: 180deg;
+            --delay: 0.4s;
+        }
+
+        .item:nth-child(6) {
+            --bg: white;
+            --bg-hover: hsla(48, 98%, 64%, 1);
+            --angle: 225deg;
+            --delay: 0.5s;
+        }
+
+        .item:nth-child(7) {
+            --bg: white;
+            --bg-hover: hsla(48, 98%, 64%, 1);
+            --angle: 270deg;
+            --delay: 0.6s;
+        }
+
+        .item:nth-child(8) {
+            --bg: white;
+            --bg-hover: hsla(48, 98%, 64%, 1);
+            --angle: 315deg;
+            --delay: 0.7s;
+        }
+
+        .item:last-child {
+            --bg: hsla(48, 98%, 64%, 1);
+            --bg-hover: white;
+            --delay: 0.8s;
+        }
+
+        /* Not related to demmo, just styling */
+
+        .item {
+            border-radius: 50%;
+            width: var(--btn-size);
+            aspect-ratio: 1;
+            cursor: pointer;
+        }
+
+        .menu-toggle {
+            anchor-name: --menu-toggle;
+            border-radius: 50%;
+            width: var(--btn-size);
+            aspect-ratio: 1;
+            background-color: hsla(48, 98%, 64%, 1);
+            z-index: 1;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .menu-toggle:hover {
+            background-color: hsla(0, 0%, 100%, 1);
+        }
+
+        /* Grid piles */
+
+        .menu,
+        .menu-items,
+        body,
+        .item {
+            display: grid;
+            place-content: center;
+        }
+
+        .menu > *,
+        .menu-items > *,
+        body > *
+        .item button {
+            grid-area: 1/1;
+        }
+
+        .item button {
+            width: var(--btn-size);
+            height: var(--btn-size);
+            border-radius: 50%;
+        }
+
+        /* Resets, etc. */
+        /* visually-hidden ala https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html */
+        .screen-reader-only {
+            clip: rect(0 0 0 0); 
+            clip-path: inset(50%);
+            height: 1px;
+            overflow: hidden;
+            position: absolute;
+            white-space: nowrap; 
+            width: 1px;
+        }
+
+        button {
+            border: none;
+            background: none;
+            font-family: 'Noto Emoji';
+            color: #222;
+            font-size: 1.25rem;
+            cursor: pointer;
+        }
+
+        button:focus-visible {
+            outline: 4px solid hsla(203, 97%, 65%, 1);
+            outline-offset: 4px;
+            border-radius: 50%;
+            aspect-ratio: 1/1;
+        }
+
+        /* body {
+            height: 100vh;
+        } */
+
+        .menu, .menu-items {
+            overflow: unset;
+        }
+    </style>
+    <div class="container">
+        <div class="menu">
+            <button class="menu-toggle" popovertarget="menu-items">
+              <span aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12H21M3 17H21M3 7H21" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </span>
+              <span class="screen-reader-only">Открыть меню</span>
+            </button>
+            <ul class="menu-items" id="menu-items" popover role="menu">
+              <li class="item">
+                <button role="menuitem">
+                  <span aria-hidden="true">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 14.0004C26.7886 6.24298 15.5 -1.99928 12.0001 6.99979C8.50006 -1.99928 -2.65695 6.24302 4.13155 14.0004C7.63156 18 10.5001 19.5001 12.0001 20.9995C13.5 19.5001 16.5 17.9999 20 14.0004Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </span>
+                  <span class="screen-reader-only">Избранное</span>
+                </button>
+              </li>
+              <li class="item">
+                <button role="menuitem">
+                  <span aria-hidden="true">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 20.8889C11.5344 21.4827 12.4656 21.4827 13 20.8889M18.5 11C18.7288 12.7551 19.3461 14.4441 20.3146 15.9409L21 17H3L3.68539 15.9408C4.93512 14.0096 5.6 11.7583 5.6 9.45798V8.4C5.6 5.03364 8.19907 2.27432 11.5 2.01924M20 5C20 6.65685 18.6569 8 17 8C15.3431 8 14 6.65685 14 5C14 3.34315 15.3431 2 17 2C18.6569 2 20 3.34315 20 5Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </span>
+                  <span class="screen-reader-only">Уведомления</span>
+                </button>
+              </li>
+              <li class="item">
+                <button role="menuitem">
+                  <span aria-hidden="true">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.5 5.5L12.5 11.5M6.07682 21.305L14 13.4067L10.5714 10L2.69947 17.9491C1.76684 18.8758 1.76684 20.3783 2.69947 21.305C3.6321 22.2317 5.14419 22.2317 6.07682 21.305ZM20 7L17 4.00029L20 2L22 4.00029L20 7Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </span>
+                  <span class="screen-reader-only">Настройки</span>
+                </button>
+              </li>
+              <li class="item">
+                <button role="menuitem">
+                  <span aria-hidden="true">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 17H21C21.5523 17 22 16.5523 22 16V12.6311C22 12.2188 21.747 11.8488 21.3629 11.6992L17 10L14.2913 5.4855C14.1106 5.1843 13.7851 5 13.4338 5H6.67703C6.26813 5 5.90042 5.24895 5.74856 5.62861L4 10H3C2.44772 10 2 10.4477 2 11V16C2 16.5523 2.44772 17 3 17H6M18 17C18 18.1046 17.1046 19 16 19C14.8954 19 14 18.1046 14 17M18 17C18 15.8954 17.1046 15 16 15C14.8954 15 14 15.8954 14 17M6 17C6 18.1046 6.89543 19 8 19C9.10457 19 10 18.1046 10 17M6 17C6 15.8954 6.89543 15 8 15C9.10457 15 10 15.8954 10 17M10 17H14" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </span>
+                  <span class="screen-reader-only">Объявления</span>
+                </button>
+              </li>
+              <li class="item">
+                <button role="menuitem">
+                  <span aria-hidden="true">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.01611 12.0161L6 12M18.0161 12.0161L18 12M3 18H21C21.5523 18 22 17.5523 22 17V7C22 6.44772 21.5523 6 21 6H3C2.44772 6 2 6.44772 2 7V17C2 17.5523 2.44772 18 3 18ZM14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                  </span>
+                  <span class="screen-reader-only">Кошелек</span>
+                </button>
+              </li>
+              <li class="item">
+                <button role="menuitem">
+                  <span aria-hidden="true">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 21H20C20 21 18.5 15 12 15C5.5 15 4 21 4 21Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                  </span>
+                  <span class="screen-reader-only">Профиль</span>
+                </button>
+              </li>
+              <li class="item">
+                <button role="menuitem">
+                  <span aria-hidden="true">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.5 21H20C20.5523 21 21 20.5523 21 20V10.25C21 9.93524 20.8518 9.63885 20.6 9.45L12 3L3.4 9.45C3.14819 9.63885 3 9.93524 3 10.25V20C3 20.5523 3.44772 21 4 21H9.5M14.5 21H9.5M14.5 21V15.5C14.5 14.1193 13.3807 13 12 13C10.6193 13 9.5 14.1193 9.5 15.5V21" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                  </span>
+                  <span class="screen-reader-only">Главная</span>
+                </button>
+              </li>
+              <li class="item">
+                <button role="menuitem">
+                  <span aria-hidden="true">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 7H15M7 11H11M5 3H19C20.1046 3 21 3.89543 21 5V15C21 16.1046 20.1046 17 19 17H16L12.3536 20.6464C12.1583 20.8417 11.8417 20.8417 11.6464 20.6464L8 17H5C3.89543 17 3 16.1046 3 15V5C3 3.89543 3.89543 3 5 3Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                  </span>
+                  <span class="screen-reader-only">Сообщения</span>
+                </button>
+              </li>
+              <li class="item">
+                <button popovertargetaction="hide" popovertarget="menu-items">
+                  <span aria-hidden="true">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 5L19 19M5 19L19 5" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                  </span>
+                  <span class="screen-reader-only">Закрыть меню</span>
+                </button>
+              </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
