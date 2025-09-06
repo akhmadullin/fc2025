@@ -87,7 +87,8 @@
             background-size: 100%;
         }
 
-        #the-end {
+        #the-end,
+        .the-end {
             background-image: url(./images/end.svg);
             background-position: center;
             background-size: 100%;
@@ -95,7 +96,8 @@
 
         #intro::after,
         #about-me::after,
-        #the-end::after {
+        #the-end::after,
+        .the-end::after {
             display: none;
         }
 
@@ -393,6 +395,10 @@
             background-image: linear-gradient(to top, var(--color-line) 0.1em, transparent 0.1em);
             background-repeat: repeat-x;
         }
+
+        .centered-text {
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -418,9 +424,9 @@
         <div class="place r t" style="padding-top: 156px; padding-right: 70px;">
             <h2>Рома Ахмадуллин</h2>
             <ul>
-                <li>фронтенд-разработчик в Дроме</li>
+                <li>лид фронтенда в Дроме</li>
                 <li>контрибьючу в Доку</li>
-                <li>что-то ещё</li>
+                <li>делаю очень много слайдов</li>
             </ul>
         </div>
     </section>
@@ -4369,7 +4375,27 @@
         <a href="https://t.me/roma_akhmadullin" class="copyright">Рома вещает</a>
     </section>
 
-    <section id="the-end" class="slide without-progress" style="padding: 60px;">
+    <section class="the-end slide without-progress" style="padding: 60px;">
+        <div><h2 style="text-transform: uppercase; font-size: 45px;">Всем добра!</h2></div>
+        <div style="display: flex; align-items: center; gap: 20px; margin-top: 35px;">
+            <img src="./images/roma-akmadullin.jpg" alt="" style="border-radius: 50%; width: 100px;">
+            <div>
+                <h3 style="margin: 0; line-height: 1; margin-bottom: 5px;">Рома Ахмадуллин</h3>
+                <p style="margin: 0; line-height: 1;">Дром</p>
+            </div>
+        </div>
+        <div class="place r t" style="width: 22%; top: 5%; right: 5%;">
+            <h4 class="end__subheading centered-text">Оценить доклад</h4>
+            <img src="./images/qr-code-to-tg-channel.svg" class="rounded qr-code" alt="" style="width: 100%;">
+        </div>
+
+        <div class="place l b" style="width: 22%; bottom: 5%; left: 5%;">
+            <h4 class="end__subheading centered-text">Подписаться</h4>
+            <img src="./images/qr-code-to-tg-channel.svg" class="rounded qr-code" alt="" style="width: 100%;">
+        </div>
+    </section>
+
+    <section class="the-end slide without-progress" style="padding: 60px;">
         <div><h2 style="text-transform: uppercase; font-size: 45px;">Всем добра!</h2></div>
         <div style="display: flex; align-items: center; gap: 20px; margin-top: 65px;">
             <img src="./images/roma-akmadullin.jpg" alt="" style="border-radius: 50%; width: 100px;">
@@ -4378,7 +4404,7 @@
                 <p style="margin: 0; line-height: 1;">Дром</p>
             </div>
         </div>
-        <!-- <div class="end-bio__links place l b" style="left: 6%; bottom: 6%;">
+        <div class="end-bio__links place l b" style="left: 6%; bottom: 6%;">
             <div>
                 <h4 class="end__subheading">Слайды</h4>
                 <div class="end-bio__link-block">
@@ -4394,10 +4420,10 @@
                 </div>
             </div>
         </div>
-        <div class="place r b" style="width: 22%; bottom: 7%; right: 5%;">
-            <h4 class="end__subheading">Оценить доклад</h4>
-            <img src="" class="rounded qr-code" alt="" style="width: 100%;">
-        </div> -->
+        <div class="place r t" style="width: 22%; top: 6%; right: 5%;">
+            <h4 class="end__subheading centered-text">Оценить доклад</h4>
+            <img src="./images/qr-code-to-tg-channel.svg" class="rounded qr-code" alt="" style="width: 100%;">
+        </div> 
     </section>
    
     <div class="progress"></div>
