@@ -370,6 +370,29 @@
         .plus-minus-title {
             margin: 0;
         }
+
+        .slide.slide-with-table {
+            padding: 50px 40px 0 80px;
+        }
+
+        .slide-with-table table {
+            font-size: 1em;
+        }
+
+        .slide.slide-with-table td {
+            padding-top: 7px;
+            padding-bottom: 7px;
+        }
+
+        .slide.slide-with-table table th:first-child,
+        .slide.slide-with-table table td:first-child {
+            width: 325px;
+        }
+
+        .slide tr:not(:last-of-type) > * {
+            background-image: linear-gradient(to top, var(--color-line) 0.1em, transparent 0.1em);
+            background-repeat: repeat-x;
+        }
     </style>
 </head>
 
@@ -4003,6 +4026,334 @@
 
     <section class="slide">
         <iframe src="./demos/use-cases/graph-animation/index.html" class="place iframe" frameborder="0" style="height: 90%;"></iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Подытожим</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">CSS Anchor Positioning</h2>
+    </section>
+
+    <section class="slide slide-with-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Фича</th>
+                    <th>CSS-cвойства</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>anchor и target</td>
+                    <td>
+                        <code>anchor-name</code>,
+                        <code>position-anchor</code>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="slide slide-with-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Фича</th>
+                    <th>CSS-cвойства</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="muted">
+                    <td>anchor и target</td>
+                    <td>
+                        <code>anchor-name</code>,
+                        <code>position-anchor</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>местоположение</td>
+                    <td><code>anchor()</code>, <code>position-area</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="slide slide-with-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Фича</th>
+                    <th>CSS-cвойства</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="muted">
+                    <td>anchor и target</td>
+                    <td>
+                        <code>anchor-name</code>,
+                        <code>position-anchor</code>
+                    </td>
+                </tr>
+                <tr class="muted">
+                    <td>местоположение</td>
+                    <td><code>anchor()</code>, <code>position-area</code></td>
+                </tr>
+                <tr>
+                    <td>размер</td>
+                    <td><code>anchor-size()</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="slide slide-with-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Фича</th>
+                    <th>CSS-cвойства</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="muted">
+                    <td>anchor и target</td>
+                    <td>
+                        <code>anchor-name</code>,
+                        <code>position-anchor</code>
+                    </td>
+                </tr>
+                <tr class="muted">
+                    <td>местоположение</td>
+                    <td><code>anchor()</code>, <code>position-area</code></td>
+                </tr>
+                <tr class="muted">
+                    <td>размер</td>
+                    <td><code>anchor-size()</code></td>
+                </tr>
+                <tr>
+                    <td>адаптивность местоположения</td>
+                    <td>
+                        <code>position-try</code>,
+                        <code>position-try-fallbacks</code>,
+                        <code>position-try-order</code>,
+                        <code>@positoin-try</code>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="slide slide-with-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Фича</th>
+                    <th>CSS-cвойства</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="muted">
+                    <td>anchor и target</td>
+                    <td>
+                        <code>anchor-name</code>,
+                        <code>position-anchor</code>
+                    </td>
+                </tr>
+                <tr class="muted">
+                    <td>местоположение</td>
+                    <td><code>anchor()</code>, <code>position-area</code></td>
+                </tr>
+                <tr class="muted">
+                    <td>размер</td>
+                    <td><code>anchor-size()</code></td>
+                </tr>
+                <tr class="muted">
+                    <td>адаптивность местоположения</td>
+                    <td>
+                        <code>position-try</code>,
+                        <code>position-try-fallbacks</code>,
+                        <code>position-try-order</code>,
+                        <code>@positoin-try</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>видимость</td>
+                    <td><code>position-visibility</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="slide slide-with-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Фича</th>
+                    <th>CSS-cвойства</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="muted">
+                    <td>anchor и target</td>
+                    <td>
+                        <code>anchor-name</code>,
+                        <code>position-anchor</code>
+                    </td>
+                </tr>
+                <tr class="muted">
+                    <td>местоположение</td>
+                    <td><code>anchor()</code>, <code>position-area</code></td>
+                </tr>
+                <tr class="muted">
+                    <td>размер</td>
+                    <td><code>anchor-size()</code></td>
+                </tr>
+                <tr class="muted">
+                    <td>адаптивность местоположения</td>
+                    <td>
+                        <code>position-try</code>,
+                        <code>position-try-fallbacks</code>,
+                        <code>position-try-order</code>,
+                        <code>@positoin-try</code>
+                    </td>
+                </tr>
+                <tr class="muted">
+                    <td>видимость</td>
+                    <td><code>position-visibility</code></td>
+                </tr>
+                <tr>
+                    <td>область видимости</td>
+                    <td><code>anchor-scope()</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section class="slide slide-with-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Фича</th>
+                    <th>CSS-cвойства</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>anchor и target</td>
+                    <td>
+                        <code>anchor-name</code>,
+                        <code>position-anchor</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>местоположение</td>
+                    <td><code>anchor()</code>, <code>position-area</code></td>
+                </tr>
+                <tr>
+                    <td>размер</td>
+                    <td><code>anchor-size()</code></td>
+                </tr>
+                <tr>
+                    <td>адаптивность местоположения</td>
+                    <td>
+                        <code>position-try</code>,
+                        <code>position-try-fallbacks</code>,
+                        <code>position-try-order</code>,
+                        <code>@positoin-try</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td>видимость</td>
+                    <td><code>position-visibility</code></td>
+                </tr>
+                <tr>
+                    <td>область видимости</td>
+                    <td><code>anchor-scope()</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title" style="line-height: 1.2;">✨ Можно использовать несколько якорей одновременно</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">Плюсы / минусы</h2>
+    </section>
+
+    <section class="slide">
+        <h3 class="plus-minus-title">Плюсы</h3>
+        <ul>
+            <li>
+                не нужна вложенность элементов
+            </li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h3 class="plus-minus-title">Плюсы</h3>
+        <ul>
+            <li class="muted">
+                не нужна вложенность элементов
+            </li>
+            <li>
+                не нужен JavaScript
+            </li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h3 class="plus-minus-title muted">Плюсы</h3>
+        <ul>
+            <li class="muted">
+                не нужна вложенность элементов
+            </li>
+            <li class="muted">
+                не нужен JavaScript
+            </li>
+        </ul>
+        <h3 class="plus-minus-title">Минусы</h3>
+        <ul>
+            <li>
+                браузерная поддержка
+            </li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h3 class="plus-minus-title">Плюсы</h3>
+        <ul>
+            <li>
+                не нужна вложенность элементов
+            </li>
+            <li>
+                не нужен JavaScript
+            </li>
+        </ul>
+        <h3 class="plus-minus-title">Минусы</h3>
+        <ul>
+            <li>
+                браузерная поддержка
+            </li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="place centered-slide-title">📔 Что ещё почитать?</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./images/screenshot-cap-spec.jpg" class="place rounded" style="width: 80%;" alt="">
+        <a href="https://www.w3.org/TR/css-anchor-position-1/" class="copyright">CSS-спецификация: anchor positioning</a>
+    </section>
+
+    <section class="slide">
+        <img src="./images/screenshot-tab-atkins-talk.jpg" class="place rounded" style="height: 90%;" alt="">
+        <a href="https://www.youtube.com/watch?v=p18LhnYNkDQ" class="copyright">CSS Day 2024: Tab Atkins-Bittner – Anchor Positioning</a>
+    </section>
+
+    <section class="slide">
+        <img src="./images/screenshot-roman-komarov-article.jpg" class="place rounded" style="height: 80%;" alt="">
+        <a href="https://kizu.dev/anchor-positioning-experiments/" class="copyright">Roman Komarov – Future CSS: Anchor Positioning</a>
+    </section>
+
+    <section class="slide">
+        <img src="./images/screenshot-anchoreum.jpg" class="place rounded" style="width: 80%;" alt="">
+        <a href="https://anchoreum.com/" class="copyright">Anchoreum: игра для изучения Anchor Positioning</a>
     </section>
 
     <section class="slide">
