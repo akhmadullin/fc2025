@@ -25,10 +25,11 @@
         body {
             background-color: rgb(22, 22, 22);
             font-weight: bold;
-            padding: 20px;
+            padding: 50px 20px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            flex-direction: column;
         }
 
         .box {
@@ -39,21 +40,32 @@
         .anchor {
             anchor-name: --my-anchor;
             background-color: hsla(102, 63%, 66%, 1);
-            padding: 50px 80px;
+            padding: 30px;
         }
 
         .target {
             display: flex;
             justify-content: center;
             align-items: center;
-            position: absolute;
+            position: fixed;
             position-anchor: --my-anchor;
-            position-area: top;
+            bottom: anchor(top);
+            justify-self: anchor-center;
             background-color: hsla(48, 99%, 72%, 1);
-            width: calc(anchor-size(width) * 1.5);
+            width: calc(anchor-size(width) * 2);
+        }
+
+        .scope {
+            anchor-scope: --my-anchor;
         }
     </style>
-    <div class="box anchor">Anchor</div>
-    <div class="box target">Target</div>
+    <div class="scope" style="margin-top: 100px;">
+        <div class="box anchor">Anchor</div>
+        <div class="box target">Target</div>
+    </div>
+    <div class="scope">
+        <div class="box anchor">Anchor Long Name</div>
+        <div class="box target">Target Long Name</div>
+    </div>
 </body>
 </html>
