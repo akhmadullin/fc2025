@@ -1254,6 +1254,10 @@
     </section>
 
     <section class="slide">
+        <h2 class="place">С чего начать?</h2>
+    </section>
+
+    <section class="slide">
         <h2 class="place"><code>anchor-name</code></h2>
     </section>
 
@@ -1497,7 +1501,21 @@
     </section>
 
     <section class="slide">
-        <pre class="place">
+        <pre class="place t" style="top: 5%;">
+        <code class="language-css" style="font-size: 1.2em;">
+            .anchor {
+                anchor-name: --my-anchor;
+            }
+        
+            .target {
+                position: absolute;
+                position-anchor: --my-anchor;
+            }
+        </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place t" style="top: 5%;">
         <code class="language-css" style="font-size: 1.2em;">
             .anchor {
                 anchor-name: --my-anchor;
@@ -4384,7 +4402,7 @@
                 </tr>
                 <tr>
                     <td>область применения</td>
-                    <td><code>anchor-scope()</code></td>
+                    <td><code>anchor-scope</code></td>
                 </tr>
             </tbody>
         </table>
@@ -4428,7 +4446,7 @@
                 </tr>
                 <tr>
                     <td>область применения</td>
-                    <td><code>anchor-scope()</code></td>
+                    <td><code>anchor-scope</code></td>
                 </tr>
             </tbody>
         </table>
