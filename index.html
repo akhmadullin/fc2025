@@ -2631,408 +2631,383 @@
     </section>
 
     <section class="slide">
-        <pre class="place t">
+        <pre class="place t l" style="left: 4%;">
             <code class="language-css" style="font-size: 0.75em;">
                 .target {
                     position-area: top;
-                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-fallbacks: --left, --bottom, --right;
+                }
+
+                @position-try --left {
+                    position-area: left;
                 }
 
                 @position-try --bottom {
                     position-area: bottom;
                 }
 
-                @position-try --left {
-                    position-area: left;
-                    width: 600px;
-                }
-
                 @position-try --right {
                     position-area: right;
-                    height: 300px;
                 }
             </code>
         </pre>
     </section>
-
     <section class="slide">
-        <pre class="place t">
+        <pre class="place t l" style="left: 4%;">
             <code class="language-css" style="font-size: 0.75em;">
                 .target {
                     position-area: top;
-                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-fallbacks: --left, --bottom, --right;
+                }
+
+                @position-try --left {
+                    position-area: left;
+                }
+
+                @position-try --bottom {
+                    position-area: bottom;
+                }
+
+                @position-try --right {
+                    position-area: right;
+                }
+            </code>
+        </pre>
+        <img src="./images/scheme-position-try-order-0.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="left: 4%;">
+            <code class="language-css" style="font-size: 0.75em;">
+                .target {
+                    position-area: top;
+                    position-try-fallbacks: --left, --bottom, --right;
+                }
+
+                @position-try --left {
+                    position-area: left;
+                }
+
+                @position-try --bottom {
+                    position-area: bottom;
+                }
+
+                @position-try --right {
+                    position-area: right;
+                }
+            </code>
+        </pre>
+        <img src="./images/scheme-position-try-order.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="left: 4%;">
+            <code class="language-css" style="font-size: 0.75em;">
+                .target {
+                    position-area: top;
+                    position-try-fallbacks: --left, --bottom, --right;
                     position-try-order: normal;
                 }
 
+                @position-try --left {
+                    position-area: left;
+                }
+
                 @position-try --bottom {
                     position-area: bottom;
                 }
 
-                @position-try --left {
-                    position-area: left;
-                    width: 600px;
-                }
-
                 @position-try --right {
                     position-area: right;
-                    height: 300px;
                 }
             </code>
         </pre>
+        <img src="./images/scheme-position-try-order.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
     </section>
     <section class="slide">
-        <pre class="place t">
+        <pre class="place t l" style="left: 4%;">
             <code class="language-css" style="font-size: 0.75em;">
                 .target {
                     position-area: top;
-                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-fallbacks: --left, --bottom, --right;
                     position-try-order: normal;
                 }
 
+                @position-try --left {
+                    position-area: left;
+                }
+
                 @position-try --bottom {
                     position-area: bottom;
                 }
 
-                @position-try --left {
-                    position-area: left;
-                    width: 600px;
-                }
-
                 @position-try --right {
                     position-area: right;
-                    height: 300px;
                 }
             </code>
         </pre>
-        <img src="./images/arrow-position-try-order-default-value.svg" class="place t r" style="width: 35%; top: 28%; right: 10%;" alt="">
+        <img src="./images/arrow-position-try-order-default-value-2.svg" class="place t r" style="width: 35%; top: 22%; right: 15%;" alt="">
+        <img src="./images/scheme-position-try-order.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
     </section>
     <section class="slide">
-        <pre class="place t">
+        <pre class="place t l" style="left: 4%;">
             <code class="language-css" style="font-size: 0.75em;">
                 .target {
                     position-area: top;
-                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-fallbacks: --left, --bottom, --right;
                     position-try-order: normal;
                 }
 
+                @position-try --left {
+                    position-area: left;
+                }
+
                 @position-try --bottom {
                     position-area: bottom;
                 }
 
-                @position-try --left {
-                    position-area: left;
-                    width: 600px;
-                }
-
                 @position-try --right {
                     position-area: right;
-                    height: 300px;
                 }
             </code>
         </pre>
-        <img src="./images/arrow-position-try-order-default-value.svg" class="place t r" style="width: 35%; top: 28%; right: 10%;" alt="">
-        <img src="./images/arrow-position-try-order-order.svg" class="place t r" style="width: 30%; top: 2%; right: 14%;" alt="">
+        <img src="./images/arrow-position-try-order-default-value-2.svg" class="place t r" style="width: 35%; top: 22%; right: 15%;" alt="">
+        <img src="./images/arrow-position-try-order-order.svg" class="place t r" style="width: 30%; top: 2%; right: 26%;" alt="">
+        <img src="./images/scheme-position-try-order.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
     </section>
     <section class="slide">
-        <pre class="place t">
+        <pre class="place t l" style="left: 4%;">
             <code class="language-css" style="font-size: 0.75em;">
                 .target {
                     position-area: top;
-                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-fallbacks: --left, --bottom, --right;
                     position-try-order: normal;
                 }
 
+                @position-try --left {
+                    position-area: left;
+                }
+
                 @position-try --bottom {
                     position-area: bottom;
                 }
 
-                @position-try --left {
-                    position-area: left;
-                    width: 600px;
-                }
-
                 @position-try --right {
                     position-area: right;
-                    height: 300px;
                 }
             </code>
         </pre>
-        <img src="./images/arrow-position-try-order-default-value.svg" class="place t r" style="width: 35%; top: 28%; right: 10%;" alt="">
-        <img src="./images/arrow-position-try-order-order.svg" class="place t r" style="width: 30%; top: 2%; right: 14%;" alt="">
-        <img src="./images/arrow-position-try-order-1.svg" class="place t l" style="width: 7%; top: 36%; left: 13%;" alt="">
+        <img src="./images/arrow-position-try-order-default-value-2.svg" class="place t r" style="width: 35%; top: 22%; right: 15%;" alt="">
+        <img src="./images/arrow-position-try-order-order.svg" class="place t r" style="width: 30%; top: 2%; right: 26%;" alt="">
+        <img src="./images/arrow-position-try-order-1.svg" class="place t l" style="width: 6%; top: 36%; left: 6%;" alt="">
+        <img src="./images/scheme-position-try-order-normal-1.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
     </section>
     <section class="slide">
-        <pre class="place t">
+        <pre class="place t l" style="left: 4%;">
             <code class="language-css" style="font-size: 0.75em;">
                 .target {
                     position-area: top;
-                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-fallbacks: --left, --bottom, --right;
                     position-try-order: normal;
                 }
 
+                @position-try --left {
+                    position-area: left;
+                }
+
                 @position-try --bottom {
                     position-area: bottom;
                 }
 
-                @position-try --left {
-                    position-area: left;
-                    width: 600px;
-                }
-
                 @position-try --right {
                     position-area: right;
-                    height: 300px;
                 }
             </code>
         </pre>
-        <img src="./images/arrow-position-try-order-default-value.svg" class="place t r" style="width: 35%; top: 28%; right: 10%;" alt="">
-        <img src="./images/arrow-position-try-order-order.svg" class="place t r" style="width: 30%; top: 2%; right: 14%;" alt="">
-        <img src="./images/arrow-position-try-order-1.svg" class="place t l" style="width: 7%; top: 36%; left: 13%;" alt="">
-        <img src="./images/arrow-position-try-order-2.svg" class="place t l" style="width: 7%; top: 55%; left: 13%;" alt="">
+        <img src="./images/arrow-position-try-order-default-value-2.svg" class="place t r" style="width: 35%; top: 22%; right: 15%;" alt="">
+        <img src="./images/arrow-position-try-order-order.svg" class="place t r" style="width: 30%; top: 2%; right: 26%;" alt="">
+        <img src="./images/arrow-position-try-order-1.svg" class="place t l" style="width: 6%; top: 36%; left: 6%;" alt="">
+        <img src="./images/arrow-position-try-order-2.svg" class="place t l" style="width: 6%; top: 54%; left: 6%;" alt="">
+        <img src="./images/scheme-position-try-order-normal-2.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
     </section>
     <section class="slide">
-        <pre class="place t">
+        <pre class="place t l" style="left: 4%;">
             <code class="language-css" style="font-size: 0.75em;">
                 .target {
                     position-area: top;
-                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-fallbacks: --left, --bottom, --right;
                     position-try-order: normal;
                 }
 
+                @position-try --left {
+                    position-area: left;
+                }
+
                 @position-try --bottom {
                     position-area: bottom;
                 }
 
-                @position-try --left {
-                    position-area: left;
-                    width: 600px;
-                }
-
                 @position-try --right {
                     position-area: right;
-                    height: 300px;
                 }
             </code>
         </pre>
-        <img src="./images/arrow-position-try-order-default-value.svg" class="place t r" style="width: 35%; top: 28%; right: 10%;" alt="">
-        <img src="./images/arrow-position-try-order-order.svg" class="place t r" style="width: 30%; top: 2%; right: 14%;" alt="">
-        <img src="./images/arrow-position-try-order-1.svg" class="place t l" style="width: 7%; top: 36%; left: 13%;" alt="">
-        <img src="./images/arrow-position-try-order-2.svg" class="place t l" style="width: 7%; top: 55%; left: 13%;" alt="">
-        <img src="./images/arrow-position-try-order-3.svg" class="place t l" style="width: 7%; top: 78%; left: 13%;" alt="">
+        <img src="./images/arrow-position-try-order-default-value-2.svg" class="place t r" style="width: 35%; top: 22%; right: 15%;" alt="">
+        <img src="./images/arrow-position-try-order-order.svg" class="place t r" style="width: 30%; top: 2%; right: 26%;" alt="">
+        <img src="./images/arrow-position-try-order-1.svg" class="place t l" style="width: 6%; top: 36%; left: 6%;" alt="">
+        <img src="./images/arrow-position-try-order-2.svg" class="place t l" style="width: 6%; top: 54%; left: 6%;" alt="">
+        <img src="./images/arrow-position-try-order-3.svg" class="place t l" style="width: 6%; top: 72%; left: 6%;" alt="">
+        <img src="./images/scheme-position-try-order-normal-3.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
     </section>
 
     <section class="slide">
-        <pre class="place t">
+        <pre class="place t l" style="left: 4%;">
             <code class="language-css" style="font-size: 0.75em;">
                 .target {
                     position-area: top;
-                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-fallbacks: --left, --bottom, --right;
                     position-try-order: most-width;
                 }
 
+                @position-try --left {
+                    position-area: left;
+                }
+
                 @position-try --bottom {
                     position-area: bottom;
                 }
 
-                @position-try --left {
-                    position-area: left;
-                    width: 600px;
-                }
-
                 @position-try --right {
                     position-area: right;
-                    height: 300px;
                 }
             </code>
         </pre>
+        <img src="./images/scheme-position-try-order.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
     </section>
     <section class="slide">
-        <pre class="place t">
+        <pre class="place t l" style="left: 4%;">
             <code class="language-css" style="font-size: 0.75em;">
                 .target {
                     position-area: top;
-                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-fallbacks: --left, --bottom, --right;
                     position-try-order: most-width;
                 }
 
+                @position-try --left {
+                    position-area: left;
+                }
+
                 @position-try --bottom {
                     position-area: bottom;
                 }
 
-                @position-try --left {
-                    position-area: left;
-                    width: 600px;
-                }
-
                 @position-try --right {
                     position-area: right;
-                    height: 300px;
                 }
             </code>
         </pre>
-        <img src="./images/arrow-position-try-order-most-width.svg" class="place t r" style="width: 36%; top: 28%; right: 7%;" alt="">
+        <img src="./images/arrow-position-try-order-most-width-2.svg" class="place t r" style="width: 40%; top: 23%; right: 7%;" alt="">
+        <img src="./images/scheme-position-try-order.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
     </section>
     <section class="slide">
-        <pre class="place t">
+        <pre class="place t l" style="left: 4%;">
             <code class="language-css" style="font-size: 0.75em;">
                 .target {
                     position-area: top;
-                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-fallbacks: --left, --bottom, --right;
                     position-try-order: most-width;
                 }
 
-                @position-try --bottom {
-                    position-area: bottom;
-                }
-
                 @position-try --left {
                     position-area: left;
-                    width: 600px;
-                }
-
-                @position-try --right {
-                    position-area: right;
-                    height: 300px;
-                }
-            </code>
-        </pre>
-        <img src="./images/arrow-position-try-order-most-width.svg" class="place t r" style="width: 36%; top: 28%; right: 7%;" alt="">
-        <img src="./images/arrow-position-try-order-1.svg" class="place t l" style="width: 7%; top: 55%; left: 13%;" alt="">
-    </section>
-    <section class="slide">
-        <pre class="place t">
-            <code class="language-css" style="font-size: 0.75em;">
-                .target {
-                    position-area: top;
-                    position-try-fallbacks: --bottom, --left, --right;
-                    position-try-order: most-width;
                 }
 
                 @position-try --bottom {
                     position-area: bottom;
                 }
 
-                @position-try --left {
-                    position-area: left;
-                    width: 600px;
-                }
-
                 @position-try --right {
                     position-area: right;
-                    height: 300px;
                 }
             </code>
         </pre>
-        <img src="./images/arrow-position-try-order-most-width.svg" class="place t r" style="width: 36%; top: 28%; right: 7%;" alt="">
-        <img src="./images/arrow-position-try-order-1.svg" class="place t l" style="width: 7%; top: 55%; left: 13%;" alt="">
-        <img src="./images/arrow-just-line.svg" class="place t l" style="width: 16%; top: 67%; left: 28%;" alt="">
+        <img src="./images/arrow-position-try-order-most-width-2.svg" class="place t r" style="width: 40%; top: 23%; right: 7%;" alt="">
+        <img src="./images/arrow-position-try-order-1.svg" class="place t l" style="width: 6%; top: 72%; left: 6%;" alt="">
+        <img src="./images/scheme-position-try-order-most-width-1.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
     </section>
 
     <section class="slide">
-        <pre class="place t">
+        <pre class="place t l" style="left: 4%;">
             <code class="language-css" style="font-size: 0.75em;">
                 .target {
                     position-area: top;
-                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-fallbacks: --left, --bottom, --right;
                     position-try-order: most-height;
                 }
 
+                @position-try --left {
+                    position-area: left;
+                }
+
                 @position-try --bottom {
                     position-area: bottom;
                 }
 
-                @position-try --left {
-                    position-area: left;
-                    width: 600px;
-                }
-
                 @position-try --right {
                     position-area: right;
-                    height: 300px;
                 }
             </code>
         </pre>
+        <img src="./images/scheme-position-try-order.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
     </section>
     <section class="slide">
-        <pre class="place t">
+        <pre class="place t l" style="left: 4%;">
             <code class="language-css" style="font-size: 0.75em;">
                 .target {
                     position-area: top;
-                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-fallbacks: --left, --bottom, --right;
                     position-try-order: most-height;
+                }
+
+                @position-try --left {
+                    position-area: left;
                 }
 
                 @position-try --bottom {
                     position-area: bottom;
                 }
 
-                @position-try --left {
-                    position-area: left;
-                    width: 600px;
-                }
-
                 @position-try --right {
                     position-area: right;
-                    height: 300px;
                 }
             </code>
         </pre>
-        <img src="./images/arrow-position-try-order-most-height.svg" class="place t r" style="width: 36%; top: 28%; right: 7%;" alt="">
+        <img src="./images/arrow-position-try-order-most-height-2.svg" class="place t r" style="width: 40%; top: 23%; right: 6%;" alt="">
+        <img src="./images/scheme-position-try-order.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
     </section>
     <section class="slide">
-        <pre class="place t">
+        <pre class="place t l" style="left: 4%;">
             <code class="language-css" style="font-size: 0.75em;">
                 .target {
                     position-area: top;
-                    position-try-fallbacks: --bottom, --left, --right;
+                    position-try-fallbacks: --left, --bottom, --right;
                     position-try-order: most-height;
+                }
+
+                @position-try --left {
+                    position-area: left;
                 }
 
                 @position-try --bottom {
                     position-area: bottom;
                 }
 
-                @position-try --left {
-                    position-area: left;
-                    width: 600px;
-                }
-
                 @position-try --right {
                     position-area: right;
-                    height: 300px;
                 }
             </code>
         </pre>
-        <img src="./images/arrow-position-try-order-most-height.svg" class="place t r" style="width: 36%; top: 28%; right: 7%;" alt="">
-        <img src="./images/arrow-position-try-order-1.svg" class="place t l" style="width: 7%; top: 78%; left: 13%;" alt="">
-    </section>
-    <section class="slide">
-        <pre class="place t">
-            <code class="language-css" style="font-size: 0.75em;">
-                .target {
-                    position-area: top;
-                    position-try-fallbacks: --bottom, --left, --right;
-                    position-try-order: most-height;
-                }
-
-                @position-try --bottom {
-                    position-area: bottom;
-                }
-
-                @position-try --left {
-                    position-area: left;
-                    width: 600px;
-                }
-
-                @position-try --right {
-                    position-area: right;
-                    height: 300px;
-                }
-            </code>
-        </pre>
-        <img src="./images/arrow-position-try-order-most-height.svg" class="place t r" style="width: 36%; top: 28%; right: 7%;" alt="">
-        <img src="./images/arrow-position-try-order-1.svg" class="place t l" style="width: 7%; top: 78%; left: 13%;" alt="">
-        <img src="./images/arrow-just-line.svg" class="place t l" style="width: 16%; top: 90%; left: 28%;" alt="">
+        <img src="./images/arrow-position-try-order-most-height-2.svg" class="place t r" style="width: 40%; top: 23%; right: 6%;" alt="">
+        <img src="./images/arrow-position-try-order-1.svg" class="place t l" style="width: 6%; top: 54%; left: 6%;" alt="">
+        <img src="./images/scheme-position-try-order-most-height-1.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
     </section>
 
     <section class="slide">
