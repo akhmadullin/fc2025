@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anchor()</title>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../fonts/PT_Mono/pt-mono-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../lib/styles/fonts-for-demos.css">
+    <link rel="stylesheet" href="../../lib/highlight/styles/vs2015.min.css">
+</head>
+<body>
+    <style>
+        @font-face {
+            font-family: 'PT Mono';
+            font-weight: 500;
+            font-display: swap;
+            src: url(../../fonts/PT_Mono/pt-mono-regular.woff2)
+                format("woff2");
+        }
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-size: 20px;
+            background-color: rgb(22, 22, 22);
+            font-weight: bold;
+            padding: 20px 220px 90px 100px;
+            place-content: center;
+        }
+
+        .layout {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .fields-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            color: white;
+            margin-left: 60px;
+            accent-color: hsla(203, 97%, 65%, 1);
+            /* accent-color: hsla(48, 99%, 72%, 1); */
+        }
+
+        pre {
+            margin-left: -20px;
+            line-height: 0.5;
+        }
+
+        pre .hljs:is(.hljs) {
+            background: none;
+            font-family: 'PT Mono', monospace;
+            line-height: 1.4;
+            padding: 0;
+        }
+
+        pre .hljs:is(.hljs) span {
+            font-family: 'PT Mono', monospace;
+        }
+
+        pre code:is(code) {
+            background: none;
+        }
+
+        .fields-group * {
+            font-family: 'PT Mono', monospace;
+        }
+
+        .fields-group label {
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .fields-group label:hover {
+            opacity: 0.6;
+        }
+
+        .box {
+            font-size: 40px;
+            padding: 30px;
+        }
+
+        .anchor {
+            anchor-name: --my-anchor;
+            /* background-color: hsla(102, 63%, 66%, 1); */
+            padding: 50px 80px;
+            margin: 0 auto;
+            width: max-content;
+            border: 5px solid hsla(102, 63%, 66%, 1);
+            color: white;
+        }
+
+        .caption {
+            position: absolute;
+            position-anchor: --my-anchor;
+            color: white;
+        }
+
+        .caption-top {
+            bottom: calc(anchor(top) + 20px);
+            left: anchor(center);
+            transform: translateX(-50%);
+        }
+
+        .caption-bottom {
+            top: calc(anchor(bottom) + 20px);
+            left: anchor(center);
+            transform: translateX(-50%);
+        }
+
+        .caption-left {
+            right: calc(anchor(left) + 20px);
+            bottom: anchor(center);
+            transform: translateY(50%);
+        }
+
+        .caption-right {
+            left: calc(anchor(right) + 20px);
+            bottom: anchor(center);
+            transform: translateY(50%);
+        }
+
+        .target {
+            position: absolute;
+            position-anchor: --my-anchor;
+            anchor-name: --my-target;
+            background-color: hsla(48, 99%, 72%, 0.8);
+            transition: all .3s ease-in;
+        }
+
+        .anchor-border {
+            position: absolute;
+            position-anchor: --my-anchor;
+            background-color: #e088f4;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .anchor-border-visible {
+            opacity: 1;
+        }
+
+        .anchor-border-top {
+            height: 5px;
+            bottom: calc(anchor(top) - 5px);
+            width: anchor-size(width);
+        }
+
+        .anchor-border-center-vertical {
+            height: 5px;
+            bottom: calc(anchor(center) - 5px);
+            width: anchor-size(width);
+        }
+
+        .anchor-border-bottom {
+            height: 5px;
+            top: calc(anchor(bottom) - 5px);
+            width: anchor-size(width);
+        }
+
+        .anchor-border-left {
+            width: 5px;
+            top: anchor(top);
+            right: calc(anchor(left) - 5px);
+            height: anchor-size(height);
+        }
+
+        .anchor-border-center-horizontal {
+            width: 5px;
+            top: anchor(top);
+            right: calc(anchor(center) - 5px);
+            height: anchor-size(height);
+        }
+
+        .anchor-border-right {
+            width: 5px;
+            top: anchor(top);
+            left: calc(anchor(right) - 5px);
+            height: anchor-size(height);
+        }
+
+        .target-border {
+            position: absolute;
+            position-anchor: --my-target;
+            background-color: hsla(203, 97%, 65%, 1);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .target-border-visible {
+            opacity: 1;
+        }
+
+        .target-border-top {
+            height: 5px;
+            left: anchor(left);
+            bottom: calc(anchor(top) - 5px);
+            width: anchor-size(width);
+        }
+
+        .target-border-left {
+            width: 5px;
+            top: anchor(top);
+            right: calc(anchor(left) - 5px);
+            height: anchor-size(height);
+        }
+    </style>
+    <div class="layout">
+        <div>
+            <div>
+<pre>
+<code class="language-css">
+.target {
+    top:
+</code>
+</pre>
+                <div class="fields-group" data-border="target-border-top">
+                    <label>
+                        <input type="radio" name="top" value="calc(anchor(top) + 5px)" data-border="anchor-border-top">
+                        <span class="hljs-built_in">anchor</span>(top)
+                    </label>
+                    <label>
+                        <input type="radio" name="top" value="calc(anchor(center) + 5px)" data-border="anchor-border-center-vertical">
+                        <span class="hljs-built_in">anchor</span>(center)
+                    </label>
+                    <label>
+                        <input type="radio" name="top" value="anchor(bottom)" data-border="anchor-border-bottom" checked>
+                        <span class="hljs-built_in">anchor</span>(bottom)
+                    </label>
+                </div>
+            </div>
+            <div>
+<pre>
+<code class="language-css">
+    left: 
+</code>
+</pre>
+            <div class="fields-group" data-border="target-border-left">
+                <label>
+                    <input type="radio" name="left" value="calc(anchor(left) + 5px)" checked data-border="anchor-border-left">
+                    <span class="hljs-built_in">anchor</span>(left)
+                </label>
+                <label>
+                    <input type="radio" name="left" value="calc(anchor(center) + 5px)" data-border="anchor-border-center-horizontal">
+                    <span class="hljs-built_in">anchor</span>(center)
+                </label>
+                <label>
+                    <input type="radio" name="left" value="anchor(right)" data-border="anchor-border-right" checked>
+                    <span class="hljs-built_in">anchor</span>(right)
+                </label>
+            </div>  
+<pre><code class="language-css">}</code></pre>
+            </div>
+        </div>
+
+        <div>
+            <div class="box anchor">Anchor</div>
+            <div id="target" class="box target">Target</div>
+
+            <div class="caption caption-top">top</div>
+            <div class="caption caption-bottom">bottom</div>
+            <div class="caption caption-right">right</div>
+            <div class="caption caption-left">left</div>
+
+            <div class="target-border target-border-top"></div>
+            <div class="target-border target-border-left"></div>
+
+            <div class="anchor-border anchor-border-top"></div>
+            <div class="anchor-border anchor-border-center-vertical"></div>
+            <div class="anchor-border anchor-border-bottom"></div>
+            <div class="anchor-border anchor-border-left"></div>
+            <div class="anchor-border anchor-border-center-horizontal"></div>
+            <div class="anchor-border anchor-border-right"></div>
+        </div>
+    </div>
+    <script>
+        const target = document.getElementById('target');
+        
+        const topRadio = document.getElementsByName('top');
+        topRadio.forEach((radio) => {
+            if (radio.checked) {
+                target.style.setProperty('top', radio.value);
+            }
+            radio.addEventListener('change', (event) => {
+                target.style.setProperty('top', event.target.value);
+            })
+            radio.parentElement.addEventListener('mouseenter', (event) => {
+                const target = event.target.children[0];
+                const border = target.dataset.border;
+                const borderEl = document.getElementsByClassName(border)[0];
+                borderEl.classList.add('anchor-border-visible');
+            })
+            radio.parentElement.addEventListener('mouseleave', (event) => {
+                const target = event.target.children[0];
+                const border = target.dataset.border;
+                const borderEl = document.getElementsByClassName(border)[0];
+                borderEl.classList.remove('anchor-border-visible');
+            })
+        })
+
+        const leftRadio = document.getElementsByName('left');
+        leftRadio.forEach((radio) => {
+            if (radio.checked) {
+                target.style.setProperty('left', radio.value);
+            }
+            radio.addEventListener('change', (event) => {
+                target.style.setProperty('left', event.target.value);
+            })
+            radio.parentElement.addEventListener('mouseenter', (event) => {
+                const target = event.target.children[0];
+                const border = target.dataset.border;
+                const borderEl = document.getElementsByClassName(border)[0];
+                borderEl.classList.add('anchor-border-visible');
+            })
+            radio.parentElement.addEventListener('mouseleave', (event) => {
+                const target = event.target.children[0];
+                const border = target.dataset.border;
+                const borderEl = document.getElementsByClassName(border)[0];
+                borderEl.classList.remove('anchor-border-visible');
+            })
+        })
+
+        const fieldsGroups = Array.from(document.getElementsByClassName('fields-group'));
+        fieldsGroups.forEach((item) => {
+            item.addEventListener('mouseenter', (event) => {
+                const target = event.target;
+                const border = target.dataset.border;
+                const borderEl = document.getElementsByClassName(border)[0];
+                borderEl.classList.add('target-border-visible');
+            })
+            item.addEventListener('mouseleave', (event) => {
+                const target = event.target;
+                const border = target.dataset.border;
+                const borderEl = document.getElementsByClassName(border)[0];
+                borderEl.classList.remove('target-border-visible');
+            })
+        })
+    </script>
+    <script src="../../lib/highlight/highlight.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>
