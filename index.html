@@ -1424,18 +1424,95 @@
     </section>
 
     <section class="slide">
-        <pre class="place t" style="top: 80px;"><code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
-        <span class="hljs-selector-class">.target</span> {
-            <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(bottom);
-        }
-            <span class="invisible"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-built_in">anchor</span>(bottom) + <span class="hljs-number">10px</span>);</span>
-        </code>
+        <pre class="place t l" style="top: 24%; left: 16%; font-size: 1.2em;">
+            <code class="language-css hljs" data-highlighted="yes">
+                <span class="hljs-selector-class">.target</span> {
+                    <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(top);
+                }
+            </code>
         </pre>
     </section>
     <section class="slide">
+        <pre class="place t l" style="top: 24%; left: 16%; font-size: 1.2em;">
+            <code class="language-css hljs" data-highlighted="yes">
+                <span class="hljs-selector-class">.target</span> {
+                    <span class="muted"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(top);</span>
+                    <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(center);
+                }
+            </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="top: 24%; left: 16%; font-size: 1.2em;">
+            <code class="language-css hljs" data-highlighted="yes">
+                <span class="hljs-selector-class">.target</span> {
+                    <span class="muted"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(top);</span>
+                    <span class="muted"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(center);</span>
+                    <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(bottom);
+                }
+            </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="top: 24%; left: 16%; font-size: 1.2em;">
+            <code class="language-css hljs" data-highlighted="yes">
+                <span class="hljs-selector-class">.target</span> {
+                    <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(top);
+                    <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(center);
+                    <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(bottom);
+                }
+            </code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demos/anchor-func/index.html" frameborder="0" class="place iframe"></iframe>
+    </section>
+
+    <section class="slide">
+        <pre class="place t l" style="top: 24%; left: 16%; font-size: 1.2em;">
+            <code class="language-css hljs" data-highlighted="yes">
+                <span class="hljs-selector-class">.target</span> {
+                    <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(top);
+                }
+            </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="top: 24%; left: 16%; font-size: 1.2em;">
+            <code class="language-css hljs" data-highlighted="yes">
+                <span class="hljs-selector-class">.target</span> {
+                    <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(top);
+                    <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(left);
+                }
+            </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="top: 24%; left: 16%; font-size: 1.2em;">
+            <code class="language-css hljs" data-highlighted="yes">
+                <span class="hljs-selector-class">.target</span> {
+                    <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(top);
+                    <span style="text-decoration: line-through;"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(left);</span>
+                }
+            </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="top: 24%; left: 16%; font-size: 1.2em;">
+            <code class="language-css hljs" data-highlighted="yes">
+                <span class="hljs-selector-class">.target</span> {
+                    <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(top);
+                    <span style="text-decoration: line-through;"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(left);</span>
+                }
+            </code>
+        </pre>
+        <img src="./images/arrow-works-only-in-one-os.svg" class="place b r" style="width: 30%; bottom: 20%; right: 1%;" alt="">
+    </section>
+    
+    <section class="slide">
         <pre class="place t" style="top: 80px;"><code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
         <span class="hljs-selector-class">.target</span> {
-            <span class="muted"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(bottom);</span>
             <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(<span class="hljs-number">50%</span>);
         }
             <span class="invisible"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-built_in">anchor</span>(bottom) + <span class="hljs-number">10px</span>);</span>
@@ -1445,7 +1522,6 @@
     <section class="slide">
         <pre class="place t" style="top: 80px;"><code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
         <span class="hljs-selector-class">.target</span> {
-            <span class="muted"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(bottom);</span>
             <span class="muted"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(<span class="hljs-number">50%</span>);</span>
             <span class="hljs-attribute">top</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-built_in">anchor</span>(bottom) + <span class="hljs-number">10px</span>);
         }
@@ -1455,7 +1531,6 @@
     <section class="slide">
         <pre class="place t" style="top: 80px;"><code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
         <span class="hljs-selector-class">.target</span> {
-            <span class="muted"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(bottom);</span>
             <span class="muted"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(<span class="hljs-number">50%</span>);</span>
             <span class="muted"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-built_in">anchor</span>(bottom) + <span class="hljs-number">10px</span>);</span>
             <span class="hljs-attribute">inset-block-end</span>: <span class="hljs-built_in">anchor</span>(start);
@@ -1466,7 +1541,6 @@
     <section class="slide">
         <pre class="place t" style="top: 80px;"><code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
         <span class="hljs-selector-class">.target</span> {
-            <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(bottom);
             <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(<span class="hljs-number">50%</span>);
             <span class="hljs-attribute">top</span>: <span class="hljs-built_in">calc</span>(<span class="hljs-built_in">anchor</span>(bottom) + <span class="hljs-number">10px</span>);
             <span class="hljs-attribute">inset-block-end</span>: <span class="hljs-built_in">anchor</span>(start);
@@ -1518,11 +1592,11 @@
     </section>
 
     <section class="slide">
-        <iframe src="./demos/anchor-func/index.html" frameborder="0" class="place iframe"></iframe>
+        <h2 class="place centered-slide-title">🔧 Пробуем соединить</h2>
     </section>
 
     <section class="slide">
-        <h2 class="place centered-slide-title">🔧 Пробуем соединить</h2>
+        <img src="./images/anchor-target-as-pseudo-tooltip.svg" class="place" style="height: 40%;" alt="">
     </section>
 
     <section class="slide">
@@ -1541,15 +1615,30 @@
     </section>
     <section class="slide">
         <pre class="place t" style="top: 5%;">
-        <code class="language-css" style="font-size: 1.2em;">
-            .anchor {
-                anchor-name: --my-anchor;
+        <code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
+            <span class="muted"><span class="hljs-selector-class">.anchor</span> {
+                <span class="hljs-attribute">anchor-name</span>: --my-anchor;
             }
         
-            .target {
-                position: absolute;
-                position-anchor: --my-anchor;
-                bottom: anchor(top);
+            <span class="hljs-selector-class">.target</span> {
+                <span class="hljs-attribute">position</span>: absolute;
+                <span class="hljs-attribute">position-anchor</span>: --my-anchor;</span>
+                <span class="hljs-attribute">bottom</span>: <span class="hljs-built_in">anchor</span>(top);
+            <span class="muted">}</span>
+        </code>
+        </pre>
+    </section>
+    <section class="slide">
+        <pre class="place t" style="top: 5%;">
+        <code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
+            <span class="hljs-selector-class">.anchor</span> {
+                <span class="hljs-attribute">anchor-name</span>: --my-anchor;
+            }
+        
+            <span class="hljs-selector-class">.target</span> {
+                <span class="hljs-attribute">position</span>: absolute;
+                <span class="hljs-attribute">position-anchor</span>: --my-anchor;
+                <span class="hljs-attribute">bottom</span>: <span class="hljs-built_in">anchor</span>(top);
             }
         </code>
         </pre>
