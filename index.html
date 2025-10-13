@@ -1166,7 +1166,7 @@
     </section>
 
     <section class="slide">
-        <img src="./images/screenshot-cap-spec.jpg" class="place rounded" style="width: 80%;" alt="">
+        <img src="./images/screenshot-cap-spec-1.jpg" class="place rounded" style="width: 80%;" alt="">
         <a href="https://www.w3.org/TR/css-anchor-position-1/" class="copyright">CSS-спецификация: anchor positioning</a>
     </section>
 
@@ -1470,44 +1470,51 @@
     </section>
 
     <section class="slide">
-        <pre class="place t l" style="top: 22%;left: 10%;">
+        <pre class="place t l" style="top: 17%;left: 8%;">
             <code class="language-css hljs" data-highlighted="yes" style="font-size: 1.2em;">
                 <span class="hljs-selector-class">.target</span> {
                     <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(top);
+                    <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(bottom);
                 }
             </code>
         </pre>
     </section>
     <section class="slide">
-        <pre class="place t l" style="top: 22%;left: 10%;">
+        <pre class="place t l" style="top: 17%;left: 8%;">
             <code class="language-css hljs" data-highlighted="yes" style="font-size: 1.2em;">
                 <span class="hljs-selector-class">.target</span> {
                     <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(top);
+                    <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(bottom);
                     <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(left);
+                    <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(right);
                 }
             </code>
         </pre>
     </section>
     <section class="slide">
-        <pre class="place t l" style="top: 22%;left: 10%;">
+        <pre class="place t l" style="top: 17%;left: 8%;">
             <code class="language-css hljs" data-highlighted="yes" style="font-size: 1.2em;">
                 <span class="hljs-selector-class">.target</span> {
                     <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(top);
+                    <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(bottom);
                     <span style="text-decoration: line-through;"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(left);</span>
+                    <span style="text-decoration: line-through;"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(right);</span>
                 }
             </code>
         </pre>
     </section>
     <section class="slide">
-        <pre class="place t l" style="top: 22%;left: 10%;">
+        <pre class="place t l" style="top: 17%;left: 8%;">
             <code class="language-css hljs" data-highlighted="yes" style="font-size: 1.2em;">
                 <span class="hljs-selector-class">.target</span> {
                     <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(top);
+                    <span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(bottom);
                     <span style="text-decoration: line-through;"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(left);</span>
+                    <span style="text-decoration: line-through;"><span class="hljs-attribute">top</span>: <span class="hljs-built_in">anchor</span>(right);</span>
                 }
             </code>
         </pre>
-        <img src="./images/arrow-works-only-in-one-os.svg" class="place b r" style="width: 29%; bottom: 20%; right: 1%;" alt="">
+        <img src="./images/arrow-works-only-in-one-os-1.svg" class="place b r" style="width: 29%; bottom: 50%; right: 3%;" alt="">
     </section>
     
     <section class="slide">
@@ -2815,7 +2822,7 @@
             </code>
         </pre>
     </section>
-    <section class="slide">
+    <!-- <section class="slide">
         <pre class="place t l" style="left: 4%;">
             <code class="language-css" style="font-size: 0.75em;">
                 .target {
@@ -2837,7 +2844,7 @@
             </code>
         </pre>
         <img src="./images/scheme-position-try-order-0.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
-    </section>
+    </section> -->
     <section class="slide">
         <pre class="place t l" style="left: 4%;">
             <code class="language-css" style="font-size: 0.75em;">
@@ -2863,51 +2870,77 @@
     </section>
     <section class="slide">
         <pre class="place t l" style="left: 4%;">
-            <code class="language-css" style="font-size: 0.75em;">
-                .target {
-                    position-area: top;
-                    position-try-fallbacks: --left, --bottom, --right;
-                    position-try-order: normal;
+            <code class="language-css hljs" style="font-size: 0.75em;" data-highlighted="yes">
+                <span class="muted"><span class="hljs-selector-class">.target</span> {
+                    <span class="hljs-attribute">position-area</span>: top;
+                    <span class="hljs-attribute">position-try-fallbacks</span>: --left, --bottom, --right;</span>
+                    <span class="hljs-attribute">position-try-order</span>: normal;
+                <span class="muted">}
+
+                <span class="hljs-keyword">@position-try</span> --left {
+                    <span class="hljs-attribute">position-area</span>: left;
                 }
 
-                @position-try --left {
-                    position-area: left;
+                <span class="hljs-keyword">@position-try</span> --bottom {
+                    <span class="hljs-attribute">position-area</span>: bottom;
                 }
 
-                @position-try --bottom {
-                    position-area: bottom;
-                }
-
-                @position-try --right {
-                    position-area: right;
-                }
+                <span class="hljs-keyword">@position-try</span> --right {
+                    <span class="hljs-attribute">position-area</span>: right;
+                }</span>
             </code>
         </pre>
         <img src="./images/scheme-position-try-order.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
     </section>
     <section class="slide">
         <pre class="place t l" style="left: 4%;">
-            <code class="language-css" style="font-size: 0.75em;">
-                .target {
-                    position-area: top;
-                    position-try-fallbacks: --left, --bottom, --right;
-                    position-try-order: normal;
+            <code class="language-css hljs" style="font-size: 0.75em;" data-highlighted="yes">
+                <span class="muted"><span class="hljs-selector-class">.target</span> {
+                    <span class="hljs-attribute">position-area</span>: top;
+                    <span class="hljs-attribute">position-try-fallbacks</span>: --left, --bottom, --right;</span>
+                    <span class="hljs-attribute">position-try-order</span>: normal;
+                <span class="muted">}
+
+                <span class="hljs-keyword">@position-try</span> --left {
+                    <span class="hljs-attribute">position-area</span>: left;
                 }
 
-                @position-try --left {
-                    position-area: left;
+                <span class="hljs-keyword">@position-try</span> --bottom {
+                    <span class="hljs-attribute">position-area</span>: bottom;
                 }
 
-                @position-try --bottom {
-                    position-area: bottom;
-                }
-
-                @position-try --right {
-                    position-area: right;
-                }
+                <span class="hljs-keyword">@position-try</span> --right {
+                    <span class="hljs-attribute">position-area</span>: right;
+                }</span>
             </code>
         </pre>
         <img src="./images/arrow-position-try-order-default-value-2.svg" class="place t r" style="width: 35%; top: 22%; right: 15%;" alt="">
+        <img src="./images/scheme-position-try-order.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="left: 4%;">
+            <code class="language-css hljs" style="font-size: 0.75em;" data-highlighted="yes">
+                <span class="muted"><span class="hljs-selector-class">.target</span> {
+                    <span class="hljs-attribute">position-area</span>: top;</span>
+                    <span class="hljs-attribute">position-try-fallbacks</span>: --left, --bottom, --right;
+                    <span class="hljs-attribute">position-try-order</span>: normal;
+                <span class="muted">}
+
+                <span class="hljs-keyword">@position-try</span> --left {
+                    <span class="hljs-attribute">position-area</span>: left;
+                }
+
+                <span class="hljs-keyword">@position-try</span> --bottom {
+                    <span class="hljs-attribute">position-area</span>: bottom;
+                }
+
+                <span class="hljs-keyword">@position-try</span> --right {
+                    <span class="hljs-attribute">position-area</span>: right;
+                }</span>
+            </code>
+        </pre>
+        <img src="./images/arrow-position-try-order-default-value-2.svg" class="place t r" style="width: 35%; top: 22%; right: 15%;" alt="">
+        <img src="./images/arrow-position-try-order-order.svg" class="place t r" style="width: 30%; top: 2%; right: 26%;" alt="">
         <img src="./images/scheme-position-try-order.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
     </section>
     <section class="slide">
@@ -3023,26 +3056,51 @@
 
     <section class="slide">
         <pre class="place t l" style="left: 4%;">
-            <code class="language-css" style="font-size: 0.75em;">
-                .target {
-                    position-area: top;
-                    position-try-fallbacks: --left, --bottom, --right;
-                    position-try-order: most-width;
+            <code class="language-css hljs" style="font-size: 0.75em;" data-highlighted="yes">
+                <span class="muted"><span class="hljs-selector-class">.target</span> {
+                    <span class="hljs-attribute">position-area</span>: top;
+                    <span class="hljs-attribute">position-try-fallbacks</span>: --left, --bottom, --right;</span>
+                    <span class="hljs-attribute">position-try-order</span>: most-width;
+                <span class="muted">}
+
+                <span class="hljs-keyword">@position-try</span> --left {
+                    <span class="hljs-attribute">position-area</span>: left;
                 }
 
-                @position-try --left {
-                    position-area: left;
+                <span class="hljs-keyword">@position-try</span> --bottom {
+                    <span class="hljs-attribute">position-area</span>: bottom;
                 }
 
-                @position-try --bottom {
-                    position-area: bottom;
-                }
-
-                @position-try --right {
-                    position-area: right;
-                }
+                <span class="hljs-keyword">@position-try</span> --right {
+                    <span class="hljs-attribute">position-area</span>: right;
+                }</span>
             </code>
         </pre>
+        <img src="./images/scheme-position-try-order.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="left: 4%;">
+            <code class="language-css hljs" style="font-size: 0.75em;" data-highlighted="yes">
+                <span class="muted"><span class="hljs-selector-class">.target</span> {
+                    <span class="hljs-attribute">position-area</span>: top;
+                    <span class="hljs-attribute">position-try-fallbacks</span>: --left, --bottom, --right;</span>
+                    <span class="hljs-attribute">position-try-order</span>: most-width;
+                <span class="muted">}
+
+                <span class="hljs-keyword">@position-try</span> --left {
+                    <span class="hljs-attribute">position-area</span>: left;
+                }
+
+                <span class="hljs-keyword">@position-try</span> --bottom {
+                    <span class="hljs-attribute">position-area</span>: bottom;
+                }
+
+                <span class="hljs-keyword">@position-try</span> --right {
+                    <span class="hljs-attribute">position-area</span>: right;
+                }</span>
+            </code>
+        </pre>
+        <img src="./images/arrow-position-try-order-most-width-2.svg" class="place t r" style="width: 40%; top: 23%; right: 7%;" alt="">
         <img src="./images/scheme-position-try-order.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
     </section>
     <section class="slide">
@@ -3099,26 +3157,51 @@
 
     <section class="slide">
         <pre class="place t l" style="left: 4%;">
-            <code class="language-css" style="font-size: 0.75em;">
-                .target {
-                    position-area: top;
-                    position-try-fallbacks: --left, --bottom, --right;
-                    position-try-order: most-height;
+            <code class="language-css hljs" style="font-size: 0.75em;" data-highlighted="yes">
+                <span class="muted"><span class="hljs-selector-class">.target</span> {
+                    <span class="hljs-attribute">position-area</span>: top;
+                    <span class="hljs-attribute">position-try-fallbacks</span>: --left, --bottom, --right;</span>
+                    <span class="hljs-attribute">position-try-order</span>: most-height;
+                <span class="muted">}
+
+                <span class="hljs-keyword">@position-try</span> --left {
+                    <span class="hljs-attribute">position-area</span>: left;
                 }
 
-                @position-try --left {
-                    position-area: left;
+                <span class="hljs-keyword">@position-try</span> --bottom {
+                    <span class="hljs-attribute">position-area</span>: bottom;
                 }
 
-                @position-try --bottom {
-                    position-area: bottom;
-                }
-
-                @position-try --right {
-                    position-area: right;
-                }
+                <span class="hljs-keyword">@position-try</span> --right {
+                    <span class="hljs-attribute">position-area</span>: right;
+                }</span>
             </code>
         </pre>
+        <img src="./images/scheme-position-try-order.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
+    </section>
+    <section class="slide">
+        <pre class="place t l" style="left: 4%;">
+            <code class="language-css hljs" style="font-size: 0.75em;" data-highlighted="yes">
+                <span class="muted"><span class="hljs-selector-class">.target</span> {
+                    <span class="hljs-attribute">position-area</span>: top;
+                    <span class="hljs-attribute">position-try-fallbacks</span>: --left, --bottom, --right;</span>
+                    <span class="hljs-attribute">position-try-order</span>: most-height;
+                <span class="muted">}
+
+                <span class="hljs-keyword">@position-try</span> --left {
+                    <span class="hljs-attribute">position-area</span>: left;
+                }
+
+                <span class="hljs-keyword">@position-try</span> --bottom {
+                    <span class="hljs-attribute">position-area</span>: bottom;
+                }
+
+                <span class="hljs-keyword">@position-try</span> --right {
+                    <span class="hljs-attribute">position-area</span>: right;
+                }</span>
+            </code>
+        </pre>
+        <img src="./images/arrow-position-try-order-most-height-2.svg" class="place t r" style="width: 40%; top: 23%; right: 6%;" alt="">
         <img src="./images/scheme-position-try-order.svg" class="place b r" style="width: 42%; bottom: 10%; right: 9%;" alt="">
     </section>
     <section class="slide">
@@ -3199,6 +3282,21 @@
     }
     </code>
     </pre>
+    </section>
+    <section class="slide">
+    <pre class="place t" style="top: 30px;"><code class="language-css hljs" style="font-size: 1.2em;" data-highlighted="yes">
+    <span class="hljs-selector-class">.target</span> {
+        <span class="hljs-attribute">position-try-order</span>: normal;
+
+        <span class="hljs-attribute">position-try-order</span>: most-width;
+        <span class="hljs-attribute">position-try-order</span>: most-height;
+
+        <span class="hljs-attribute">position-try-order</span>: most-block-size;
+        <span class="hljs-attribute">position-try-order</span>: most-inline-size;
+    }
+    </code>
+    </pre>
+    <img src="./images/arrow-position-try-order-eqvivalents.svg" class="place t r" style="width: 25%; top: 21%; right: 1%;" alt="">
     </section>
 
     <!-- <section class="slide">
@@ -3714,22 +3812,22 @@
         </code>
     </pre>
     <pre class="place r t" style="right: 20px; top: 40px;">
-        <code class="language-css" style="font-size: 0.8em;">
-        .anchor {
-            anchor-name: --anchor;
+        <code class="language-css hljs" style="font-size: 0.8em;" data-highlighted="yes">
+        <span class="hljs-selector-class">.anchor</span> {
+            <span class="hljs-attribute">anchor-name</span>: --anchor;
         }
-        
-        .target {
-            position: absolute;
-            position-anchor: --anchor;
-            position-area: top;
+            
+        <span class="hljs-selector-class">.target</span> {
+            <span class="hljs-attribute">position</span>: absolute;
+            <span class="hljs-attribute">position-anchor</span>: --anchor;
+            <span class="hljs-attribute">position-area</span>: top;
         }
         </code>
     </pre>
     </section>
     <section class="slide">
     <pre class="place l t" style="left: 20px; top: 40px;">
-        <code class="language-css" style="font-size: 0.8em;">
+        <code class="language-css muted" style="font-size: 0.8em;">
         &lt;ul&gt;
             &lt;li&gt;
                 &lt;div class="anchor"&gt;Anchor 1&lt;/div&gt;
@@ -3747,22 +3845,22 @@
         </code>
     </pre>
     <pre class="place r t" style="right: 20px; top: 40px;">
-        <code class="language-css" style="font-size: 0.8em;">
-        .anchor {
-            anchor-name: --anchor;
+        <code class="language-css hljs" style="font-size: 0.8em;" data-highlighted="yes">
+        <span class="muted"><span class="hljs-selector-class">.anchor</span> {
+            <span class="hljs-attribute">anchor-name</span>: --anchor;
         }
-        
-        .target {
-            position: absolute;
-            position-anchor: --anchor;
-            position-area: top;
-        }
-
-        ul li {
-            anchor-scope: --anchor;
+         
+        <span class="hljs-selector-class">.target</span> {
+            <span class="hljs-attribute">position</span>: absolute;
+            <span class="hljs-attribute">position-anchor</span>: --anchor;
+            <span class="hljs-attribute">position-area</span>: top;
+        }</span>
+ 
+        <span class="hljs-selector-tag">ul</span> <span class="hljs-selector-tag">li</span> {
+            <span class="hljs-attribute">anchor-scope</span>: --anchor;
         }
         </code>
-    </pre>
+     </pre>
     </section>
 
     <section class="slide">
@@ -3793,22 +3891,22 @@
         </code>
     </pre>
     <pre class="place r t" style="right: 20px; top: 40px;">
-        <code class="language-css" style="font-size: 0.8em;">
-        .anchor {
-            anchor-name: --anchor;
+        <code class="language-css hljs" style="font-size: 0.8em;" data-highlighted="yes">
+        <span class="hljs-selector-class">.anchor</span> {
+            <span class="hljs-attribute">anchor-name</span>: --anchor;
         }
         
-        .target {
-            position: absolute;
-            position-anchor: --anchor;
-            position-area: top;
+        <span class="hljs-selector-class">.target</span> {
+            <span class="hljs-attribute">position</span>: absolute;
+            <span class="hljs-attribute">position-anchor</span>: --anchor;
+            <span class="hljs-attribute">position-area</span>: top;
         }
-        </code>
+    </code>
     </pre>
     </section>
     <section class="slide">
     <pre class="place l t" style="left: 20px; top: 40px;">
-        <code class="language-css" style="font-size: 0.8em;">
+        <code class="language-css muted" style="font-size: 0.8em;">
         &lt;ul&gt;
             &lt;li&gt;
                 &lt;div class="anchor"&gt;Anchor 1&lt;/div&gt;
@@ -3826,19 +3924,19 @@
         </code>
     </pre>
     <pre class="place r t" style="right: 20px; top: 40px;">
-        <code class="language-css" style="font-size: 0.8em;">
-        .anchor {
-            anchor-name: --anchor;
+        <code class="language-css hljs" style="font-size: 0.8em;" data-highlighted="yes">
+        <span class="muted"><span class="hljs-selector-class">.anchor</span> {
+            <span class="hljs-attribute">anchor-name</span>: --anchor;
         }
         
-        .target {
-            position: absolute;
-            position-anchor: --anchor;
-            position-area: top;
+        <span class="hljs-selector-class">.target</span> {
+            <span class="hljs-attribute">position</span>: absolute;
+            <span class="hljs-attribute">position-anchor</span>: --anchor;
+            <span class="hljs-attribute">position-area</span>: top;</span>
         }
 
-        ul li {
-            position: relative;
+        <span class="hljs-selector-tag">ul</span> <span class="hljs-selector-tag">li</span> {
+            <span class="hljs-attribute">position</span>: relative;
         }
         </code>
     </pre>
@@ -4660,7 +4758,7 @@
     </section>
 
     <section class="slide">
-        <img src="./images/screenshot-cap-spec.jpg" class="place rounded" style="width: 80%;" alt="">
+        <img src="./images/screenshot-cap-spec-1.jpg" class="place rounded" style="width: 80%;" alt="">
         <a href="https://www.w3.org/TR/css-anchor-position-1/" class="copyright">CSS-спецификация: anchor positioning</a>
     </section>
 
