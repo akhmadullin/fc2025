@@ -28,26 +28,13 @@
             font-size: 25px;
         }
 
-        .height-wrapper {
-            width: 100%;
-            height: 100%;
-            overflow: scroll;
-        }
-
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 200vh;
-            min-width: 200vw;
-        }
-
         .button {
+            position: absolute;
+            top: 44%;
+            left: 45%;
             anchor-name: --anchor-el;
-            /* background-color: hsla(48, 99%, 72%, 1); */
             background-color: hsla(48, 98%, 64%, 1);
             border: 5px solid transparent;
-            /* background-color: hsla(102, 63%, 66%, 1); */
             padding: 10px 25px;
             font-size: 50px;
             border-radius: 6px;
@@ -69,33 +56,34 @@
         }
 
         .tooltip {
-            margin: 20px;
             padding: 20px;
             position: fixed;
             inset: unset;
             position-anchor: --anchor-el;
-            position-area: top center;
-            position-try-fallbacks: bottom center;
-            left: -400%;
-            right: -400%;
+            position-area: top;
+            bottom: 20px;
+            position-try-fallbacks: --bottom, --left, --right;
             border-radius: 6px;
 
             background-color: white;
 
-            /* background-color: hsla(48, 99%, 72%, 1); */
-
             width: max-content;
-
             /* ссылаемся на якорь, к которому привязан таргет */
             position-anchor: --anchor-el;
             /* делаем таргет якорем */
             anchor-name: --target-el;
         }
 
+        .tooltip-content {
+            background: inherit;
+        }
+
         /* хвостики */
         .tooltip::before,
-        .tooltip::after {
-            /* якоримся на тот же элемент, что и таргет */
+        .tooltip::after,
+        .tooltip .tooltip-content::before,
+        .tooltip .tooltip-content::after  {
+            /* якоримся на тот же элемент, что и тултип */
             position-anchor: --anchor-el;
             content: '';
             position: fixed;
@@ -103,39 +91,78 @@
             margin: auto;
         }
 
+        /* для вертикальной ориентации */
         .tooltip::before,
         .tooltip::after {
-            left: anchor(--anchor-el start);
-            right: anchor(--anchor-el end);
-            /* inset-inline: anchor(start) anchor(end); */
+            left: anchor(--anchor-el left);
+            right: anchor(--anchor-el right);
             width: 20px;
             max-height: 20px;
         }
 
-        /* для кейса, когда таргет под якорем */
+        /* для кейса, когда тултип под якорем */
         .tooltip::before {
             /* растягиваем хвостик между двумя якорями */
-            top: anchor(--anchor-el end);
-            bottom: anchor(--target-el start);
+            top: anchor(--anchor-el bottom);
+            bottom: anchor(--target-el top);
             transform: translateY(14px) rotate(45deg);
         }
 
-        /* для кейса, когда таргет под якорем */
+        /* для кейса, когда тултип под якорем */
         .tooltip::after {
             /* растягиваем хвостик между двумя якорями */
-            top: anchor(--target-el end);
-            bottom: anchor(--anchor-el start);
+            top: anchor(--target-el bottom);
+            bottom: anchor(--anchor-el top);
             transform: translateY(-14px) rotate(45deg);
         }
+
+        /* для горизонтальной ориентации */
+        .tooltip .tooltip-content::before,
+        .tooltip .tooltip-content::after {
+            top: anchor(--anchor-el top);
+            bottom: anchor(--anchor-el bottom);
+            height: 20px;
+            max-width: 20px;
+        }
+
+        /* для кейса, когда тултип справа от якоря */
+        .tooltip .tooltip-content::before {
+            left: anchor(--anchor-el right);
+            right: anchor(--target-el left);
+            transform: translateX(14px) rotate(45deg);
+        }
+
+        /* для кейса, когда тултип слева от якоря */
+        .tooltip .tooltip-content::after {
+            left: anchor(--target-el right);
+            right: anchor(--anchor-el left);
+            transform: translateX(-14px) rotate(45deg);
+        }
+
+        @position-try --bottom {
+            position-area: bottom;
+            bottom: unset;
+            top: 20px;
+        }
+
+        @position-try --left {
+            position-area: left center;
+            bottom: unset;
+            right: 20px;
+        }
+
+        @position-try --right {
+            position-area: right center;
+            bottom: unset;
+            left: 20px;
+        }
     </style>
-    <div id="height-wrapper" class="height-wrapper">
-        <div class="container">
-            <button class="button" id="tooltip-anchor" aria-describedby="tooltip">
-                🖤
-            </button>
-            <div class="tooltip" id="tooltip" role="tooltip" popover="manual">
-                Добавить в избранное
-            </div>
+    <button class="button" id="tooltip-anchor" aria-describedby="tooltip">
+        🖤
+    </button>
+    <div class="tooltip" id="tooltip" role="tooltip" popover="manual">
+        <div class="tooltip-content">
+            Добавить в избранное
         </div>
     </div>
     <script>
@@ -145,7 +172,7 @@
         const showTooltip = () => {
           tooltip.showPopover()
         }
-    
+
         const hideTooltip = () => {
           tooltip.hidePopover()
         }
@@ -163,11 +190,30 @@
         })
     </script>
     <script>
-        const heightWrapper = document.querySelector('#height-wrapper');
-        heightWrapper?.scrollTo({
-            top: heightWrapper?.offsetHeight / 2,
-            left: heightWrapper?.offsetWidth / 2,
-            behavior: 'instant',
+        const anchor = document.getElementById('tooltip-anchor');
+        let isDragging = false;
+        let offsetX, offsetY;
+
+        anchor.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            
+            const rect = anchor.getBoundingClientRect();
+            offsetX = e.clientX - rect.left;
+            offsetY = e.clientY - rect.top;
+            
+            anchor.style.cursor = 'grabbing';
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            
+            anchor.style.left = (e.clientX - offsetX) + 'px';
+            anchor.style.top = (e.clientY - offsetY) + 'px';
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            anchor.style.cursor = 'move';
         });
     </script>
 </body>
