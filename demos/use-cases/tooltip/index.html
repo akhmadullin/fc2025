@@ -68,6 +68,11 @@
             background-color: white;
 
             width: max-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
             /* ссылаемся на якорь, к которому привязан таргет */
             position-anchor: --anchor-el;
             /* делаем таргет якорем */
@@ -146,15 +151,19 @@
         }
 
         @position-try --left {
-            position-area: left center;
+            position-area: left;
             bottom: unset;
             right: 20px;
+            max-width: 200px;
+            min-height: 128px;
         }
 
         @position-try --right {
-            position-area: right center;
+            position-area: right;
             bottom: unset;
             left: 20px;
+            max-width: 200px;
+            min-height: 128px;
         }
     </style>
     <button class="button" id="tooltip-anchor" aria-describedby="tooltip">
@@ -162,7 +171,7 @@
     </button>
     <div class="tooltip" id="tooltip" role="tooltip" popover="manual">
         <div class="tooltip-content">
-            Добавить в избранное
+            Добавить в&nbsp;избранное
         </div>
     </div>
     <script>
@@ -173,8 +182,10 @@
           tooltip.showPopover()
         }
 
+        showTooltip();
+
         const hideTooltip = () => {
-          tooltip.hidePopover()
+          /* tooltip.hidePopover() */
         }
     
         tooltipAnchor.addEventListener('mouseenter', showTooltip)
