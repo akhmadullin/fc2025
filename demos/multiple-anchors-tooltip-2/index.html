@@ -1,0 +1,139 @@
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Использование нескольких якорей</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../lib/styles/fonts-for-demos.css">
+</head>
+<body>
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background-color: rgb(22, 22, 22);
+            font-weight: bold;
+            font-size: 35px;
+        }
+
+        .height-wrapper {
+            width: 100%;
+            height: 100%;
+            overflow: scroll;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200vh;
+            min-width: 200vw;
+        }
+
+        .anchor {
+            anchor-name: --anchor-el;
+            background-color: hsla(102, 63%, 66%, 1);
+            padding: 40px 60px;
+        }
+
+        .target {
+            margin: 20px;
+            padding: 40px;
+            position: fixed;
+            position-anchor: --anchor-el;
+            position-area: top center;
+            position-try-fallbacks: bottom center;
+
+            background-color: hsla(48, 99%, 72%, 1);
+
+            /* width: max-content; */
+
+            /* ссылаемся на якорь, к которому привязан таргет */
+            position-anchor: --anchor-el;
+            /* делаем таргет якорем */
+            anchor-name: --target-el;
+        }
+
+        /* хвостики */
+        .target::before,
+        .target::after {
+            /* якоримся на тот же элемент, что и таргет */
+            position-anchor: --anchor-el;
+            content: '';
+            position: fixed;
+            background: inherit;
+            margin: auto;
+        }
+
+        .target::before,
+        .target::after {
+            left: anchor(--anchor-el start);
+            right: anchor(--anchor-el end);
+            /* inset-inline: anchor(start) anchor(end); */
+            width: 20px;
+            max-height: 20px;
+        }
+
+        /* для кейса, когда таргет под якорем */
+        .target::before {
+            /* растягиваем хвостик между двумя якорями */
+            top: anchor(--anchor-el end);
+            bottom: anchor(--target-el start);
+            transform: translateY(14px) rotate(45deg);
+            background-color: hsla(203, 97%, 65%, 1);
+        }
+
+        /* для кейса, когда таргет под якорем */
+        .target::after {
+            /* растягиваем хвостик между двумя якорями */
+            top: anchor(--target-el end);
+            bottom: anchor(--anchor-el start);
+            transform: translateY(-14px) rotate(45deg);
+            background-color: #f644d1;
+        }
+    </style>
+    <div id="height-wrapper" class="height-wrapper">
+        <div class="container">
+            <div class="anchor">
+                Anchor
+            </div>
+            <div class="target">
+                Target
+            </div>
+        </div>
+    </div>
+    <script>
+        const heightWrapper = document.querySelector('#height-wrapper');
+        heightWrapper?.scrollTo({
+            top: heightWrapper?.offsetHeight / 2,
+            left: heightWrapper?.offsetWidth / 2,
+            behavior: 'instant',
+        });
+    </script>
+    <script>
+        window.addEventListener('keyup', (e) => {
+            e.preventDefault();
+        });
+        window.addEventListener('keypress', (e) => {
+            e.preventDefault();
+        });
+        window.addEventListener('keydown', (e) => {
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>

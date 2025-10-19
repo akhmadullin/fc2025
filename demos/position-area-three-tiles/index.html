@@ -1,0 +1,110 @@
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position-area three tiles</title>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../lib/styles/fonts-for-demos.css">
+</head>
+<body>
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background-color: rgb(22, 22, 22);
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid #f644d1;
+            width: 100%;
+            height: 100%;
+        }
+
+        .box {
+            font-size: 40px;
+            padding: 30px;
+        }
+
+        .line-top {
+            position: absolute;
+            position-anchor: --my-anchor;
+            border-bottom: 3px solid #f644d1;
+            width: 100%;
+            position-area: top span-all;
+            margin-bottom: 10px;
+        }
+
+        .line-bottom {
+            position: absolute;
+            position-anchor: --my-anchor;
+            border-top: 3px solid #f644d1;
+            width: 100%;
+            position-area: bottom span-all;
+            margin-top: 10px;
+        }
+
+        .line-right {
+            position: absolute;
+            position-anchor: --my-anchor;
+            border-left: 3px solid #f644d1;
+            height: 100%;
+            position-area: right span-all;
+            margin-left: 10px;
+        }
+
+        .line-left {
+            position: absolute;
+            position-anchor: --my-anchor;
+            border-right: 3px solid #f644d1;
+            height: 100%;
+            position-area: left span-all;
+            margin-right: 10px;
+        }
+
+        .anchor {
+            anchor-name: --my-anchor;
+            background-color: hsla(102, 63%, 66%, 1);
+        }
+
+        .target {
+            position: absolute;
+            position-anchor: --my-anchor;
+            background-color: hsla(48, 99%, 72%, 1);
+            margin-bottom: 23px;
+            width: calc(100% - 26px);
+            text-align: center;
+            position-area: top span-all;
+            position-area: start span-all;
+            position-area: block-start span-all;
+            position-area: y-start span-all;
+        }
+    </style>
+    <div class="container">
+        <div class="box anchor">Anchor</div>
+    </div>
+    <div class="line-bottom"></div>
+    <div class="line-top"></div>
+    <div class="line-right"></div>
+    <div class="line-left"></div>
+    <div class="box target">Target</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position-area one tile</title>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../lib/styles/fonts-for-demos.css">
+</head>
+<body>
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background-color: rgb(22, 22, 22);
+            font-weight: bold;
+            padding: 20px;
+            place-content: center;
+        }
+
+        .box {
+            font-size: 40px;
+            padding: 30px;
+        }
+
+        .anchor {
+            anchor-name: --my-anchor;
+            background-color: hsla(102, 63%, 66%, 1);
+            padding: 50px 80px;
+            margin: 0 auto;
+            width: max-content;
+        }
+
+        .target {
+            position: absolute;
+            position-anchor: --my-anchor;
+            bottom: anchor(top);
+            justify-self: anchor-center;
+            background-color: hsla(48, 99%, 72%, 1);
+        }
+    </style>
+    <div class="box anchor">Anchor</div>
+    <div class="box target">Target</div>
+</body>
+</html>

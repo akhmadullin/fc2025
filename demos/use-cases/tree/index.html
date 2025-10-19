@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Древовидный список</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preload" href="../../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../../lib/styles/fonts-for-demos.css">
+</head>
+<body>
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background-color: rgb(22, 22, 22);
+            font-weight: bold;
+            font-size: 25px;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /**
+         * credits to 
+         * @link https://kizu.dev/anchor-positioning-experiments/
+        */
+        .wrapper {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+        }
+
+        .tree {
+            all: unset;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+            --offset: 4px;
+            /* Would be used to target only the first line */
+            --lh: 1.2em;
+            /* Ensures that there would be less ideal horizontal alignment, leading to the connector disappearing */
+            margin-bottom: 2px;
+        }
+        .tree-item {
+            all: unset;
+            display: flex;
+            gap: 2em;
+            align-items: center;
+        }
+        .tree-item-details {
+            /* We have to do this, as we cannot use flex/grid on the details tag itself :( */
+            display: contents;
+        }
+        .tree-item-label {
+            hyphens: none;
+            line-height: var(--lh);
+            anchor-name: var(--is);
+            --link-underline-position: bottom 12%;
+        }
+        summary.tree-item-label {
+            cursor: pointer;
+            text-decoration: underline;
+            text-decoration-style: dashed;
+            text-decoration-thickness: 4px;
+            text-underline-offset: 8px;
+            text-shadow: none;
+            user-select: none;
+            transition: color 0.2s;
+        }
+        summary.tree-item-label:hover {
+            color: hsla(48, 98%, 64%, 1);
+        }
+        
+        summary.tree-item-label::marker {
+            content: "";
+        }
+        .tree-item::before {
+            all: unset;
+        }
+        .tree-item-label::before,
+        .tree-item-label::after {
+            position: absolute;
+            content: "";
+            left:  anchor(var(--to) right);
+            right: anchor(var(--is) left);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 0c25 0 50 50 50 50s25 50 50 50' stroke='white' stroke-width='3' vector-effect='non-scaling-stroke' fill='none' /%3E%3C/svg%3E");
+            background-size: calc(100% - var(--offset) * 2) 100%;
+            background-position: var(--offset) 0;
+            background-repeat: no-repeat;
+            /* They should not ever be in the way */
+            pointer-events: none;
+        }
+        .tree-item-label::before {
+            top:    calc(anchor(var(--to) top) + 0.5 * var(--lh));
+            bottom: anchor(var(--is) center);
+        }
+        .tree-item-label::after {
+            bottom: calc(anchor(var(--to) top) - 0.5 * var(--lh));
+            top:    anchor(var(--is) center);
+            transform: scaleY(-1);
+        }
+    </style>
+    <div class="container">
+        <div class="wrapper">
+            <ul class="tree">
+              <li class="tree-item" style="--is: --node-1">
+                <details role="group" class="tree-item-details">
+                  <summary class="tree-item-label">Автомобили</summary>
+                  <ul class="tree" style="--to: --node-1">
+                    <li class="tree-item" style="--is: --node-1-1">
+                      <details role="group" class="tree-item-details">
+                        <summary class="tree-item-label">Toyota</summary>
+                        <ul class="tree" style="--to: --node-1-1">
+                          <li class="tree-item" style="--is: --node-1-1-1">
+                            <p class="tree-item-label">Camry</p>
+                          </li>
+                          <li class="tree-item" style="--is: --node-1-1-2">
+                            <p class="tree-item-label">Corolla</p>
+                          </li>
+                          <li class="tree-item" style="--is: --node-1-1-4">
+                            <p class="tree-item-label">Land Cruiser Prado</p>
+                          </li>
+                          <li class="tree-item" style="--is: --node-1-1-5">
+                            <p class="tree-item-label">Rav4</p>
+                          </li>
+                        </ul>
+                      </details>
+                    </li>
+                    <li class="tree-item" style="--is: --node-1-2">
+                        <details role="group" class="tree-item-details">
+                          <summary class="tree-item-label">Nissan</summary>
+                          <ul class="tree" style="--to: --node-1-2">
+                            <li class="tree-item" style="--is: --node-1-2-1">
+                                <p class="tree-item-label">Leaf</p>
+                            </li>
+                            <li class="tree-item" style="--is: --node-1-2-2">
+                                <p class="tree-item-label">Note</p>
+                            </li>
+                          </ul>
+                        </details>
+                      </li>
+                    <li class="tree-item" style="--is: --node-1-3">
+                      <details role="group" class="tree-item-details">
+                        <summary class="tree-item-label">Honda</summary>
+                        <ul class="tree" style="--to: --node-1-3">
+                          <li class="tree-item" style="--is: --node-1-3-1">
+                            <p class="tree-item-label">Accord</p>
+                          </li>
+                          <li class="tree-item" style="--is: --node-1-3-2">
+                            <p class="tree-item-label">Civic</p>
+                          </li>
+                          <li class="tree-item" style="--is: --node-1-3-3">
+                            <p class="tree-item-label">Fit</p>
+                          </li>
+                          <li class="tree-item" style="--is: --node-1-3-4">
+                            <p class="tree-item-label">Vezel</p>
+                          </li>
+                        </ul>
+                      </details>
+                    </li>
+                    <li class="tree-item" style="--is: --node-1-4">
+                      <details role="group" class="tree-item-details">
+                        <summary class="tree-item-label">Subaru</summary>
+                        <ul class="tree" style="--to: --node-1-4">
+                          <li class="tree-item" style="--is: --node-1-4-1">
+                            <p class="tree-item-label">Forester</p>
+                          </li>
+                          <li class="tree-item" style="--is: --node-1-4-2">
+                            <p class="tree-item-label">Impreza</p>
+                          </li>
+                        </ul>
+                      </details>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

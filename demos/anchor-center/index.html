@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anchor-center</title>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../fonts/PT_Mono/pt-mono-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../lib/styles/fonts-for-demos.css">
+    <link rel="stylesheet" href="../../lib/highlight/styles/vs2015.min.css">
+</head>
+<body>
+    <style>
+        @font-face {
+            font-family: 'PT Mono';
+            font-weight: 500;
+            font-display: swap;
+            src: url(../../fonts/PT_Mono/pt-mono-regular.woff2)
+                format("woff2");
+        }
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-size: 20px;
+            background-color: rgb(22, 22, 22);
+            font-weight: bold;
+            padding: 20px 220px 90px 100px;
+            place-content: center;
+        }
+
+        .layout {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .fields-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            color: white;
+            margin-left: 60px;
+            accent-color: hsla(203, 97%, 65%, 1);
+            /* accent-color: hsla(48, 99%, 72%, 1); */
+        }
+
+        pre {
+            margin-left: -20px;
+            line-height: 0.5;
+        }
+
+        pre .hljs:is(.hljs) {
+            background: none;
+            font-family: 'PT Mono', monospace;
+            line-height: 1.4;
+            padding: 0;
+        }
+
+        pre .hljs:is(.hljs) span {
+            font-family: 'PT Mono', monospace;
+        }
+
+        pre code:is(code) {
+            background: none;
+        }
+
+        .fields-group * {
+            font-family: 'PT Mono', monospace;
+        }
+
+        .fields-group label {
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .fields-group label:hover {
+            opacity: 0.6;
+        }
+
+        .box {
+            font-size: 40px;
+            padding: 30px;
+        }
+
+        .anchor {
+            anchor-name: --my-anchor;
+            /* background-color: hsla(102, 63%, 66%, 1); */
+            padding: 50px 80px;
+            margin: 0 auto;
+            width: max-content;
+            border: 5px solid hsla(102, 63%, 66%, 1);
+            color: white;
+        }
+
+        .target {
+            position: absolute;
+            position-anchor: --my-anchor;
+            background-color: hsla(48, 99%, 72%, 0.8);
+            transition: all .3s ease-in;
+        }
+
+        .anchor-border {
+            position: absolute;
+            position-anchor: --my-anchor;
+            background-color: #f644d1;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .anchor-border-visible {
+            opacity: 1;
+        }
+
+        .anchor-border-center-vertical {
+            height: 5px;
+            bottom: calc(anchor(center) - 5px);
+            width: anchor-size(width);
+        }
+
+        .anchor-border-bottom {
+            height: 5px;
+            top: calc(anchor(bottom) - 5px);
+            width: anchor-size(width);
+        }
+
+        .anchor-border-left {
+            width: 5px;
+            top: anchor(top);
+            right: calc(anchor(left) - 5px);
+            height: anchor-size(height);
+        }
+
+        .anchor-border-center-horizontal {
+            width: 5px;
+            top: anchor(top);
+            right: calc(anchor(center) - 5px);
+            height: anchor-size(height);
+        }
+    </style>
+    <div class="layout">
+        <div>
+            <div>
+<pre>
+<code class="language-css">
+.target {
+    justify-self:
+</code>
+</pre>
+                <div class="fields-group">
+                    <label>
+                        <input type="radio" name="justify-self" value="auto" data-border="anchor-border-left" checked>
+                        auto
+                    </label>
+                    <label>
+                        <input type="radio" name="justify-self" value="anchor-center" data-border="anchor-border-center-horizontal">
+                        anchor-center
+                    </label>
+                </div>
+            </div>
+            <div>
+<pre>
+<code class="language-css">
+    align-self: 
+</code>
+</pre>
+            <div class="fields-group">
+                <label>
+                    <input type="radio" name="align-self" value="auto" checked data-border="anchor-border-bottom" checked>
+                    auto
+                </label>
+                <label>
+                    <input type="radio" name="align-self" value="anchor-center" data-border="anchor-border-center-vertical">
+                    anchor-center
+                </label>
+            </div>  
+<pre><code class="language-css">}</code></pre>
+            </div>
+        </div>
+
+        <div>
+            <div class="box anchor">Anchor</div>
+            <div id="target" class="box target">Target</div>
+
+            <div class="anchor-border anchor-border-center-vertical"></div>
+            <div class="anchor-border anchor-border-bottom"></div>
+            <div class="anchor-border anchor-border-left"></div>
+            <div class="anchor-border anchor-border-center-horizontal"></div>
+        </div>
+    </div>
+    <script>
+        const target = document.getElementById('target');
+        
+        const justifySelfRadio = document.getElementsByName('justify-self');
+        justifySelfRadio.forEach((radio) => {
+            if (radio.checked) {
+                target.style.setProperty('justify-self', radio.value);
+            }
+            radio.addEventListener('change', (event) => {
+                target.style.setProperty('justify-self', event.target.value);
+            })
+            radio.parentElement.addEventListener('mouseenter', (event) => {
+                const target = event.target.children[0];
+                const border = target.dataset.border;
+                const borderEl = document.getElementsByClassName(border)[0];
+                borderEl.classList.add('anchor-border-visible');
+            })
+            radio.parentElement.addEventListener('mouseleave', (event) => {
+                const target = event.target.children[0];
+                const border = target.dataset.border;
+                const borderEl = document.getElementsByClassName(border)[0];
+                borderEl.classList.remove('anchor-border-visible');
+            })
+        })
+
+        const alignSelfRadio = document.getElementsByName('align-self');
+        alignSelfRadio.forEach((radio) => {
+            if (radio.checked) {
+                target.style.setProperty('align-self', radio.value);
+            }
+            radio.addEventListener('change', (event) => {
+                target.style.setProperty('align-self', event.target.value);
+            })
+            radio.parentElement.addEventListener('mouseenter', (event) => {
+                const target = event.target.children[0];
+                const border = target.dataset.border;
+                const borderEl = document.getElementsByClassName(border)[0];
+                borderEl.classList.add('anchor-border-visible');
+            })
+            radio.parentElement.addEventListener('mouseleave', (event) => {
+                const target = event.target.children[0];
+                const border = target.dataset.border;
+                const borderEl = document.getElementsByClassName(border)[0];
+                borderEl.classList.remove('anchor-border-visible');
+            })
+        })
+    </script>
+    <script src="../../lib/highlight/highlight.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

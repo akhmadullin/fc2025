@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position-try-fallback</title>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../lib/styles/fonts-for-demos.css">
+</head>
+<body>
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background-color: rgb(22, 22, 22);
+            font-weight: bold;
+        }
+
+        .container {
+            /* width: 180vw; */
+            width: 200vw;
+            /* width: 100%; */
+            /* height: 180vh; */
+            height: 200vh;
+            /* height: 100%; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .height-wrapper {
+            width: 100%;
+            height: 100%;
+            overflow: scroll;
+        }
+
+        .box {
+            font-size: 40px;
+            padding: 30px;
+        }
+
+        .anchor {
+            anchor-name: --my-anchor;
+            background-color: hsla(102, 63%, 66%, 1);
+            padding: 50px 80px;
+            width: 300px;
+            text-align: center;
+            padding: 30px;
+            width: auto;
+        }
+
+        .target {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            position-anchor: --my-anchor;
+            position-area: bottom center;
+            background-color: hsla(48, 99%, 72%, 1);
+            position-try-fallbacks: flip-start;
+            padding: 20px;
+        }
+    </style>
+    
+    <div id="height-wrapper" class="height-wrapper">
+        <div class="container">
+            <div class="box anchor">Anchor</div>
+            <div class="box target">Target</div>
+        </div>
+    </div>
+    <script>
+        const heightWrapper = document.getElementById('height-wrapper');
+        heightWrapper?.scrollTo({
+            top: heightWrapper?.offsetHeight / 2 + 50,
+            left: heightWrapper?.offsetWidth / 2,
+            behavior: 'instant',
+        });
+    </script>
+    <script>
+        window.addEventListener('keyup', (e) => {
+            e.preventDefault();
+        });
+        window.addEventListener('keypress', (e) => {
+            e.preventDefault();
+        });
+        window.addEventListener('keydown', (e) => {
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>

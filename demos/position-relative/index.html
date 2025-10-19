@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position relative</title>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../lib/styles/fonts-for-demos.css">
+</head>
+<body>
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background-color: rgb(22, 22, 22);
+            font-weight: bold;
+            padding: 20px;
+        }
+
+        .container {
+            width: 200%;
+            height: 200%;
+        }
+
+        .wrapper {
+            display: flex;
+            gap: 23px;
+            padding: 20px;
+            width: 50%;
+            height: 35%;
+            position: relative;
+            border: 3px solid hsla(203, 97%, 65%, 1);
+        }
+
+        .wrapper::before {
+            position: absolute;
+            content: '';
+            inset: 7px;
+            border: 3px dashed hsla(48, 99%, 72%, 1);
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: hsla(102, 63%, 66%, 1);
+            text-align: center;
+            place-content: center;
+            font-size: 40px;
+        }
+
+        .example-box {
+            position: relative;
+            background-color: hsla(48, 99%, 72%, 1);
+        }
+    </style>
+    <div class="container">
+        <div class="wrapper">
+            <div class="box">1</div>
+            <div class="box example-box">2</div>
+            <div class="box">3</div>
+        </div>
+    </div>
+</body>
+</html>

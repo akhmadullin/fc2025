@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Транзишн на ховер в карточках</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preload" href="../../../fonts/PT_Sans/pt-sans_caption-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../../../fonts/PT_Sans/pt-sans_caption-bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../../../lib/styles/fonts-for-demos.css">
+</head>
+<body>
+    <style>
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background-color: rgb(22, 22, 22);
+            font-weight: bold;
+            font-size: 25px;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .cards-container {
+            width: 500px;
+            height: 500px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+
+        .cards-container::before {
+            content: '';
+            position: absolute;
+            position-anchor: --anchor;
+            top:    anchor(top);
+            left:   anchor(left);
+            right:  anchor(right);
+            bottom: anchor(bottom);
+            background-color: hsla(48, 98%, 64%, 1);
+            border-radius: 20px;
+            transition: all 0.2s;
+            z-index: -1;
+        }
+
+        .card {
+            padding: 20px;
+            transition: color 0.2s;
+        }
+
+        .card:hover {
+            anchor-name: --anchor;
+            color: black;
+        }
+
+        .card-image {
+            width: 60px;
+        }
+
+        .card-title {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 18px;
+            font-weight: normal;
+        }
+    </style>
+    <div class="container">
+        <div class="cards-container">
+            <div class="card">
+                <img src="./assets/puzzle.png" alt="" class="card-image">
+                <h3 class="card-title">Коробочные решения</h3>
+                <div class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </div>
+            </div>
+            <div class="card">
+                <img src="./assets/develop.png" alt="" class="card-image">
+                <h3 class="card-title">Разработка с&nbsp;нуля</h3>
+                <div class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </div>
+            </div>
+            <div class="card">
+                <img src="./assets/seo.png" alt="" class="card-image">
+                <h3 class="card-title">SEO</h3>
+                <div class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </div>
+            </div>
+            <div class="card">
+                <img src="./assets/rupor.png" alt="" class="card-image">
+                <h3 class="card-title">SMM</h3>
+                <div class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
