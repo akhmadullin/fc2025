@@ -56,7 +56,6 @@
         }
 
         .tooltip {
-            padding: 20px;
             position: fixed;
             inset: unset;
             position-anchor: --anchor-el;
@@ -68,10 +67,8 @@
             background-color: white;
 
             width: max-content;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+
+            place-content: center;
 
             /* ссылаемся на якорь, к которому привязан таргет */
             position-anchor: --anchor-el;
@@ -81,6 +78,8 @@
 
         .tooltip-content {
             background: inherit;
+            padding: 20px;
+            text-align: center;
         }
 
         /* хвостики */
@@ -182,10 +181,8 @@
           tooltip.showPopover()
         }
 
-        showTooltip();
-
         const hideTooltip = () => {
-          /* tooltip.hidePopover() */
+          tooltip.hidePopover()
         }
     
         tooltipAnchor.addEventListener('mouseenter', showTooltip)
