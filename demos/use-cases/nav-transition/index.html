@@ -55,27 +55,32 @@
             z-index: -1;
         }
 
-        a {
-            text-decoration: none;
+        button {
+            border: none;
+            background: none;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
             color: white;
             padding: 15px 25px;
             transition: color 0.4s;
             border-radius: 20px;
+            cursor: pointer;
         }
 
-        ul:not(:has(a:hover)) a:focus-visible {
+        ul:not(:has(button:hover)) button:focus-visible {
             anchor-name: --anchor;
             outline: none;
             color: black;
         }
 
-        ul:has(a:hover) a:focus-visible {
+        ul:has(button:hover) button:focus-visible {
             outline-color: hsla(48, 98%, 64%, 1);
             outline-offset: 0px;
             outline-width: 3px;
         }
 
-        a:hover {
+        button:hover {
             anchor-name: --anchor;
             color: black;
         }
@@ -84,16 +89,17 @@
         <nav>
             <ul>
                 <li>
-                    <a class="" href="#">Главная</a>
+                    <!-- Так-то должны быть ссылки, но сделано через кнопки, чтобы на ховер браузер не показывал урл, куда ведет ссылка (чтобы не отвлекала внимание лишняя плашка на странцие) -->
+                    <button>Главная</button>
                 </li>
                 <li>
-                    <a href="#">О нас</a>
+                    <button>О нас</button>
                 </li>
                 <li>
-                    <a href="#">Каталог-каталог-каталожище</a>
+                    <button>Каталог-каталог-каталожище</button>
                 </li>
                 <li>
-                    <a href="#">Контакты</a>
+                    <button>Контакты</button>
                 </li>
             </ul>
         </nav>
